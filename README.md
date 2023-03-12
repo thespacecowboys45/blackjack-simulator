@@ -1,5 +1,7 @@
 # Blackjack Simulator
 
+MASTER CHANGE
+
 I've always been fascinated by Blackjack. Some pros say that, if you follow a
 basic strategy, your odds of winning go up significantly. So, that got me
 wondering:
