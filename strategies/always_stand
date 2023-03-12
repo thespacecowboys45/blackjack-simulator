@@ -1,0 +1,37 @@
+# Passive Strategy
+#
+# This represents an extremely nieve strategy for playing the game. Basically,
+# anything over 17, you stand. Anything less, you hit. Pretty simple. Great for
+# testing.
+[soft]
+   2 3 4 5 6 7 8 9 10 A
+13 S S S S S S S S  S S
+14 S S S S S S S S  S S
+15 S S S S S S S S  S S
+16 S S S S S S S S  S S
+17 S S S S S S S S  S S
+18 S S S S S S S S  S S
+19 S S S S S S S S  S S
+20 S S S S S S S S  S S
+21 S S S S S S S S  S S
+
+[hard]
+   2 3 4 5 6 7 8 9 10 A
+ 4 S S S S S S S S  S S
+ 5 S S S S S S S S  S S
+ 6 S S S S S S S S  S S
+ 7 S S S S S S S S  S S
+ 8 S S S S S S S S  S S
+ 9 S S S S S S S S  S S
+10 S S S S S S S S  S S
+11 S S S S S S S S  S S
+12 S S S S S S S S  S S
+13 S S S S S S S S  S S
+14 S S S S S S S S  S S
+15 S S S S S S S S  S S
+16 S S S S S S S S  S S
+17 S S S S S S S S  S S
+18 S S S S S S S S  S S
+19 S S S S S S S S  S S
+20 S S S S S S S S  S S
+21 S S S S S S S S  S S
