@@ -1,4 +1,4 @@
-# Passive Strategy
+# Always Hit Strategy
 #
 # This represents an extremely nieve strategy for playing the game. Basically,
 # anything over 17, you stand. Anything less, you hit. Pretty simple. Great for
