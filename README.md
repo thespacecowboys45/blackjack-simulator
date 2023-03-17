@@ -1,4 +1,6 @@
 # Blackjack Simulator
+ 
+Forked from: https://github.com/bradhe/go-blackjack
 
 MASTER CHANGE
 
