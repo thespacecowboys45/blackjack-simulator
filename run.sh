@@ -12,8 +12,8 @@ if [ x$1 != "x" ]
 then
 	STRATEGY=$1
 else 
-	#STRATEGY="passive"
-	STRATEGY="always_hit"
+	STRATEGY="passive"
+	#STRATEGY="always_hit"
 fi
 
 GAMES=1

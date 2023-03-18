@@ -63,6 +63,7 @@ TRACKING statistics (things I want to track)
  - amount lost 
  - # of consecutive wins (per streak)
  - # of consecutive losses (per streak)
+ - histogram output of # of losses in a row (e.g. had three (3) streaks with four (4) losses in a row)
  
 Structure: winLossStreak -
 	- determined by a 
@@ -99,6 +100,9 @@ v1.2_concept - surgery notes
 NATURAL GAME VARIABLES (things found in the real-world, hard to simulate):
 - Dealer placing the cut card to stop drawing from the deck, random human determinate.
 - Player bet wager (typically there is an idea behind how a player bets/alternates betting)
+- if player treats split hands both won as two consecutive wins, or one win
+- if player treats double down bet won as special
+- if player treats BLACKJACK hand won as special (to vary bet)
 
 
 END RESULT DESIRED:
@@ -160,6 +164,7 @@ I = increase
 D = decrease
 R = reset
 # = integer multiplier (idea)
+x = dont care
 
 
 
@@ -167,6 +172,18 @@ CUSTOM #2
 - after 1 loss keep bet same
 - after 2 losses in a row, double bet
 - after 3 or more losses in a row, reset bet to default
+
+I = INIT
+W = WIN STREAK COUNT
+L = LOSS STREAK COUNT
+  I
+  W W W W W W
+L S I R R R R
+L I x x x x x
+L R x x x x x
+L R x x x x x
+L R x x x x x
+
 
 
 CUSTOM #3
