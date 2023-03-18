@@ -1,0 +1,15 @@
+# Streak Betting Strategy
+#
+# Vary bet based on W/L streak
+[streakvariant]
+   W W W W W W W W W W
+L  S S S S S S S S S S
+L  S S S S S S S S S S
+L  S S S S S S S S S S
+L  S S S S S S S S S S
+L  S S S S S S S S S S
+L  S S S S S S S S S S
+L  S S S S S S S S S S
+L  S S S S S S S S S S
+L  S S S S S S S S S S
+L  S S S S S S S S S S

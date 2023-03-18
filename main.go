@@ -8,6 +8,7 @@ import (
 )
 
 var strategyFile string
+var bettingStrategyFile string
 var verbose bool
 var games int
 
@@ -15,7 +16,7 @@ var totalHands int
 
 func init() {
 	flag.StringVar(&strategyFile, "strategy", "", "strategy file path")
-	flag.StringVar(&bettingStrategyFile, "bettingstrategystrategy", "", "bettingstrategy file path")
+	flag.StringVar(&bettingStrategyFile, "bettingstrategy", "", "bettingstrategy file path")
 	flag.IntVar(&games, "games", 10, "number of games to play")
 	flag.BoolVar(&verbose, "verbose", false, "should output steps")
 	
@@ -35,7 +36,7 @@ func main() {
 	strategy := LoadStrategy(strategyFile)
 	
 	// DAVB - add betting strategy
-	bettingStrategy := LoadBettingStrategy(bettingstrategyFile)
+	bettingStrategy := LoadBettingStrategy(bettingStrategyFile)
 
 	// DAVB - reset
 	bankRoll := NewBankRoll(DEFAULT_BANKROLL)
@@ -58,6 +59,12 @@ func main() {
 		strategy := func(round Round) Action {
 			return strategy.GetAction(round.Player, round.Dealer)
 		}
+		
+		// DAVB - @TODO implement some swizzle to incorporate
+		// calculating/passing in the bettingstrategy to the computer
+		// for now, stub:
+		s := Streak{}
+		fmt.Printf("BettingStrategy: %v\n", bettingStrategy.GetBettingAction(s, 2))
 		
 		// Make a new wager
 		wager := Wager{}

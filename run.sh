@@ -17,7 +17,7 @@ else
 	STRATEGY="always_stand"
 fi
 
-BETTINGSTRATEGY="flat"
+BETTINGSTRATEGY="bet_streaks"
 
 GAMES=1
 VERBOSE="true"

@@ -20,6 +20,14 @@ const (
 	ACTION_DOUBLE
 )
 
+// DAVB
+const (
+	BETTINGACTION_RESET = iota // 'r'
+	BETTINGACTION_INCREASE     // 'i'
+	BETTINGACTION_DECREASE     // 'd'
+	BETTINGACTION_STAND        // 's'
+)
+
 const (
 	OUTCOME_ABORT = iota
 	OUTCOME_PUSH
@@ -27,6 +35,9 @@ const (
 	OUTCOME_LOSS
 	OUTCOME_INIT // DAVB - added to initialize the wager for 1st bet
 )
+
+// DAVB added The betting action a player takes.
+type BettingAction int
 
 // The action a player takes.
 type Action int
