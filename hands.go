@@ -1,5 +1,9 @@
 package main
 
+import(
+	//"fmt"
+)
+
 // Represents a set of cards...obviously...
 type Hand []Card
 
@@ -15,10 +19,13 @@ func (hand Hand) AddCard(card Card) Hand {
 // alternatives.
 func (hand Hand) sumWithAlternates(alternates int) int {
 	accum := 0
+	// DAVB - not sure what this variable is used for
 	alternatesUsed := 0
 
 	for _, card := range hand {
+		// If first iteration and the card we examine has two unique total values assigned
 		if alternatesUsed < alternates && card.HasUsefulAlternate() {
+			// We used 1 alternate value and the total points is that alternate value (11)
 			alternatesUsed += 1
 			accum += card.AlternateValue
 		} else {
@@ -65,11 +72,27 @@ func (hand Hand) IsSoft() bool {
 	if aces < 1 {
 		return false
 	}
+	
+	// DAVB - Player has an ACE at this point in code
 
 	// If any number of aces can be added in at their primary value then the hand
 	// is indeed soft!
 	singles := (aces - 1)
 
+	//
+	// ^^^^ Is this right?
+	// DAVB - Count the hand total if we consider the ACE to have value of 1
+	// helps determine if we have "wiggle room" to take a hit.
+	// Rather - it determines which "strategy" to use in the strategies file: soft or hard
+	//
+	/*
+	@TODO - figure out later
+	t := BUST_LIMIT-(otherSum+singles)
+	msg := fmt.Sprintf("-------------------> t: %d , otherSum: %d, singles: %d\n", t, otherSum, singles)
+	dlog(msg)
+	*/
+	
+	
 	return BUST_LIMIT-(otherSum+singles) >= 11
 }
 

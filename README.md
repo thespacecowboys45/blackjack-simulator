@@ -2,6 +2,212 @@
  
 Forked from: https://github.com/bradhe/go-blackjack
 
+
+
+
+
+
+
+
+
+BUSINESS LOGIC:
+- a random set of cards is created from a set # of decks (e.g. total cards)
+- cards are drawn off the "top of the deck" -> the deck is a fifo queue
+- currently, dealer stands on soft 17
+- functionally, a "strategy" to "double" will also 
+   - hit with that amount if more than 2 cards
+
+
+THINGS not handled in original code:
+Gameplay:
+- splits ****** This is one major thing not covered
+	concept: add [splits] section
+- dealer hits soft-17
+- betting
+	
+	
+Concepts:
+Add batting average, and sharpe ratio
+
+Keep track of:
+win / loss / push
+- find standard deviation (# of pushes in a row, etc)	
+
+// Add flag variable to control # of decks to use
+
+Concept:
+Have random strategies for random players and see how
+that affects the outcome
+
+Concepts:
+- find the best strategy which gives you the best win/loss ratio (batting average)
+- find the best betting strategy which gives you the best sharpe ratio ($ won per win vs $ lost per loss)
+
+
+Concept:
+- run through ALL permutations of ALL possible actions 
+---- create "in memory" a list of all possible combinations to fill
+---- in the matrix of player actions
+
+
+
+TRACKING statistics (things I want to track)
+- # times hit on a total of 21 (or any other number/total) <- track for a "player mistake"
+- if/when vary "stand on all 17's" or "hit soft 17", track
+	# of times dealer dealt a soft-17
+    # of times dealer busts when hitting 17
+    # of times dealer improves hand when hitting 17
+
+- Betting stats:
+ - amount won
+ - amount lost 
+ - # of consecutive wins (per streak)
+ - # of consecutive losses (per streak)
+ 
+Structure: winLossStreak -
+	- determined by a 
+		win followed by a loss 
+
+
+
+
+
+TESTING SITUATIONS:
+Strategy comparisons()
+- betting strategy - flat bet
+
+- betting strategy - martingale
+
+** dev branch CHANGELOG
+v1.3_concept - tracking stats
+- add graphite interaction (tracking)
+
+v1.2_concept - surgery notes
+- strategies.go - mod translateAction (add "split")
+- decks.go - override default_decks variable with flag
+- add "deck #" to card (or something to track which deck it came from)
+- recalculate "minimum_shoe_size" or add as a variable to the AI machine
+-- add multi-players (rounds.go)
+-- add "auto-strategy" for other players
+-- add flag to split / not-split multiple times
+-- add logic for "dealer stands on soft 17"
+- determine what hands.go sumWithAlternatives, alternatesUsed variable is for
+- add table limit (and player action if table limit supposed to be exceeded)
+
+
+
+NATURAL GAME VARIABLES (things found in the real-world, hard to simulate):
+- Dealer placing the cut card to stop drawing from the deck, random human determinate.
+- Player bet wager (typically there is an idea behind how a player bets/alternates betting)
+
+
+END RESULT DESIRED:
+- A realistic game, which can simulate all possible real actions of players including:
+  hit, stand, double down, splitting
+  
+- A game which tracks a bankroll for a player given a determinate "betting strategy"
+
+- A game which ends after a deterministic event
+	 (# of hands played, 
+	  bankroll limit reached,
+	  too many drinks consumed,
+	  etc.)
+	  
+- An implemented "betting strategy" which determines how a wager is placed 
+
+
+
+
+(new) BETTING STRATEGIES:
+- martingale
+
+Structure:
+	- initial bet amount (1st hand)
+	- goose-style initial bet amount (1st hand, wild bet, just for fun because you are baller)
+
+Concept:
+	Depending on the win/loss outcome of the previous hand, change or don't change wager:
+		- stand (keep betting level same)
+		- reset (go back to minimum bet
+		- decrease(amount or percentage)
+		- increase(amount or percentage)
+		
+Possible reason to increase a bet:
+	- lost last bet : 	(reset) - lost a "big bet"
+						(reset) - win / loss streak determination
+						(increase) - martingale strategy
+	- won previous bet : (reset) - won a "big bet"
+	                     	
+	
+
+CUSTOM BETTING STRATEGY (attempt to recreate martingale up to house limit)
+Strategy: after any loss, double bet
+  W W W W W W W W W W (number of consecutive wins)
+L I I I I I I I I I I
+L I
+L I
+L I
+L I
+L I
+L I
+L I
+L I
+L I
+(number of consecutive losses)
+
+S = same
+I = increase
+D = decrease
+R = reset
+# = integer multiplier (idea)
+
+
+
+CUSTOM #2
+- after 1 loss keep bet same
+- after 2 losses in a row, double bet
+- after 3 or more losses in a row, reset bet to default
+
+
+CUSTOM #3
+- after 1 win keep bet same
+- after 2 consecutive wins, double bet
+- after 3 consecutive wins, reset bet to default
+
+
+(Need stats on consecutive wins/losses)
+
+
+
+
+
+FUNCTION HOOKS (surgery planning):
+- STEP 1 - add bankroll tracking
+
+- add ability to determine "when to stop drawing" the deck based on % of total cards
+  in the deck.  More accurately, place a "stop" into the deck, just like the 
+  dealer does with the card.
+  
+- need to modify the round so that if the player 'doubles' then bet is changed
+	-- pass in the bet amount, which may be affected by the round: split/double/blackjack
+
+- take 'outcome' and produce a resultant change in bank account
+
+- modify OUTCOME constants to add PUSH as result/outcome
+	- PUSH
+	- DOUBLEDOWN_WON
+	
+- FOLLOWUP: hands.go -> figure out IsSoft() function, is correct?
+
+
+v1.1 - surgery notes
+- add 'version #'
+- add "printDeck()" to show the deck of cards being played from
+- only "seed" the random number generator ONCE
+- print hand total in verbose mode
+
+v1.0 - modify to run on winblowz
+
 MASTER CHANGE
 
 I've always been fascinated by Blackjack. Some pros say that, if you follow a

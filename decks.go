@@ -19,6 +19,8 @@ func (deck Deck) Shuffle() Deck {
 	// Just to make sure we're sufficiently random.
 	seedRand()
 
+	// get a range back of number in 'random' order to determine how to
+	// re-order the cards in the deck
 	perm := rand.Perm(len(deck))
 	newDeck := make(Deck, len(deck))
 
@@ -45,6 +47,7 @@ func (deck Deck) Draw() (Card, Deck) {
 	return deck[0], deck[1:len(deck)]
 }
 
+// DAVB - generates a suit of cards in ascending order
 func generateSuit(suit rune, deck Deck) Deck {
 	for i := 1; i < 14; i += 1 {
 		deck = append(deck, NewCard(i, suit))
@@ -67,9 +70,16 @@ func NewDeck() Deck {
 func NewMultipleDeck(decks int) Deck {
 	deck := Deck{}
 
+	// DAVB - creates a deck of decks
 	for i := 0; i < decks; i++ {
 		deck = append(deck, NewDeck()...)
 	}
 
+	//
+	// In the end, we end up with an array of decks and inside each
+	// deck are four suits (heart,diamond,club,spade) 
+	// comprised of fourteen (14) cards in ascending
+	// order numerically, starting at 2 ... J, Q, K, A
+	//
 	return deck
 }

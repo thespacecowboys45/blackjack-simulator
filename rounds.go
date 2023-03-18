@@ -1,10 +1,14 @@
 package main
 
 import (
-	"encoding/binary"
+//	"encoding/binary"
 	"log"
 	"math/rand"
-	"os"
+//	"os"
+	"fmt"
+//	"time"
+	crypto_rand "crypto/rand"
+	"encoding/binary"
 )
 
 // The minimum number of cards that must be in the deck.
@@ -21,6 +25,7 @@ const (
 	OUTCOME_PUSH
 	OUTCOME_WIN
 	OUTCOME_LOSS
+	OUTCOME_INIT // DAVB - added to initialize the wager for 1st bet
 )
 
 // The action a player takes.
@@ -37,8 +42,20 @@ type Round struct {
 	Dealer Hand
 
 	// The player's hand.
+	// DAVB - @TODO make this an array of hands (to handle splits)
 	Player Hand
 }
+/*
+func init() {
+	fmt.Printf("rounds.go [init][entry]\n")
+    var b [8]byte
+    _, err := crypto_rand.Read(b[:])
+    if err != nil {
+        panic("cannot seed math/rand package with cryptographically secure random number generator")
+    }
+    math_rand.Seed(int64(binary.LittleEndian.Uint64(b[:])))
+}
+*/
 
 func (round *Round) dealToDealer() {
 	// Create the initial hand...
@@ -89,6 +106,7 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 	}
 
 	for {
+		// DAVB - looking into the guts of this function is going to get interesting ...
 		action := determineAction(*round)
 
 		if action == ACTION_STAND {
@@ -104,7 +122,7 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 			round.dealToPlayer()
 
 			if verbose {
-				log.Printf("Player hits. Hand: %s", round.Player)
+				log.Printf("Player hits. Hand: %s Total: %d", round.Player, round.Player.Sum())
 			}
 
 			// If the player busts, that's a problem.
@@ -115,7 +133,7 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 			round.dealToPlayer()
 
 			if verbose {
-				log.Printf("Player doubles. Hand: %s", round.Player)
+				log.Printf("Player doubles. Hand: %s Total: %d", round.Player, round.Player.Sum())
 			}
 
 			break
@@ -135,7 +153,7 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 		round.dealToDealer()
 
 		if verbose {
-			log.Printf("Dealer hits. Hand: %s", round.Dealer)
+			log.Printf("Dealer hits. Hand: %s Total: %d", round.Dealer, round.Dealer.Sum())
 		}
 	}
 
@@ -169,27 +187,24 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 }
 
 func seedRand() {
-	// Let's seed Rand with new data.
-	file, err := os.Open("/dev/urandom")
 
-	// If we got an error, we're boned.
-	if err != nil {
-		panic(err)
-	}
+    var b [8]byte
+    _, err := crypto_rand.Read(b[:])
+    if err != nil {
+        panic("cannot seed math/rand package with cryptographically secure random number generator")
+    }
+    theSeed := int64(binary.LittleEndian.Uint64(b[:]))
+	fmt.Printf("theSeed: %v\n", theSeed)
+	rand.Seed(theSeed)
 
-	defer file.Close()
-
-	// Okay, so we got a file...let's try to read from it now.
-	var seed int64
-
-	err = binary.Read(file, binary.LittleEndian, &seed)
-
-	// If we got an error, we're boned again.
-	if err != nil {
-		panic(err)
-	}
-
-	rand.Seed(seed)
+/*
+ don't use time to seed 
+ 
+	now := time.Now().UnixNano()
+	fmt.Printf("NOW: %v\n", now)
+	//rand.Seed(seed)
+	rand.Seed(now)
+*/	
 }
 
 func NewRound(deck Deck) *Round {

@@ -19,6 +19,13 @@ type internalStrategy struct {
 	hardStrategies map[string]map[string]Action
 }
 
+
+// DAVB description:
+// Determines if the player will HIT or STAND or DOUBLE based on the value in the strategy matrix
+// and:
+// a) is the player holding a "soft hand" - use soft strategy
+// b) is the player holding two or more cards and strategy calls to "double"
+//
 func (self *internalStrategy) GetAction(player, dealer Hand) Action {
 	// TODO: We'll need a smarter way to look up actions from our strategies than
 	// this...
@@ -75,8 +82,12 @@ func loadStrategy(reader *bufio.Reader) map[string]map[string]Action {
 	dealerCards := make([]string, 0)
 	strategy := make(map[string]map[string]Action)
 
+
 	for {
+		
 		line, err := reader.ReadString('\n')
+		msg := fmt.Sprintf("line: %s\n", line)
+		dlog(msg)
 
 		if err == io.EOF {
 			break
@@ -91,6 +102,8 @@ func loadStrategy(reader *bufio.Reader) map[string]map[string]Action {
 			toks := strings.Split(line, " ")
 
 			for _, tok := range toks {
+				msg := fmt.Sprintf("tok: %s\n", tok)
+				dlog(msg)
 				dealerCards = append(dealerCards, tok)
 			}
 		} else if line == "" || strings.HasPrefix(line, "#") {

@@ -21,6 +21,7 @@ const (
 	CARD_ACE
 )
 
+// Printable characters representing spades,hearts,diamonds,clubs
 const (
 	SUIT_SPADES   = '\u2660'
 	SUIT_HEARTS   = '\u2665'
