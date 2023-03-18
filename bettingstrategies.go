@@ -9,14 +9,15 @@ import (
 	"strings"
 )
 
-type Strategy interface {
+type BettingStrategy interface {
 	// Gets the action that we want to perform.
-	GetAction(player, dealer Hand) Action
+	GetBettingAction(player, dealer Hand) Action
 }
 
-type internalStrategy struct {
+type internalBettingStrategy struct {
 	softStrategies map[string]map[string]Action
 	hardStrategies map[string]map[string]Action
+	
 }
 
 
@@ -26,7 +27,7 @@ type internalStrategy struct {
 // a) is the player holding a "soft hand" - use soft strategy
 // b) is the player holding two or more cards and strategy calls to "double"
 //
-func (self *internalStrategy) GetAction(player, dealer Hand) Action {
+func (self *internalBettingStrategy) GetBettingAction(player, dealer Hand) Action {
 	// TODO: We'll need a smarter way to look up actions from our strategies than
 	// this...
 	playerKey := fmt.Sprintf("%d", player.Sum())
@@ -62,7 +63,7 @@ func (self *internalStrategy) GetAction(player, dealer Hand) Action {
 	return action
 }
 
-func translateAction(action string) Action {
+func translateBettingAction(action string) Action {
 	action = strings.ToLower(action)
 
 	if action == "h" {
@@ -77,10 +78,10 @@ func translateAction(action string) Action {
 	return ACTION_STAND
 }
 
-func loadStrategy(reader *bufio.Reader) map[string]map[string]Action {
-	// For holding the dealer cards we can get...
-	dealerCards := make([]string, 0)
-	strategy := make(map[string]map[string]Action)
+func loadBettingStrategy(reader *bufio.Reader) map[string]map[string]Action {
+	// For holding the progression of # of wins in a row...
+	winStreak := make([]string, 0)
+	bettingstrategy := make(map[string]map[string]Action)
 
 	for {
 		line, err := reader.ReadString('\n')
@@ -95,14 +96,14 @@ func loadStrategy(reader *bufio.Reader) map[string]map[string]Action {
 
 		line = strings.TrimSpace(line)
 
-		if len(dealerCards) == 0 {
+		if len(winStreak) == 0 {
 			// We need to load up the dealer cards.
 			toks := strings.Split(line, " ")
 
 			for _, tok := range toks {
 				msg := fmt.Sprintf("tok: %s\n", tok)
 				dlog(msg)
-				dealerCards = append(dealerCards, tok)
+				winStreak = append(winStreak, tok)
 			}
 		} else if line == "" || strings.HasPrefix(line, "#") {
 			break
@@ -139,8 +140,8 @@ func loadStrategy(reader *bufio.Reader) map[string]map[string]Action {
 }
 
 // Loads the relevant strategy in from memory.
-func LoadStrategy(path string) Strategy {
-	log.Printf("Loading strategy %s", path)
+func LoadBettingStrategy(path string) Strategy {
+	log.Printf("Loading betting strategy %s", path)
 
 	// Let's see if we can read the file.
 	file, err := os.Open(path)
@@ -152,7 +153,7 @@ func LoadStrategy(path string) Strategy {
 	// We got it, so let's get goin'
 	defer file.Close()
 
-	strategy := new(internalStrategy)
+	besttingstrategy := new(internalBettingStrategy)
 
 	reader := bufio.NewReader(file)
 
@@ -175,10 +176,10 @@ func LoadStrategy(path string) Strategy {
 		} else if line == "" {
 			// Empty line, nothing to see here.
 			continue
-		} else if line == "[soft]" {
-			strategy.softStrategies = loadStrategy(reader)
-		} else if line == "[hard]" {
-			strategy.hardStrategies = loadStrategy(reader)
+		} else if line == "[streakvariant]" {
+			besttingstrategy.softStrategies = loadBettingStrategy(reader)
+		} else if line == "[martingale]" {
+			besttingstrategy.hardStrategies = loadBettingStrategy(reader)
 		}
 	}
 

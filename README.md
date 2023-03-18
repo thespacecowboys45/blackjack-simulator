@@ -24,6 +24,8 @@ Gameplay:
 	concept: add [splits] section
 - dealer hits soft-17
 - betting
+- statistics
+- a good random number generator method
 	
 	
 Concepts:
@@ -49,7 +51,11 @@ Concept:
 ---- create "in memory" a list of all possible combinations to fill
 ---- in the matrix of player actions
 
-
+Concept:
+- game plays "differently" with different statistics in a "real world" environment
+   - test computer decision making against a real deck of cards
+   
+   
 
 TRACKING statistics (things I want to track)
 - # times hit on a total of 21 (or any other number/total) <- track for a "player mistake"
@@ -64,6 +70,8 @@ TRACKING statistics (things I want to track)
  - # of consecutive wins (per streak)
  - # of consecutive losses (per streak)
  - histogram output of # of losses in a row (e.g. had three (3) streaks with four (4) losses in a row)
+ 
+ - random number generator effect on outcomes
  
 Structure: winLossStreak -
 	- determined by a 
@@ -101,8 +109,11 @@ NATURAL GAME VARIABLES (things found in the real-world, hard to simulate):
 - Dealer placing the cut card to stop drawing from the deck, random human determinate.
 - Player bet wager (typically there is an idea behind how a player bets/alternates betting)
 - if player treats split hands both won as two consecutive wins, or one win
-- if player treats double down bet won as special
+- if player treats double down bet won as special (add/reduce)
 - if player treats BLACKJACK hand won as special (to vary bet)
+- if player bets an "odd" amount, and blackjack or doubledown won, payout is rounded down - track how much margin this produces the house
+- if player will "doubledown" on a split
+- number of players
 
 
 END RESULT DESIRED:
@@ -123,6 +134,28 @@ END RESULT DESIRED:
 
 
 (new) BETTING STRATEGIES:
+Question: what other ways would you decide to vary your wager, or not?
+a) win/loss streak <- 'n' number of wins / losses in a row
+b) a "hot" deck <- card counting
+c) last amount wagered / won <- say, if win "big bet" then take down or reduce
+d) every 'n'th hand <- example: every 3rd hand I double my bet
+
+WAYS TO INCREASE ODDS:
+- Figure out when "odds are in your favor" <- if at any time, and take advantage of these.
+Things to find out: what percentage of time does player action increase/decrease odds for
+	- splits
+	- doubledowns
+	
+	Like, track the number of times you won a doubldown vs lost
+	Trake # of times a split was won, per hand
+	
+	
+
+ 
+
+
+- PREMISE: take advantage of win/loss streak pattern to vary wager
+
 - martingale
 
 Structure:
@@ -186,6 +219,7 @@ L R x x x x x
 
 
 
+
 CUSTOM #3
 - after 1 win keep bet same
 - after 2 consecutive wins, double bet
@@ -199,7 +233,13 @@ CUSTOM #3
 
 
 FUNCTION HOOKS (surgery planning):
-- STEP 1 - add bankroll tracking
+- STEP 1 
++ add bankroll tracking - Okay
++ take 'outcome' and produce a resultant change in bank account - Okay
+
+- STEP 2
+create new bettingStrategy struct, similar to how the playerStrategy
+is construtured.  Load up the strategy from a file on the computer.
 
 - add ability to determine "when to stop drawing" the deck based on % of total cards
   in the deck.  More accurately, place a "stop" into the deck, just like the 
@@ -208,11 +248,14 @@ FUNCTION HOOKS (surgery planning):
 - need to modify the round so that if the player 'doubles' then bet is changed
 	-- pass in the bet amount, which may be affected by the round: split/double/blackjack
 
-- take 'outcome' and produce a resultant change in bank account
 
 - modify OUTCOME constants to add PUSH as result/outcome
 	- PUSH
 	- DOUBLEDOWN_WON
+	
+- add Multi-player	
+- add card-counter capability
+- add "AI" engine <- how the hell does this thing learn / adjust?
 	
 - FOLLOWUP: hands.go -> figure out IsSoft() function, is correct?
 

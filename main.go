@@ -15,6 +15,7 @@ var totalHands int
 
 func init() {
 	flag.StringVar(&strategyFile, "strategy", "", "strategy file path")
+	flag.StringVar(&bettingStrategyFile, "bettingstrategystrategy", "", "bettingstrategy file path")
 	flag.IntVar(&games, "games", 10, "number of games to play")
 	flag.BoolVar(&verbose, "verbose", false, "should output steps")
 	
@@ -32,6 +33,9 @@ func main() {
 	outcomes := make(map[Outcome]int)
 	// 'strategy' has two types: softStrategies, and hardStrategies
 	strategy := LoadStrategy(strategyFile)
+	
+	// DAVB - add betting strategy
+	bettingStrategy := LoadBettingStrategy(bettingstrategyFile)
 
 	// DAVB - reset
 	bankRoll := NewBankRoll(DEFAULT_BANKROLL)

@@ -5,7 +5,7 @@
 #
 # You're welcome.
 ###
-FILES="cards.go decks.go hands.go main.go rounds.go strategies.go bets.go dlogger.go"
+FILES="cards.go decks.go hands.go main.go rounds.go strategies.go bets.go bettingstrategies.go dlogger.go"
 STRATEGIES_DIR="strategies"
 
 if [ x$1 != "x" ]
@@ -13,12 +13,15 @@ then
 	STRATEGY=$1
 else 
 	STRATEGY="passive"
-	#STRATEGY="always_hit"
+	STRATEGY="always_hit"
+	STRATEGY="always_stand"
 fi
+
+BETTINGSTRATEGY="flat"
 
 GAMES=1
 VERBOSE="true"
 
 echo "Run strategy: ${STRATEGY}"
 set -x
-go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
