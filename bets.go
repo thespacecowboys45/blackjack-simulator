@@ -127,6 +127,11 @@ type BankRoll struct {
 
 type Wager struct {
 	Amount int
+	// @TODO - add
+	MaxWager
+	MinWager
+	// @TODO - add
+	wagerCount map
 }
 
 func (bankRoll BankRoll) String() string {
