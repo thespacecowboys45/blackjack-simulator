@@ -14,10 +14,6 @@ type BettingStrategy interface {
 	GetBettingAction(streak Streak, outcome Outcome) BettingAction
 }
 
-func (self *internalBettingStrategy) Stub() {
-	fmt.Printf("BettingStrategy stub()\n")	
-}
-
 type internalBettingStrategy struct {
 	streakStrategies map[string]map[string]BettingAction
 	nhandsStrategies map[string]map[string]BettingAction
@@ -33,6 +29,7 @@ type internalBettingStrategy struct {
 func (self *internalBettingStrategy) GetBettingAction(streak Streak, outcome Outcome) BettingAction {
 	// TODO: We'll need a smarter way to look up actions from our strategies than
 	// this...
+	fmt.Printf("--------- FINISH HERE FOR PROGRESS 3/18/23 ----------- ")
 	
 	// -----> need to figure out how to grab this value for a bet
 	// This is going to be how far down we are in the "consecutive Losses" stack
@@ -123,13 +120,21 @@ func loadBettingStrategy(reader *bufio.Reader) map[string]map[string]BettingActi
 				dlog(msg)
 				winStreak = append(winStreak, tok)
 			}
+			
+			fmt.Printf("winStreak final: %v\n", winStreak)
 		} else if line == "" || strings.HasPrefix(line, "#") {
 			break
 		} else {
 			// This line describes a strategy, so let's pull it
 			// apart. First token is going to be the scenario.
 			toks := strings.Split(line, " ")
+			
+			// AH HA
 			scenario, actions := toks[0], toks[1:len(toks)-1]
+			fmt.Printf("scenario: %s\n", scenario)
+			
+			fmt.Printf("Parsing strategy line.\n")
+			fmt.Printf("Toks here: %s\n", toks)
 
 			// We'll need a new map here...
 			data := make(map[string]BettingAction)
@@ -144,13 +149,18 @@ func loadBettingStrategy(reader *bufio.Reader) map[string]map[string]BettingActi
 					continue
 				}
 
+				fmt.Printf("[%d] Add action: %s\n", idx, action)
 				data[winStreak[idx]] = translateBettingAction(action)
+				fmt.Printf("winStreak[idx] = %v\n", winStreak[idx])
+
+				fmt.Printf("Data now: %v\n", data)
 
 				// Gotta keep track of this outselves because we can't trust i here.
 				idx += 1
 			}
 
 			bettingstrategy[scenario] = data
+			fmt.Printf("for scenario %s betting strategy: %v\n", scenario, bettingstrategy[scenario])
 		}
 	}
 
@@ -181,10 +191,14 @@ func LoadBettingStrategy(path string) BettingStrategy {
 		line, err := reader.ReadString('\n')
 
 		if err == io.EOF {
+			fmt.Printf("End of file reached\n")
 			break
 		} else if err != nil {
 			panic(err)
 		}
+		
+		fmt.Printf("line: %s\n", line)
+		
 
 		// If the line starts with a # it's a comment.
 		line = strings.TrimSpace(line)
@@ -195,8 +209,10 @@ func LoadBettingStrategy(path string) BettingStrategy {
 			// Empty line, nothing to see here.
 			continue
 		} else if line == "[streakvariant]" {
+			fmt.Printf("Foudn streakvariant betting strategy\n")
 			bettingstrategy.streakStrategies = loadBettingStrategy(reader)
 		} else if line == "[nhandsvariant]" {
+			fmt.Printf("Foudn nhandsvariant betting strategy\n")
 			bettingstrategy.nhandsStrategies = loadBettingStrategy(reader)
 		}
 	}

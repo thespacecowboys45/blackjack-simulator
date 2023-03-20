@@ -1,15 +1,17 @@
 # Streak Betting Strategy
 #
 # Vary bet based on W/L streak
+#
+# Note, each column (or header) must be unique value
 [streakvariant]
-   W W W W W W W W W W
-L  S S S S S S S S S S
-L  S S S S S S S S S S
-L  S S S S S S S S S S
-L  S S S S S S S S S S
-L  S S S S S S S S S S
-L  S S S S S S S S S S
-L  S S S S S S S S S S
-L  S S S S S S S S S S
-L  S S S S S S S S S S
-L  S S S S S S S S S S
+   W1 W2 W3 W4 W5 W6 W7 W8 W9 W10
+L1  I I S S S S S S S S
+L2  I S S S S S S S S S
+L3  S S S S S S S S S S
+L4  S S S S S S S S S S
+L5  S S S S S S S S S S
+L6  S S S S S S S S S S
+L7  S S S S S S S S S S
+L8  S S S S S S S S S S
+L9  S S S S S S S S S S
+L10  S S S S S S S S S S

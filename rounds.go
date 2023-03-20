@@ -22,7 +22,7 @@ const (
 
 // DAVB
 const (
-	BETTINGACTION_RESET = iota // 'r'
+	BETTINGACTION_RESET = iota +5 // 'r'
 	BETTINGACTION_INCREASE     // 'i'
 	BETTINGACTION_DECREASE     // 'd'
 	BETTINGACTION_STAND        // 's'

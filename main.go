@@ -34,10 +34,12 @@ func main() {
 	outcomes := make(map[Outcome]int)
 	// 'strategy' has two types: softStrategies, and hardStrategies
 	strategy := LoadStrategy(strategyFile)
+	fmt.Printf("Strategy: %v\n", strategy)
 	
 	// DAVB - add betting strategy
 	bettingStrategy := LoadBettingStrategy(bettingStrategyFile)
-
+	fmt.Printf("BS: %v\n", bettingStrategy)
+	
 	// DAVB - reset
 	bankRoll := NewBankRoll(DEFAULT_BANKROLL)
 	fmt.Printf("Starting bankroll: %s\n", bankRoll.String())
@@ -49,7 +51,6 @@ func main() {
 		// DAVB - display the deck before starting
 		log.Printf("Deck: %s\n", deck.String())
 
-		
 		// This shuffles all decks together, however many there are
 		round := NewRound(deck.Shuffle())
 
@@ -63,12 +64,13 @@ func main() {
 		// DAVB - @TODO implement some swizzle to incorporate
 		// calculating/passing in the bettingstrategy to the computer
 		// for now, stub:
-		s := Streak{}
-		fmt.Printf("BettingStrategy: %v\n", bettingStrategy.GetBettingAction(s, 2))
+		//s := Streak{}
+		//fmt.Printf("BettingStrategy: %v\n", bettingStrategy.GetBettingAction(s, 2))
 		
 		// Make a new wager
 		wager := Wager{}
 		wager = wager.NewWager(OUTCOME_INIT)
+		wagerAction := BETTINGACTION_RESET
 
 		for {
 
@@ -86,6 +88,14 @@ func main() {
 			}
 			
 			// DAVB - @TODO this is where to implement a change in wager logic
+			// put this somewhere else, add all functoinality here for now
+			s := bankRoll.streak
+			fmt.Printf("here streak: %s\n", s.String())
+			//wagerAction = bettingStrategy.GetBettingAction(bankRoll.streak, outcome)
+			//wagerAction = bettingStrategy.GetBettingAction(s, 2)
+			fmt.Printf("WAGER_ACTION: %d\n", wagerAction)
+			
+			// For now, just keep the same logic
 			wager = wager.NewWager(outcome)			
 		}
 	}
