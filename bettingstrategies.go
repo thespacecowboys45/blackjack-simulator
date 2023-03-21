@@ -11,7 +11,7 @@ import (
 
 type BettingStrategy interface {
 	// Gets the action that we want to perform.
-	GetBettingAction(streak Streak, outcome Outcome) BettingAction
+	GetBettingAction(consecutiveLosses int, consecutiveWins int) BettingAction
 }
 
 type internalBettingStrategy struct {
@@ -26,7 +26,7 @@ type internalBettingStrategy struct {
 // b) is the player holding two or more cards and strategy calls to "double"
 //
 //func (self *internalBettingStrategy) GetBettingAction(player, dealer Hand) BettingAction {
-func (self *internalBettingStrategy) GetBettingAction(streak Streak, outcome Outcome) BettingAction {
+func (self *internalBettingStrategy) GetBettingAction(consecutiveLosses int, consecutiveWins int ) BettingAction {
 	// TODO: We'll need a smarter way to look up actions from our strategies than
 	// this...
 	fmt.Printf("--------- FINISH HERE FOR PROGRESS 3/18/23 ----------- ")
@@ -36,10 +36,12 @@ func (self *internalBettingStrategy) GetBettingAction(streak Streak, outcome Out
 	// and or the WINS stack - have to figure this out
 	
 	// This is going to be "how far down" in the L's column to look for action
-	lossesKey := fmt.Sprintf("%d", streak.ConsecutiveLosses)
+	lossesKey := fmt.Sprintf("%d", consecutiveLosses)
 
 	// Need some special rules for this one, to deal with bets.
 	var winsKey string
+	
+	winsKey = fmt.Sprintf("%d", consecutiveWins)
 
 	// DAVB - revamp this to fit a "bet" column - do we need this exception ? 
 	/*
@@ -64,6 +66,8 @@ func (self *internalBettingStrategy) GetBettingAction(streak Streak, outcome Out
 		action = self.hardStrategies[lossesKey][winsKey]
 	}
 */	
+
+	fmt.Printf("Determine action lossesKey: %s winsKey: %s\n", lossesKey, winsKey)
 	action = self.streakStrategies[lossesKey][winsKey]
 
 /*
@@ -129,7 +133,7 @@ func loadBettingStrategy(reader *bufio.Reader) map[string]map[string]BettingActi
 			// apart. First token is going to be the scenario.
 			toks := strings.Split(line, " ")
 			
-			// AH HA
+			// AH HA - the scenario is the "1st column" value 
 			scenario, actions := toks[0], toks[1:len(toks)-1]
 			fmt.Printf("scenario: %s\n", scenario)
 			

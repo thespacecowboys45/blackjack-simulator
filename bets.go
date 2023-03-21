@@ -157,7 +157,15 @@ func NewBankRoll(amount int) BankRoll {
 	return br
 }
 
-func (wager Wager) NewWager(outcome Outcome) Wager {
+
+// Somehow this is not right.  It should be more tied closely with getBettingAction
+// I think .... 
+//
+// outcome: the outcome of the last bet.  If it is the 1st time around
+//          outcome will be set to OUTCOME_INIT
+//
+func (wager Wager) NewWager(outcome Outcome, streak Streak, determineBet func(streak Streak) BettingAction) Wager {
+//func (wager Wager) NewWager(outcome Outcome, streak Streak, determineBet int) Wager {
 	
 	wg := Wager{}
 	// Initialize from current object
@@ -168,12 +176,38 @@ func (wager Wager) NewWager(outcome Outcome) Wager {
 		wg.Amount = DEFAULT_WAGER	
 	} else if outcome == OUTCOME_WIN {
 		// @TODO - do some logic here
+		
+		// ? is this where to check out the betting strategy?
 		fmt.Printf("\tNewWager() OUTCOME_WIN - reset bet to default\n")
 		wg.Amount = DEFAULT_WAGER
 	} else if outcome == OUTCOME_LOSS {
 		fmt.Printf("\tNewWager() OUTCOME_LOSS - double bet\n")
-		// DEV - basically martingale, always double when loosing
-		wg.Amount = wg.Amount * 2
+		
+		/**
+		 * Slice here - input new code slide to determine, based on the win/loss
+		 * streak going on, what to wager next.
+		 */
+		consecutiveLosses := streak.ConsecutiveLosses
+
+		fmt.Printf("\tNewWager check out the streak, how many losses in a row? => %d\n", consecutiveLosses)
+		
+		nextAction := BETTINGACTION_INCREASE
+		
+		action := determineBet(streak)
+		
+		fmt.Printf("HERE ACTION: %d\n", action)
+		
+		//// CHECK THE STRATEGY
+		
+		if (nextAction == BETTINGACTION_INCREASE) {
+			fmt.Printf("BETTINGACTION_INCREASE - for now double bet\n")
+			// DEV - basically martingale, always double when loosing
+			wg.Amount = wg.Amount * 2
+		} else {
+			fmt.Printf("not incraseing keep bet the same, action=%d\n", nextAction)
+			// Keep the same bet - for now, need to add logic for BETTINGACTION_STAND
+			wg.Amount = wager.Amount
+		}
 	}
 	
 	fmt.Printf("Compare: wg.Amount: %d to DEFAULT_WAGER: %d\n", wg.Amount, DEFAULT_WAGER)

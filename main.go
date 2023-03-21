@@ -61,6 +61,12 @@ func main() {
 			return strategy.GetAction(round.Player, round.Dealer)
 		}
 		
+		// DAVB - idk try it out
+		bettingStrategy2 := func(streak Streak) BettingAction {
+			return bettingStrategy.GetBettingAction(streak.ConsecutiveLosses,
+													streak.ConsecutiveWins)
+		}
+		
 		// DAVB - @TODO implement some swizzle to incorporate
 		// calculating/passing in the bettingstrategy to the computer
 		// for now, stub:
@@ -69,7 +75,8 @@ func main() {
 		
 		// Make a new wager
 		wager := Wager{}
-		wager = wager.NewWager(OUTCOME_INIT)
+		s := Streak{}
+		wager = wager.NewWager(OUTCOME_INIT, s, bettingStrategy2)
 		wagerAction := BETTINGACTION_RESET
 
 		for {
@@ -89,14 +96,14 @@ func main() {
 			
 			// DAVB - @TODO this is where to implement a change in wager logic
 			// put this somewhere else, add all functoinality here for now
-			s := bankRoll.streak
-			fmt.Printf("here streak: %s\n", s.String())
+			streak := bankRoll.streak
+			fmt.Printf("here streak: %s\n", streak.String())
 			//wagerAction = bettingStrategy.GetBettingAction(bankRoll.streak, outcome)
 			//wagerAction = bettingStrategy.GetBettingAction(s, 2)
 			fmt.Printf("WAGER_ACTION: %d\n", wagerAction)
 			
 			// For now, just keep the same logic
-			wager = wager.NewWager(outcome)			
+			wager = wager.NewWager(outcome, streak, bettingStrategy2)			
 		}
 	}
 

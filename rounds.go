@@ -118,6 +118,13 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 
 	for {
 		// DAVB - looking into the guts of this function is going to get interesting ...
+		// So, in the betting module, instead of this (passed in function call), then
+		// call it here.  I get it - this was done this way so that the 
+		// strategy employed can be passed in as a function, one which was
+		// determined previously, outside this function call
+		// 
+		// and, therefore, is available to this code block
+		//
 		action := determineAction(*round)
 
 		if action == ACTION_STAND {
