@@ -29,46 +29,26 @@ type internalBettingStrategy struct {
 func (self *internalBettingStrategy) GetBettingAction(consecutiveLosses int, consecutiveWins int ) BettingAction {
 	// TODO: We'll need a smarter way to look up actions from our strategies than
 	// this...
-	fmt.Printf("--------- FINISH HERE FOR PROGRESS 3/18/23 ----------- ")
+	fmt.Printf("--------- ------ GetBettingAction ------ ----------- \n")
 	
 	// -----> need to figure out how to grab this value for a bet
 	// This is going to be how far down we are in the "consecutive Losses" stack
 	// and or the WINS stack - have to figure this out
 	
-	// This is going to be "how far down" in the L's column to look for action
-	lossesKey := fmt.Sprintf("%d", consecutiveLosses)
-
-	// Need some special rules for this one, to deal with bets.
-	var winsKey string
-	
-	winsKey = fmt.Sprintf("%d", consecutiveWins)
-
-	// DAVB - revamp this to fit a "bet" column - do we need this exception ? 
-	/*
-	if dealer[0].Symbol == CARD_ACE {
-		dealerKey = "A"
-	} else {
-		dealerKey = fmt.Sprintf("%d", dealer[0].Value)
-	}
-	*/
+	// This is going to be "how far down" in the column to look for action
+	lossesKey := fmt.Sprintf("L%d", consecutiveLosses)
+	winsKey := fmt.Sprintf("W%d", consecutiveWins)
 
 	var action BettingAction
+	
+	action = self.streakStrategies[lossesKey][winsKey]
+	fmt.Printf("Determine action lossesKey: %s winsKey: %s ==> %d\n", lossesKey, winsKey, action)
 
-/*
-	if player.IsSoft() {
-		if val, ok := self.softStrategies[lossesKey][winsKey]; ok {
-			action = val
-		} else {
-			// No soft strategy available.
-			action = self.hardStrategies[lossesKey][winsKey]
-		}
-	} else {
-		action = self.hardStrategies[lossesKey][winsKey]
+/*	
+	for k, v := range self.streakStrategies[lossesKey] {
+		fmt.Printf("--> %s , %d --> key: %d\n", k, v, self.streakStrategies[lossesKey][k])	
 	}
 */	
-
-	fmt.Printf("Determine action lossesKey: %s winsKey: %s\n", lossesKey, winsKey)
-	action = self.streakStrategies[lossesKey][winsKey]
 
 /*
 	// If the player's hand has more than 2 cards and the action the strategy

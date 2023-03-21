@@ -3,15 +3,35 @@
 # Vary bet based on W/L streak
 #
 # Note, each column (or header) must be unique value
+#
+#
+# R = RESET
+# I = INCREASE
+# D = DECREASE
+# S = STAND
+#
+#
+# This may get complex, as the intracacies of programming this
+# matrix, along with whatever patterns may emerge amonst win/loss
+# streaks
+#
+# Like, the first win after 'n' consecutive losses - you cannot just
+# continue to increase, because if you lost this bet then...what?  
+#  You fall back into the "first loss" column and forever keep
+# increasing your bet, until you have 2 consecutive wins in a row.
+#
+# And so, it gets complicated.
+#
+###############
 [streakvariant]
-   W1 W2 W3 W4 W5 W6 W7 W8 W9 W10
-L1  I I S S S S S S S S
+   W0 W1 W2 W3 W4 W5 W6 W7 W8 W9
+L0  R R D S S S S S S S
+L1  I S S S S S S S S S
 L2  I S S S S S S S S S
-L3  S S S S S S S S S S
-L4  S S S S S S S S S S
-L5  S S S S S S S S S S
+L3  I S S S S S S S S S
+L4  I S S S S S S S S S
+L5  R S S S S S S S S S
 L6  S S S S S S S S S S
 L7  S S S S S S S S S S
 L8  S S S S S S S S S S
 L9  S S S S S S S S S S
-L10  S S S S S S S S S S

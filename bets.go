@@ -64,7 +64,9 @@ func (streak Streak) addWin() Streak {
 	}
 	
 	// keep the same
-	s.ConsecutiveLosses = streak.ConsecutiveLosses
+	//s.ConsecutiveLosses = streak.ConsecutiveLosses
+	// No, reset to 0
+	s.ConsecutiveLosses = 0
 	s.MaxConsecutiveLosses = streak.MaxConsecutiveLosses
 	
 	fmt.Printf("addWin() %s\n", s.String())
@@ -99,7 +101,9 @@ func (streak Streak) addLoss() Streak {
 	}
 	
 	// keep the same
-	s.ConsecutiveWins = streak.ConsecutiveWins
+	//s.ConsecutiveWins = streak.ConsecutiveWins
+	// No, reset to 0
+	s.ConsecutiveWins = 0
 	s.MaxConsecutiveWins = streak.MaxConsecutiveWins
 
 	fmt.Printf("addLoss() FINAL     : %s\n", s.String())
@@ -165,7 +169,6 @@ func NewBankRoll(amount int) BankRoll {
 //          outcome will be set to OUTCOME_INIT
 //
 func (wager Wager) NewWager(outcome Outcome, streak Streak, determineBet func(streak Streak) BettingAction) Wager {
-//func (wager Wager) NewWager(outcome Outcome, streak Streak, determineBet int) Wager {
 	
 	wg := Wager{}
 	// Initialize from current object
@@ -175,39 +178,30 @@ func (wager Wager) NewWager(outcome Outcome, streak Streak, determineBet func(st
 	if outcome == OUTCOME_INIT {
 		wg.Amount = DEFAULT_WAGER	
 	} else if outcome == OUTCOME_WIN {
-		// @TODO - do some logic here
-		
-		// ? is this where to check out the betting strategy?
-		fmt.Printf("\tNewWager() OUTCOME_WIN - reset bet to default\n")
-		wg.Amount = DEFAULT_WAGER
+		fmt.Printf("\tNewWager OUTCOME_WIN - check out the streak, how many wins in a row? => %d\n", streak.ConsecutiveWins)
 	} else if outcome == OUTCOME_LOSS {
-		fmt.Printf("\tNewWager() OUTCOME_LOSS - double bet\n")
-		
-		/**
-		 * Slice here - input new code slide to determine, based on the win/loss
-		 * streak going on, what to wager next.
-		 */
-		consecutiveLosses := streak.ConsecutiveLosses
-
-		fmt.Printf("\tNewWager check out the streak, how many losses in a row? => %d\n", consecutiveLosses)
-		
-		nextAction := BETTINGACTION_INCREASE
-		
-		action := determineBet(streak)
-		
-		fmt.Printf("HERE ACTION: %d\n", action)
-		
-		//// CHECK THE STRATEGY
-		
-		if (nextAction == BETTINGACTION_INCREASE) {
-			fmt.Printf("BETTINGACTION_INCREASE - for now double bet\n")
+		fmt.Printf("\tNewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => %d\n", streak.ConsecutiveLosses)
+	}
+			
+	nextAction := determineBet(streak)	
+	switch (nextAction) {
+		default:
+			fmt.Printf("UNHANDLED betting strategy action: %d\n", nextAction)
+		case BETTINGACTION_RESET:
+			break
+		case BETTINGACTION_INCREASE:
+			fmt.Printf("BETTINGACTION_INCREASE - double bet\n")
 			// DEV - basically martingale, always double when loosing
 			wg.Amount = wg.Amount * 2
-		} else {
-			fmt.Printf("not incraseing keep bet the same, action=%d\n", nextAction)
-			// Keep the same bet - for now, need to add logic for BETTINGACTION_STAND
+			break
+		case BETTINGACTION_DECREASE:
+			fmt.Printf("BETTINGACTION_DECREASE - half bet\n")
+			wg.Amount = wg.Amount / 2
+			break	
+		case BETTINGACTION_STAND:
+			fmt.Printf("BETTINGACTION_STAND - keep bet the same\n")
 			wg.Amount = wager.Amount
-		}
+			break		
 	}
 	
 	fmt.Printf("Compare: wg.Amount: %d to DEFAULT_WAGER: %d\n", wg.Amount, DEFAULT_WAGER)
@@ -229,16 +223,22 @@ func (bankRoll BankRoll) tallyOutcome(outcome Outcome, wager Wager) BankRoll {
 	dlog(msg)
 			
 	if outcome == OUTCOME_WIN {
-		fmt.Printf("talleOutcome ADD WIN\n")
+		fmt.Printf("tallyOutcome COUNT WIN\n")
 		bankRoll.Amount += wager.Amount
 		bankRoll.streak = bankRoll.streak.addWin()
 	} else if outcome == OUTCOME_LOSS {
-	fmt.Printf("talleOutcome ADD LOSS\n")
+		fmt.Printf("tallyOutcome COUNT LOSS\n")
 		bankRoll.Amount -= wager.Amount
 		bankRoll.streak = bankRoll.streak.addLoss()
 	} else {
 		// push (non-event)
+		fmt.Printf("talyOutcome - PUSH")
 		bankRoll.Amount = bankRoll.Amount
+		
+		// Keep track record the same (non-event)
+		nbr.streak.ConsecutiveWins = bankRoll.streak.ConsecutiveWins
+		nbr.streak.ConsecutiveLosses = bankRoll.streak.ConsecutiveLosses
+		
 	}
 	
 	fmt.Printf("BANKROLL STREAK: %s\n", bankRoll.streak.String())
