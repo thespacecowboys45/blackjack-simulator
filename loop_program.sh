@@ -7,7 +7,18 @@ LOOPCOUNT=50000
 i=1
 while [ True ]
 do
-	echo "i: ${i} loopcount: ${LOOPCOUNT}"
+	echo ""
+		echo ""
+		echo "PLAYING NEW ROUND ${i}...... MAX: ${LOOPCOUNT}"
+		echo ""
+		echo ""
+		echo ""
+		echo ""
+		echo ""
+		echo ""
+		echo ""
+		echo ""
+	#echo "i: ${i} loopcount: ${LOOPCOUNT}"
 
 	#cmd="./run.sh"
 	# works
