@@ -27,6 +27,14 @@ Gameplay:
 - statistics
 - a good random number generator method
 	
+
+
+Priority 1
+--------------
+Graphite integration
+
+
+
 	
 Concepts:
 Add batting average, and sharpe ratio
