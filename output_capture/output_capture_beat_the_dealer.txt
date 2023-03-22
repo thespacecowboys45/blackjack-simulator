@@ -1,0 +1,1512 @@
+230321
+
+The Space Cowboy's 45
+------------------------
+README.md
+
+=-=-=
+
+NewBankRoll: Amount: 500 Min: 0 Max: 500 Streak: LastOutcome: 4 Wins: 0 Losses: 0 CWins: 0 CLosses: 0 MAXCWins: 0 MAXCLosses: 0
+
+Starting bankroll: Amount: 500 Min: 0 Max: 500 Streak: LastOutcome: 4 Wins: 0 Losses: 0 CWins: 0 CLosses: 0 MAXCWins: 0 MAXCLosses: 0
+
+2023/03/21 21:23:42 Deck: 2♥ 3♥ 4♥ 5♥ 6♥ 7♥ 8♥ 9♥ 10♥ J♥ Q♥ K♥ A♥ 2♦ 3♦ 4♦ 5♦ 6♦ 7♦ 8♦ 9♦ 10♦ J♦ Q♦ K♦ A♦ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ 10♣ J♣ Q♣ K♣ A♣ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ 10♠ J♠ Q♠ K♠ A♠ 2♥ 3♥ 4♥ 5♥ 6♥ 7♥ 8♥ 9♥ 10♥ J♥ Q♥ K♥ A♥ 2♦ 3♦ 4♦ 5♦ 6♦ 7♦ 8♦ 9♦ 10♦ J♦ Q♦ K♦ A♦ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ 10♣ J♣ Q♣ K♣ A♣ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ 10♠ J♠ Q♠ K♠ A♠ 2♥ 3♥ 4♥ 5♥ 6♥ 7♥ 8♥ 9♥ 10♥ J♥ Q♥ K♥ A♥ 2♦ 3♦ 4♦ 5♦ 6♦ 7♦ 8♦ 9♦ 10♦ J♦ Q♦ K♦ A♦ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ 10♣ J♣ Q♣ K♣ A♣ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ 10♠ J♠ Q♠ K♠ A♠ 2♥ 3♥ 4♥ 5♥ 6♥ 7♥ 8♥ 9♥ 10♥ J♥ Q♥ K♥ A♥ 2♦ 3♦ 4♦ 5♦ 6♦ 7♦ 8♦ 9♦ 10♦ J♦ Q♦ K♦ A♦ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ 10♣ J♣ Q♣ K♣ A♣ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ 10♠ J♠ Q♠ K♠ A♠ 2♥ 3♥ 4♥ 5♥ 6♥ 7♥ 8♥ 9♥ 10♥ J♥ Q♥ K♥ A♥ 2♦ 3♦ 4♦ 5♦ 6♦ 7♦ 8♦ 9♦ 10♦ J♦ Q♦ K♦ A♦ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ 10♣ J♣ Q♣ K♣ A♣ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ 10♠ J♠ Q♠ K♠ A♠ 2♥ 3♥ 4♥ 5♥ 6♥ 7♥ 8♥ 9♥ 10♥ J♥ Q♥ K♥ A♥ 2♦ 3♦ 4♦ 5♦ 6♦ 7♦ 8♦ 9♦ 10♦ J♦ Q♦ K♦ A♦ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ 10♣ J♣ Q♣ K♣ A♣ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ 10♠ J♠ Q♠ K♠ A♠
+theSeed: -3555776591176230353
+2023/03/21 21:23:42 Deck NOW: 10♥ A♦ A♦ 4♠ 7♣ 9♣ 7♦ 5♦ K♠ 9♠ Q♦ 3♦ 2♥ Q♦ 2♠ 10♠ 6♥ 7♣ 7♠ J♣ J♦ 10♠ 6♣ 10♠ 3♦ 9♠ 10♣ Q♣ J♥ 5♠ K♣ Q♣ Q♦ 10♣ 4♠ 2♣ Q♣ K♦ 7♠ K♦ 6♥ 4♣ J♥ 10♦ 10♣ 8♠ Q♣ 3♣ 6♣ 2♠ 10♥ J♣ Q♥ 10♥ 3♥ 4♥ 9♣ 2♣ 9♦ Q♥ 6♣ K♠ 5♠ 3♠ 5♠ 2♠ 8♣ J♠ 4♠ 8♣ 2♥ 8♦ 6♠ 8♥ J♣ K♣ K♠ Q♠ 9♦ 4♦ A♣ Q♥ 3♠ 6♥ 5♥ 4♥ 5♣ A♣ 10♠ 8♦ 5♥ 8♥ A♦ 7♥ 10♦ 3♣ A♣ 10♦ A♦ K♥ 3♥ A♠ 6♠ A♦ 5♠ 9♥ 5♦ K♦ K♥ 2♥ 10♦ 9♦ 3♥ K♠ 8♣ 9♠ J♦ 4♥ J♣ 9♥ 5♣ J♦ 8♣ 8♦ 7♥ 8♦ K♠ 8♠ 10♠ 9♠ 9♥ 7♠ 4♣ 10♥ 7♦ Q♦ 6♦ 3♦ 6♠ 8♣ 3♦ 2♣ 10♦ 9♣ 7♦ J♦ 2♥ 7♠ 3♣ 8♥ K♥ J♦ 4♠ Q♥ K♦ 5♥ J♥ 8♠ 2♠ 5♦ K♣ 10♣ K♦ J♠ 3♣ 7♣ 9♦ 4♥ 8♥ 4♦ 7♣ 4♣ 7♦ 3♥ 4♦ 7♥ 6♥ Q♠ 5♠ A♥ K♠ 9♣ 8♣ 8♦ 9♣ 5♥ 3♠ 9♥ 2♥ 4♥ K♦ A♥ 9♠ 4♦ K♣ 10♣ 7♠ 7♠ 3♣ 2♦ 8♥ 6♦ Q♣ 9♣ 7♦ 9♥ 2♥ 2♦ A♥ J♥ 7♣ A♠ J♠ A♠ 8♥ 7♥ A♠ J♦ J♥ 3♠ 6♣ 5♣ 6♦ 3♠ A♠ A♣ J♣ K♥ 3♦ 8♠ 6♠ 4♦ 5♣ 5♣ 4♣ 9♠ 2♦ 4♣ 6♠ K♥ 10♣ A♥ 2♣ A♣ 5♦ 3♥ Q♠ 9♦ 4♣ K♣ 4♠ 5♥ 10♥ 5♣ 7♥ 6♦ 5♥ A♥ 6♦ 2♦ 8♦ 4♦ 7♣ J♠ 8♠ 7♥ 10♠ 2♣ 3♦ 5♠ 2♦ 3♠ 7♦ A♣ Q♥ J♠ 3♣ 6♥ 4♠ Q♣ 8♠ 2♣ 2♦ Q♠ Q♠ A♠ 6♥ 6♠ 5♦ Q♦ 5♦ Q♦ 10♥ A♦ J♣ J♠ J♥ Q♥ 2♠ K♥ 9♦ 6♣ 9♥ K♣ A♥ 4♥ 10♦ 6♦ 3♥ 2♠ 6♣ Q♠
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W0 ==> 5
+Compare: wg.Amount: 5 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [10♥ A♦], Player: [A♦ 4♠]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer wins. Dealer: [10♥ A♦], Player: [A♦ 4♠]
+tallyOutcome entry: 3    current bankRoll: Amount: 500 Min: 0 Max: 500 Streak: LastOutcome: 4 Wins: 0 Losses: 0 CWins: 0 CLosses: 0 MAXCWins: 0 MAXCLosses: 0
+        wager: 5
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 4
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 0 Losses: 1 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 4 Wins: 0 Losses: 0 CWins: 0 CLosses: 0 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 0 Losses: 1 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 1
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 0 Losses: 1 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 1
+
+DEBUG compare: nbr.Amount: 495 bankRoll.Max: 500
+tallyOutcome exit: 3     new bankRoll: Amount: 495 Min: 0 Max: 500 Streak: LastOutcome: 3 Wins: 0 Losses: 1 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 1
+        wager: 5
+here streak: LastOutcome: 3 Wins: 0 Losses: 1 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 1
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 10 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [7♣ 7♦], Player: [9♣ 5♦]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [7♣ 7♦ K♠] Total: 24
+2023/03/21 21:23:42 Dealer busted! Hand: [7♣ 7♦ K♠]
+tallyOutcome entry: 2    current bankRoll: Amount: 495 Min: 0 Max: 500 Streak: LastOutcome: 3 Wins: 0 Losses: 1 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 1
+        wager: 10
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 1 Losses: 1 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 1 Losses: 1 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+
+DEBUG compare: nbr.Amount: 505 bankRoll.Max: 500
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 505 Min: 0 Max: 505 Streak: LastOutcome: 2 Wins: 1 Losses: 1 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+        wager: 10
+here streak: LastOutcome: 2 Wins: 1 Losses: 1 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 10 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [9♠ 3♦], Player: [Q♦ 2♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [9♠ 3♦ Q♦] Total: 22
+2023/03/21 21:23:42 Dealer busted! Hand: [9♠ 3♦ Q♦]
+tallyOutcome entry: 2    current bankRoll: Amount: 505 Min: 0 Max: 505 Streak: LastOutcome: 2 Wins: 1 Losses: 1 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+        wager: 10
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 2 Losses: 1 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 1
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 2 Losses: 1 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 1
+
+DEBUG compare: nbr.Amount: 515 bankRoll.Max: 505
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 515 Min: 0 Max: 515 Streak: LastOutcome: 2 Wins: 2 Losses: 1 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 1
+        wager: 10
+here streak: LastOutcome: 2 Wins: 2 Losses: 1 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 1
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W2 ==> 7
+BETTINGACTION_DECREASE - half bet
+Compare: wg.Amount: 5 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [2♠ 6♥], Player: [10♠ 7♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [2♠ 6♥ 7♠] Total: 15
+2023/03/21 21:23:42 Dealer hits. Hand: [2♠ 6♥ 7♠ J♣] Total: 25
+2023/03/21 21:23:42 Dealer busted! Hand: [2♠ 6♥ 7♠ J♣]
+tallyOutcome entry: 2    current bankRoll: Amount: 515 Min: 0 Max: 515 Streak: LastOutcome: 2 Wins: 2 Losses: 1 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 1
+        wager: 5
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 3 Losses: 1 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 1
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 3 Losses: 1 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 1
+
+DEBUG compare: nbr.Amount: 520 bankRoll.Max: 515
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 520 Min: 0 Max: 520 Streak: LastOutcome: 2 Wins: 3 Losses: 1 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 1
+        wager: 5
+here streak: LastOutcome: 2 Wins: 3 Losses: 1 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 1
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 3
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W3 ==> 8
+BETTINGACTION_STAND - keep bet the same
+Compare: wg.Amount: 5 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [J♦ 6♣], Player: [10♠ 10♠]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [J♦ 6♣ 3♦] Total: 19
+2023/03/21 21:23:42 Player wins! Dealer: [J♦ 6♣ 3♦], Player: [10♠ 10♠]
+tallyOutcome entry: 2    current bankRoll: Amount: 520 Min: 0 Max: 520 Streak: LastOutcome: 2 Wins: 3 Losses: 1 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 1
+        wager: 5
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 4 Losses: 1 CWins: 4 CLosses: 0 MAXCWins: 4 MAXCLosses: 1
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 4 Losses: 1 CWins: 4 CLosses: 0 MAXCWins: 4 MAXCLosses: 1
+
+DEBUG compare: nbr.Amount: 525 bankRoll.Max: 520
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 525 Min: 0 Max: 525 Streak: LastOutcome: 2 Wins: 4 Losses: 1 CWins: 4 CLosses: 0 MAXCWins: 4 MAXCLosses: 1
+        wager: 5
+here streak: LastOutcome: 2 Wins: 4 Losses: 1 CWins: 4 CLosses: 0 MAXCWins: 4 MAXCLosses: 1
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 4
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W4 ==> 8
+BETTINGACTION_STAND - keep bet the same
+Compare: wg.Amount: 5 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [9♠ Q♣], Player: [10♣ J♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Player wins! Dealer: [9♠ Q♣], Player: [10♣ J♥]
+tallyOutcome entry: 2    current bankRoll: Amount: 525 Min: 0 Max: 525 Streak: LastOutcome: 2 Wins: 4 Losses: 1 CWins: 4 CLosses: 0 MAXCWins: 4 MAXCLosses: 1
+        wager: 5
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 5 Losses: 1 CWins: 5 CLosses: 0 MAXCWins: 5 MAXCLosses: 1
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 5 Losses: 1 CWins: 5 CLosses: 0 MAXCWins: 5 MAXCLosses: 1
+
+DEBUG compare: nbr.Amount: 530 bankRoll.Max: 525
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 530 Min: 0 Max: 530 Streak: LastOutcome: 2 Wins: 5 Losses: 1 CWins: 5 CLosses: 0 MAXCWins: 5 MAXCLosses: 1
+        wager: 5
+here streak: LastOutcome: 2 Wins: 5 Losses: 1 CWins: 5 CLosses: 0 MAXCWins: 5 MAXCLosses: 1
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 5
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W5 ==> 8
+BETTINGACTION_STAND - keep bet the same
+Compare: wg.Amount: 5 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [5♠ Q♣], Player: [K♣ Q♦]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [5♠ Q♣ 10♣] Total: 25
+2023/03/21 21:23:42 Dealer busted! Hand: [5♠ Q♣ 10♣]
+tallyOutcome entry: 2    current bankRoll: Amount: 530 Min: 0 Max: 530 Streak: LastOutcome: 2 Wins: 5 Losses: 1 CWins: 5 CLosses: 0 MAXCWins: 5 MAXCLosses: 1
+        wager: 5
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 6 Losses: 1 CWins: 6 CLosses: 0 MAXCWins: 6 MAXCLosses: 1
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 6 Losses: 1 CWins: 6 CLosses: 0 MAXCWins: 6 MAXCLosses: 1
+
+DEBUG compare: nbr.Amount: 535 bankRoll.Max: 530
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 535 Min: 0 Max: 535 Streak: LastOutcome: 2 Wins: 6 Losses: 1 CWins: 6 CLosses: 0 MAXCWins: 6 MAXCLosses: 1
+        wager: 5
+here streak: LastOutcome: 2 Wins: 6 Losses: 1 CWins: 6 CLosses: 0 MAXCWins: 6 MAXCLosses: 1
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 6
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W6 ==> 8
+BETTINGACTION_STAND - keep bet the same
+Compare: wg.Amount: 5 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [4♠ Q♣], Player: [2♣ K♦]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [4♠ Q♣ 7♠] Total: 21
+2023/03/21 21:23:42 Dealer wins. Dealer: [4♠ Q♣ 7♠], Player: [2♣ K♦]
+tallyOutcome entry: 3    current bankRoll: Amount: 535 Min: 0 Max: 535 Streak: LastOutcome: 2 Wins: 6 Losses: 1 CWins: 6 CLosses: 0 MAXCWins: 6 MAXCLosses: 1
+        wager: 5
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 6 Losses: 2 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 6 Losses: 1 CWins: 6 CLosses: 0 MAXCWins: 6 MAXCLosses: 1
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 6 Losses: 2 CWins: 0 CLosses: 1 MAXCWins: 6 MAXCLosses: 1
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 6 Losses: 2 CWins: 0 CLosses: 1 MAXCWins: 6 MAXCLosses: 1
+
+DEBUG compare: nbr.Amount: 530 bankRoll.Max: 535
+tallyOutcome exit: 3     new bankRoll: Amount: 530 Min: 0 Max: 535 Streak: LastOutcome: 3 Wins: 6 Losses: 2 CWins: 0 CLosses: 1 MAXCWins: 6 MAXCLosses: 1
+        wager: 5
+here streak: LastOutcome: 3 Wins: 6 Losses: 2 CWins: 0 CLosses: 1 MAXCWins: 6 MAXCLosses: 1
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 10 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [K♦ 4♣], Player: [6♥ J♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [K♦ 4♣ 10♦] Total: 24
+2023/03/21 21:23:42 Dealer busted! Hand: [K♦ 4♣ 10♦]
+tallyOutcome entry: 2    current bankRoll: Amount: 530 Min: 0 Max: 535 Streak: LastOutcome: 3 Wins: 6 Losses: 2 CWins: 0 CLosses: 1 MAXCWins: 6 MAXCLosses: 1
+        wager: 10
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 7 Losses: 2 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 7 Losses: 2 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+
+DEBUG compare: nbr.Amount: 540 bankRoll.Max: 535
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 540 Min: 0 Max: 540 Streak: LastOutcome: 2 Wins: 7 Losses: 2 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+        wager: 10
+here streak: LastOutcome: 2 Wins: 7 Losses: 2 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 10 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [10♣ Q♣], Player: [8♠ 3♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer wins. Dealer: [10♣ Q♣], Player: [8♠ 3♣]
+tallyOutcome entry: 3    current bankRoll: Amount: 540 Min: 0 Max: 540 Streak: LastOutcome: 2 Wins: 7 Losses: 2 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+        wager: 10
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 7 Losses: 3 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 7 Losses: 2 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 7 Losses: 3 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 1
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 7 Losses: 3 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 1
+
+DEBUG compare: nbr.Amount: 530 bankRoll.Max: 540
+tallyOutcome exit: 3     new bankRoll: Amount: 530 Min: 0 Max: 540 Streak: LastOutcome: 3 Wins: 7 Losses: 3 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 1
+        wager: 10
+here streak: LastOutcome: 3 Wins: 7 Losses: 3 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 1
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 20 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [6♣ 10♥], Player: [2♠ J♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [6♣ 10♥ Q♥] Total: 26
+2023/03/21 21:23:42 Dealer busted! Hand: [6♣ 10♥ Q♥]
+tallyOutcome entry: 2    current bankRoll: Amount: 530 Min: 0 Max: 540 Streak: LastOutcome: 3 Wins: 7 Losses: 3 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 1
+        wager: 20
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 8 Losses: 3 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 8 Losses: 3 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+
+DEBUG compare: nbr.Amount: 550 bankRoll.Max: 540
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 550 Min: 0 Max: 550 Streak: LastOutcome: 2 Wins: 8 Losses: 3 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+        wager: 20
+here streak: LastOutcome: 2 Wins: 8 Losses: 3 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 20 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [10♥ 4♥], Player: [3♥ 9♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [10♥ 4♥ 2♣] Total: 16
+2023/03/21 21:23:42 Dealer hits. Hand: [10♥ 4♥ 2♣ 9♦] Total: 25
+2023/03/21 21:23:42 Dealer busted! Hand: [10♥ 4♥ 2♣ 9♦]
+tallyOutcome entry: 2    current bankRoll: Amount: 550 Min: 0 Max: 550 Streak: LastOutcome: 2 Wins: 8 Losses: 3 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 1
+        wager: 20
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 9 Losses: 3 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 1
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 9 Losses: 3 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 1
+
+DEBUG compare: nbr.Amount: 570 bankRoll.Max: 550
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 570 Min: 0 Max: 570 Streak: LastOutcome: 2 Wins: 9 Losses: 3 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 1
+        wager: 20
+here streak: LastOutcome: 2 Wins: 9 Losses: 3 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 1
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W2 ==> 7
+BETTINGACTION_DECREASE - half bet
+Compare: wg.Amount: 10 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [Q♥ K♠], Player: [6♣ 5♠]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer wins. Dealer: [Q♥ K♠], Player: [6♣ 5♠]
+tallyOutcome entry: 3    current bankRoll: Amount: 570 Min: 0 Max: 570 Streak: LastOutcome: 2 Wins: 9 Losses: 3 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 1
+        wager: 10
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 9 Losses: 4 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 9 Losses: 3 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 1
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 9 Losses: 4 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 1
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 9 Losses: 4 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 1
+
+DEBUG compare: nbr.Amount: 560 bankRoll.Max: 570
+tallyOutcome exit: 3     new bankRoll: Amount: 560 Min: 0 Max: 570 Streak: LastOutcome: 3 Wins: 9 Losses: 4 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 1
+        wager: 10
+here streak: LastOutcome: 3 Wins: 9 Losses: 4 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 1
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 20 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [3♠ 2♠], Player: [5♠ 8♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [3♠ 2♠ J♠] Total: 15
+2023/03/21 21:23:42 Dealer hits. Hand: [3♠ 2♠ J♠ 4♠] Total: 19
+2023/03/21 21:23:42 Dealer wins. Dealer: [3♠ 2♠ J♠ 4♠], Player: [5♠ 8♣]
+tallyOutcome entry: 3    current bankRoll: Amount: 560 Min: 0 Max: 570 Streak: LastOutcome: 3 Wins: 9 Losses: 4 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 1
+        wager: 20
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 9 Losses: 5 CWins: 0 CLosses: 2 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 9 Losses: 4 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 1
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 9 Losses: 5 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 9 Losses: 5 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 540 bankRoll.Max: 570
+tallyOutcome exit: 3     new bankRoll: Amount: 540 Min: 0 Max: 570 Streak: LastOutcome: 3 Wins: 9 Losses: 5 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 2
+        wager: 20
+here streak: LastOutcome: 3 Wins: 9 Losses: 5 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L2 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 40 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [8♣ 8♦], Player: [2♥ 6♠]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [8♣ 8♦ 8♥] Total: 24
+2023/03/21 21:23:42 Dealer busted! Hand: [8♣ 8♦ 8♥]
+tallyOutcome entry: 2    current bankRoll: Amount: 540 Min: 0 Max: 570 Streak: LastOutcome: 3 Wins: 9 Losses: 5 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 2
+        wager: 40
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 10 Losses: 5 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 10 Losses: 5 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 580 bankRoll.Max: 570
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 580 Min: 0 Max: 580 Streak: LastOutcome: 2 Wins: 10 Losses: 5 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+        wager: 40
+here streak: LastOutcome: 2 Wins: 10 Losses: 5 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 40 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [J♣ K♠], Player: [K♣ Q♠]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Round pushes. Dealer: [J♣ K♠], Player: [K♣ Q♠]
+tallyOutcome entry: 1    current bankRoll: Amount: 580 Min: 0 Max: 580 Streak: LastOutcome: 2 Wins: 10 Losses: 5 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+        wager: 40
+talyOutcome - PUSHBANKROLL STREAK: LastOutcome: 2 Wins: 10 Losses: 5 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 580 bankRoll.Max: 580
+tallyOutcome exit: 1     new bankRoll: Amount: 580 Min: 0 Max: 580 Streak: LastOutcome: 2 Wins: 10 Losses: 5 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+        wager: 40
+here streak: LastOutcome: 2 Wins: 10 Losses: 5 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+WAGER_ACTION: 5
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 40 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [9♦ A♣], Player: [4♦ Q♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer wins. Dealer: [9♦ A♣], Player: [4♦ Q♥]
+tallyOutcome entry: 3    current bankRoll: Amount: 580 Min: 0 Max: 580 Streak: LastOutcome: 2 Wins: 10 Losses: 5 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+        wager: 40
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 10 Losses: 6 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 10 Losses: 5 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 10 Losses: 6 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 10 Losses: 6 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 540 bankRoll.Max: 580
+tallyOutcome exit: 3     new bankRoll: Amount: 540 Min: 0 Max: 580 Streak: LastOutcome: 3 Wins: 10 Losses: 6 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 2
+        wager: 40
+here streak: LastOutcome: 3 Wins: 10 Losses: 6 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 80 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [3♠ 5♥], Player: [6♥ 4♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [3♠ 5♥ 5♣] Total: 13
+2023/03/21 21:23:42 Dealer hits. Hand: [3♠ 5♥ 5♣ A♣] Total: 14
+2023/03/21 21:23:42 Dealer hits. Hand: [3♠ 5♥ 5♣ A♣ 10♠] Total: 24
+2023/03/21 21:23:42 Dealer busted! Hand: [3♠ 5♥ 5♣ A♣ 10♠]
+tallyOutcome entry: 2    current bankRoll: Amount: 540 Min: 0 Max: 580 Streak: LastOutcome: 3 Wins: 10 Losses: 6 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 2
+        wager: 80
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 11 Losses: 6 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 11 Losses: 6 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 620 bankRoll.Max: 580
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 620 Min: 0 Max: 620 Streak: LastOutcome: 2 Wins: 11 Losses: 6 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+        wager: 80
+here streak: LastOutcome: 2 Wins: 11 Losses: 6 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 80 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [8♦ 8♥], Player: [5♥ A♦]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [8♦ 8♥ 7♥] Total: 23
+2023/03/21 21:23:42 Dealer busted! Hand: [8♦ 8♥ 7♥]
+tallyOutcome entry: 2    current bankRoll: Amount: 620 Min: 0 Max: 620 Streak: LastOutcome: 2 Wins: 11 Losses: 6 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+        wager: 80
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 12 Losses: 6 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 12 Losses: 6 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 700 bankRoll.Max: 620
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 700 Min: 0 Max: 700 Streak: LastOutcome: 2 Wins: 12 Losses: 6 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+        wager: 80
+here streak: LastOutcome: 2 Wins: 12 Losses: 6 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W2 ==> 7
+BETTINGACTION_DECREASE - half bet
+Compare: wg.Amount: 40 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [10♦ A♣], Player: [3♣ 10♦]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer wins. Dealer: [10♦ A♣], Player: [3♣ 10♦]
+tallyOutcome entry: 3    current bankRoll: Amount: 700 Min: 0 Max: 700 Streak: LastOutcome: 2 Wins: 12 Losses: 6 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+        wager: 40
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 12 Losses: 7 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 12 Losses: 6 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 12 Losses: 7 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 12 Losses: 7 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 660 bankRoll.Max: 700
+tallyOutcome exit: 3     new bankRoll: Amount: 660 Min: 0 Max: 700 Streak: LastOutcome: 3 Wins: 12 Losses: 7 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 2
+        wager: 40
+here streak: LastOutcome: 3 Wins: 12 Losses: 7 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 80 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [A♦ 3♥], Player: [K♥ A♠]
+tallyOutcome entry: 2    current bankRoll: Amount: 660 Min: 0 Max: 700 Streak: LastOutcome: 3 Wins: 12 Losses: 7 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 2
+        wager: 80
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 13 Losses: 7 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 13 Losses: 7 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 740 bankRoll.Max: 700
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 740 Min: 0 Max: 740 Streak: LastOutcome: 2 Wins: 13 Losses: 7 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+        wager: 80
+here streak: LastOutcome: 2 Wins: 13 Losses: 7 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 80 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [6♠ 5♠], Player: [A♦ 9♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [6♠ 5♠ 5♦] Total: 16
+2023/03/21 21:23:42 Dealer hits. Hand: [6♠ 5♠ 5♦ K♦] Total: 26
+2023/03/21 21:23:42 Dealer busted! Hand: [6♠ 5♠ 5♦ K♦]
+tallyOutcome entry: 2    current bankRoll: Amount: 740 Min: 0 Max: 740 Streak: LastOutcome: 2 Wins: 13 Losses: 7 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+        wager: 80
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 14 Losses: 7 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 14 Losses: 7 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 820 bankRoll.Max: 740
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 820 Min: 0 Max: 820 Streak: LastOutcome: 2 Wins: 14 Losses: 7 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+        wager: 80
+here streak: LastOutcome: 2 Wins: 14 Losses: 7 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W2 ==> 7
+BETTINGACTION_DECREASE - half bet
+Compare: wg.Amount: 40 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [K♥ 10♦], Player: [2♥ 9♦]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer wins. Dealer: [K♥ 10♦], Player: [2♥ 9♦]
+tallyOutcome entry: 3    current bankRoll: Amount: 820 Min: 0 Max: 820 Streak: LastOutcome: 2 Wins: 14 Losses: 7 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+        wager: 40
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 14 Losses: 8 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 14 Losses: 7 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 14 Losses: 8 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 14 Losses: 8 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 780 bankRoll.Max: 820
+tallyOutcome exit: 3     new bankRoll: Amount: 780 Min: 0 Max: 820 Streak: LastOutcome: 3 Wins: 14 Losses: 8 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 2
+        wager: 40
+here streak: LastOutcome: 3 Wins: 14 Losses: 8 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 80 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [3♥ 8♣], Player: [K♠ 9♠]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [3♥ 8♣ J♦] Total: 21
+2023/03/21 21:23:42 Dealer wins. Dealer: [3♥ 8♣ J♦], Player: [K♠ 9♠]
+tallyOutcome entry: 3    current bankRoll: Amount: 780 Min: 0 Max: 820 Streak: LastOutcome: 3 Wins: 14 Losses: 8 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 2
+        wager: 80
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 14 Losses: 9 CWins: 0 CLosses: 2 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 14 Losses: 8 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 2
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 14 Losses: 9 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 14 Losses: 9 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 700 bankRoll.Max: 820
+tallyOutcome exit: 3     new bankRoll: Amount: 700 Min: 0 Max: 820 Streak: LastOutcome: 3 Wins: 14 Losses: 9 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 2
+        wager: 80
+here streak: LastOutcome: 3 Wins: 14 Losses: 9 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L2 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 160 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [4♥ 9♥], Player: [J♣ 5♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [4♥ 9♥ J♦] Total: 23
+2023/03/21 21:23:42 Dealer busted! Hand: [4♥ 9♥ J♦]
+tallyOutcome entry: 2    current bankRoll: Amount: 700 Min: 0 Max: 820 Streak: LastOutcome: 3 Wins: 14 Losses: 9 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 2
+        wager: 160
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 15 Losses: 9 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 15 Losses: 9 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 860 bankRoll.Max: 820
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 860 Min: 0 Max: 860 Streak: LastOutcome: 2 Wins: 15 Losses: 9 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+        wager: 160
+here streak: LastOutcome: 2 Wins: 15 Losses: 9 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 160 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [8♣ 7♥], Player: [8♦ 8♦]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [8♣ 7♥ K♠] Total: 25
+2023/03/21 21:23:42 Dealer busted! Hand: [8♣ 7♥ K♠]
+tallyOutcome entry: 2    current bankRoll: Amount: 860 Min: 0 Max: 860 Streak: LastOutcome: 2 Wins: 15 Losses: 9 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 2
+        wager: 160
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 16 Losses: 9 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 16 Losses: 9 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 1020 bankRoll.Max: 860
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 1020 Min: 0 Max: 1020 Streak: LastOutcome: 2 Wins: 16 Losses: 9 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+        wager: 160
+here streak: LastOutcome: 2 Wins: 16 Losses: 9 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W2 ==> 7
+BETTINGACTION_DECREASE - half bet
+Compare: wg.Amount: 80 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [8♠ 9♠], Player: [10♠ 9♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Player wins! Dealer: [8♠ 9♠], Player: [10♠ 9♥]
+tallyOutcome entry: 2    current bankRoll: Amount: 1020 Min: 0 Max: 1020 Streak: LastOutcome: 2 Wins: 16 Losses: 9 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 2
+        wager: 80
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 17 Losses: 9 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 17 Losses: 9 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 1100 bankRoll.Max: 1020
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 1100 Min: 0 Max: 1100 Streak: LastOutcome: 2 Wins: 17 Losses: 9 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 2
+        wager: 80
+here streak: LastOutcome: 2 Wins: 17 Losses: 9 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 3
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W3 ==> 8
+BETTINGACTION_STAND - keep bet the same
+Compare: wg.Amount: 80 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [7♠ 10♥], Player: [4♣ 7♦]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer wins. Dealer: [7♠ 10♥], Player: [4♣ 7♦]
+tallyOutcome entry: 3    current bankRoll: Amount: 1100 Min: 0 Max: 1100 Streak: LastOutcome: 2 Wins: 17 Losses: 9 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 2
+        wager: 80
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 17 Losses: 10 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 17 Losses: 9 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 2
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 17 Losses: 10 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 17 Losses: 10 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 1020 bankRoll.Max: 1100
+tallyOutcome exit: 3     new bankRoll: Amount: 1020 Min: 0 Max: 1100 Streak: LastOutcome: 3 Wins: 17 Losses: 10 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 2
+        wager: 80
+here streak: LastOutcome: 3 Wins: 17 Losses: 10 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 160 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [Q♦ 3♦], Player: [6♦ 6♠]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [Q♦ 3♦ 8♣] Total: 21
+2023/03/21 21:23:42 Dealer wins. Dealer: [Q♦ 3♦ 8♣], Player: [6♦ 6♠]
+tallyOutcome entry: 3    current bankRoll: Amount: 1020 Min: 0 Max: 1100 Streak: LastOutcome: 3 Wins: 17 Losses: 10 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 2
+        wager: 160
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 17 Losses: 11 CWins: 0 CLosses: 2 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 17 Losses: 10 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 2
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 17 Losses: 11 CWins: 0 CLosses: 2 MAXCWins: 3 MAXCLosses: 2
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 17 Losses: 11 CWins: 0 CLosses: 2 MAXCWins: 3 MAXCLosses: 2
+
+DEBUG compare: nbr.Amount: 860 bankRoll.Max: 1100
+tallyOutcome exit: 3     new bankRoll: Amount: 860 Min: 0 Max: 1100 Streak: LastOutcome: 3 Wins: 17 Losses: 11 CWins: 0 CLosses: 2 MAXCWins: 3 MAXCLosses: 2
+        wager: 160
+here streak: LastOutcome: 3 Wins: 17 Losses: 11 CWins: 0 CLosses: 2 MAXCWins: 3 MAXCLosses: 2
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L2 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 320 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [3♦ 10♦], Player: [2♣ 9♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [3♦ 10♦ 7♦] Total: 20
+2023/03/21 21:23:42 Dealer wins. Dealer: [3♦ 10♦ 7♦], Player: [2♣ 9♣]
+tallyOutcome entry: 3    current bankRoll: Amount: 860 Min: 0 Max: 1100 Streak: LastOutcome: 3 Wins: 17 Losses: 11 CWins: 0 CLosses: 2 MAXCWins: 3 MAXCLosses: 2
+        wager: 320
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 17 Losses: 12 CWins: 0 CLosses: 3 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 17 Losses: 11 CWins: 0 CLosses: 2 MAXCWins: 3 MAXCLosses: 2
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 17 Losses: 12 CWins: 0 CLosses: 3 MAXCWins: 3 MAXCLosses: 3
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 17 Losses: 12 CWins: 0 CLosses: 3 MAXCWins: 3 MAXCLosses: 3
+
+DEBUG compare: nbr.Amount: 540 bankRoll.Max: 1100
+tallyOutcome exit: 3     new bankRoll: Amount: 540 Min: 0 Max: 1100 Streak: LastOutcome: 3 Wins: 17 Losses: 12 CWins: 0 CLosses: 3 MAXCWins: 3 MAXCLosses: 3
+        wager: 320
+here streak: LastOutcome: 3 Wins: 17 Losses: 12 CWins: 0 CLosses: 3 MAXCWins: 3 MAXCLosses: 3
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 3
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L3 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 640 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [J♦ 7♠], Player: [2♥ 3♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer wins. Dealer: [J♦ 7♠], Player: [2♥ 3♣]
+tallyOutcome entry: 3    current bankRoll: Amount: 540 Min: 0 Max: 1100 Streak: LastOutcome: 3 Wins: 17 Losses: 12 CWins: 0 CLosses: 3 MAXCWins: 3 MAXCLosses: 3
+        wager: 640
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 17 Losses: 13 CWins: 0 CLosses: 4 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 17 Losses: 12 CWins: 0 CLosses: 3 MAXCWins: 3 MAXCLosses: 3
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 17 Losses: 13 CWins: 0 CLosses: 4 MAXCWins: 3 MAXCLosses: 4
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 17 Losses: 13 CWins: 0 CLosses: 4 MAXCWins: 3 MAXCLosses: 4
+
+DEBUG compare: nbr.Amount: -100 bankRoll.Max: 1100
+        NEW MIN
+tallyOutcome exit: 3     new bankRoll: Amount: -100 Min: -100 Max: 1100 Streak: LastOutcome: 3 Wins: 17 Losses: 13 CWins: 0 CLosses: 4 MAXCWins: 3 MAXCLosses: 4
+        wager: 640
+here streak: LastOutcome: 3 Wins: 17 Losses: 13 CWins: 0 CLosses: 4 MAXCWins: 3 MAXCLosses: 4
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 4
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L4 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 1280 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [8♥ J♦], Player: [K♥ 4♠]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer wins. Dealer: [8♥ J♦], Player: [K♥ 4♠]
+tallyOutcome entry: 3    current bankRoll: Amount: -100 Min: -100 Max: 1100 Streak: LastOutcome: 3 Wins: 17 Losses: 13 CWins: 0 CLosses: 4 MAXCWins: 3 MAXCLosses: 4
+        wager: 1280
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 17 Losses: 14 CWins: 0 CLosses: 5 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 17 Losses: 13 CWins: 0 CLosses: 4 MAXCWins: 3 MAXCLosses: 4
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 17 Losses: 14 CWins: 0 CLosses: 5 MAXCWins: 3 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 17 Losses: 14 CWins: 0 CLosses: 5 MAXCWins: 3 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: -1380 bankRoll.Max: 1100
+        NEW MIN
+tallyOutcome exit: 3     new bankRoll: Amount: -1380 Min: -1380 Max: 1100 Streak: LastOutcome: 3 Wins: 17 Losses: 14 CWins: 0 CLosses: 5 MAXCWins: 3 MAXCLosses: 5
+        wager: 1280
+here streak: LastOutcome: 3 Wins: 17 Losses: 14 CWins: 0 CLosses: 5 MAXCWins: 3 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 5
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L5 winsKey: W0 ==> 5
+Compare: wg.Amount: 1280 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [Q♥ 5♥], Player: [K♦ J♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [Q♥ 5♥ 8♠] Total: 23
+2023/03/21 21:23:42 Dealer busted! Hand: [Q♥ 5♥ 8♠]
+tallyOutcome entry: 2    current bankRoll: Amount: -1380 Min: -1380 Max: 1100 Streak: LastOutcome: 3 Wins: 17 Losses: 14 CWins: 0 CLosses: 5 MAXCWins: 3 MAXCLosses: 5
+        wager: 1280
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 18 Losses: 14 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 18 Losses: 14 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: -100 bankRoll.Max: 1100
+tallyOutcome exit: 2     new bankRoll: Amount: -100 Min: -1380 Max: 1100 Streak: LastOutcome: 2 Wins: 18 Losses: 14 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+        wager: 1280
+here streak: LastOutcome: 2 Wins: 18 Losses: 14 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 1280 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [2♠ K♣], Player: [5♦ 10♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [2♠ K♣ K♦] Total: 22
+2023/03/21 21:23:42 Dealer busted! Hand: [2♠ K♣ K♦]
+tallyOutcome entry: 2    current bankRoll: Amount: -100 Min: -1380 Max: 1100 Streak: LastOutcome: 2 Wins: 18 Losses: 14 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+        wager: 1280
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 19 Losses: 14 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 19 Losses: 14 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: 1180 bankRoll.Max: 1100
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 1180 Min: -1380 Max: 1180 Streak: LastOutcome: 2 Wins: 19 Losses: 14 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 5
+        wager: 1280
+here streak: LastOutcome: 2 Wins: 19 Losses: 14 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W2 ==> 7
+BETTINGACTION_DECREASE - half bet
+Compare: wg.Amount: 640 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [J♠ 7♣], Player: [3♣ 9♦]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer wins. Dealer: [J♠ 7♣], Player: [3♣ 9♦]
+tallyOutcome entry: 3    current bankRoll: Amount: 1180 Min: -1380 Max: 1180 Streak: LastOutcome: 2 Wins: 19 Losses: 14 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 5
+        wager: 640
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 19 Losses: 15 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 19 Losses: 14 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 19 Losses: 15 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 19 Losses: 15 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: 540 bankRoll.Max: 1180
+tallyOutcome exit: 3     new bankRoll: Amount: 540 Min: -1380 Max: 1180 Streak: LastOutcome: 3 Wins: 19 Losses: 15 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 5
+        wager: 640
+here streak: LastOutcome: 3 Wins: 19 Losses: 15 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 1280 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [4♥ 4♦], Player: [8♥ 7♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [4♥ 4♦ 4♣] Total: 12
+2023/03/21 21:23:42 Dealer hits. Hand: [4♥ 4♦ 4♣ 7♦] Total: 19
+2023/03/21 21:23:42 Dealer wins. Dealer: [4♥ 4♦ 4♣ 7♦], Player: [8♥ 7♣]
+tallyOutcome entry: 3    current bankRoll: Amount: 540 Min: -1380 Max: 1180 Streak: LastOutcome: 3 Wins: 19 Losses: 15 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 5
+        wager: 1280
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 19 Losses: 16 CWins: 0 CLosses: 2 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 19 Losses: 15 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 19 Losses: 16 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 19 Losses: 16 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: -740 bankRoll.Max: 1180
+tallyOutcome exit: 3     new bankRoll: Amount: -740 Min: -1380 Max: 1180 Streak: LastOutcome: 3 Wins: 19 Losses: 16 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 5
+        wager: 1280
+here streak: LastOutcome: 3 Wins: 19 Losses: 16 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L2 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 2560 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [3♥ 7♥], Player: [4♦ 6♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [3♥ 7♥ Q♠] Total: 20
+2023/03/21 21:23:42 Dealer wins. Dealer: [3♥ 7♥ Q♠], Player: [4♦ 6♥]
+tallyOutcome entry: 3    current bankRoll: Amount: -740 Min: -1380 Max: 1180 Streak: LastOutcome: 3 Wins: 19 Losses: 16 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 5
+        wager: 2560
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 19 Losses: 17 CWins: 0 CLosses: 3 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 19 Losses: 16 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 19 Losses: 17 CWins: 0 CLosses: 3 MAXCWins: 2 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 19 Losses: 17 CWins: 0 CLosses: 3 MAXCWins: 2 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: -3300 bankRoll.Max: 1180
+        NEW MIN
+tallyOutcome exit: 3     new bankRoll: Amount: -3300 Min: -3300 Max: 1180 Streak: LastOutcome: 3 Wins: 19 Losses: 17 CWins: 0 CLosses: 3 MAXCWins: 2 MAXCLosses: 5
+        wager: 2560
+here streak: LastOutcome: 3 Wins: 19 Losses: 17 CWins: 0 CLosses: 3 MAXCWins: 2 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 3
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L3 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 5120 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [5♠ K♠], Player: [A♥ 9♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [5♠ K♠ 8♣] Total: 23
+2023/03/21 21:23:42 Dealer busted! Hand: [5♠ K♠ 8♣]
+tallyOutcome entry: 2    current bankRoll: Amount: -3300 Min: -3300 Max: 1180 Streak: LastOutcome: 3 Wins: 19 Losses: 17 CWins: 0 CLosses: 3 MAXCWins: 2 MAXCLosses: 5
+        wager: 5120
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 20 Losses: 17 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 20 Losses: 17 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: 1820 bankRoll.Max: 1180
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 1820 Min: -3300 Max: 1820 Streak: LastOutcome: 2 Wins: 20 Losses: 17 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+        wager: 5120
+here streak: LastOutcome: 2 Wins: 20 Losses: 17 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 5120 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [8♦ 5♥], Player: [9♣ 3♠]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [8♦ 5♥ 9♥] Total: 22
+2023/03/21 21:23:42 Dealer busted! Hand: [8♦ 5♥ 9♥]
+tallyOutcome entry: 2    current bankRoll: Amount: 1820 Min: -3300 Max: 1820 Streak: LastOutcome: 2 Wins: 20 Losses: 17 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+        wager: 5120
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 21 Losses: 17 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 21 Losses: 17 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: 6940 bankRoll.Max: 1820
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 6940 Min: -3300 Max: 6940 Streak: LastOutcome: 2 Wins: 21 Losses: 17 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 5
+        wager: 5120
+here streak: LastOutcome: 2 Wins: 21 Losses: 17 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W2 ==> 7
+BETTINGACTION_DECREASE - half bet
+Compare: wg.Amount: 2560 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [2♥ K♦], Player: [4♥ A♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [2♥ K♦ 9♠] Total: 21
+2023/03/21 21:23:42 Dealer wins. Dealer: [2♥ K♦ 9♠], Player: [4♥ A♥]
+tallyOutcome entry: 3    current bankRoll: Amount: 6940 Min: -3300 Max: 6940 Streak: LastOutcome: 2 Wins: 21 Losses: 17 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 5
+        wager: 2560
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 21 Losses: 18 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 21 Losses: 17 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 21 Losses: 18 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 21 Losses: 18 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: 4380 bankRoll.Max: 6940
+tallyOutcome exit: 3     new bankRoll: Amount: 4380 Min: -3300 Max: 6940 Streak: LastOutcome: 3 Wins: 21 Losses: 18 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 5
+        wager: 2560
+here streak: LastOutcome: 3 Wins: 21 Losses: 18 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 5120 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [4♦ 10♣], Player: [K♣ 7♠]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [4♦ 10♣ 7♠] Total: 21
+2023/03/21 21:23:42 Dealer wins. Dealer: [4♦ 10♣ 7♠], Player: [K♣ 7♠]
+tallyOutcome entry: 3    current bankRoll: Amount: 4380 Min: -3300 Max: 6940 Streak: LastOutcome: 3 Wins: 21 Losses: 18 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 5
+        wager: 5120
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 21 Losses: 19 CWins: 0 CLosses: 2 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 21 Losses: 18 CWins: 0 CLosses: 1 MAXCWins: 2 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 21 Losses: 19 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 21 Losses: 19 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: -740 bankRoll.Max: 6940
+tallyOutcome exit: 3     new bankRoll: Amount: -740 Min: -3300 Max: 6940 Streak: LastOutcome: 3 Wins: 21 Losses: 19 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 5
+        wager: 5120
+here streak: LastOutcome: 3 Wins: 21 Losses: 19 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L2 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 10240 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [3♣ 8♥], Player: [2♦ 6♦]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [3♣ 8♥ Q♣] Total: 21
+2023/03/21 21:23:42 Dealer wins. Dealer: [3♣ 8♥ Q♣], Player: [2♦ 6♦]
+tallyOutcome entry: 3    current bankRoll: Amount: -740 Min: -3300 Max: 6940 Streak: LastOutcome: 3 Wins: 21 Losses: 19 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 5
+        wager: 10240
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 21 Losses: 20 CWins: 0 CLosses: 3 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 21 Losses: 19 CWins: 0 CLosses: 2 MAXCWins: 2 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 21 Losses: 20 CWins: 0 CLosses: 3 MAXCWins: 2 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 21 Losses: 20 CWins: 0 CLosses: 3 MAXCWins: 2 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: -10980 bankRoll.Max: 6940
+        NEW MIN
+tallyOutcome exit: 3     new bankRoll: Amount: -10980 Min: -10980 Max: 6940 Streak: LastOutcome: 3 Wins: 21 Losses: 20 CWins: 0 CLosses: 3 MAXCWins: 2 MAXCLosses: 5
+        wager: 10240
+here streak: LastOutcome: 3 Wins: 21 Losses: 20 CWins: 0 CLosses: 3 MAXCWins: 2 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 3
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L3 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 20480 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [9♣ 9♥], Player: [7♦ 2♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer wins. Dealer: [9♣ 9♥], Player: [7♦ 2♥]
+tallyOutcome entry: 3    current bankRoll: Amount: -10980 Min: -10980 Max: 6940 Streak: LastOutcome: 3 Wins: 21 Losses: 20 CWins: 0 CLosses: 3 MAXCWins: 2 MAXCLosses: 5
+        wager: 20480
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 21 Losses: 21 CWins: 0 CLosses: 4 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 21 Losses: 20 CWins: 0 CLosses: 3 MAXCWins: 2 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 21 Losses: 21 CWins: 0 CLosses: 4 MAXCWins: 2 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 21 Losses: 21 CWins: 0 CLosses: 4 MAXCWins: 2 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: -31460 bankRoll.Max: 6940
+        NEW MIN
+tallyOutcome exit: 3     new bankRoll: Amount: -31460 Min: -31460 Max: 6940 Streak: LastOutcome: 3 Wins: 21 Losses: 21 CWins: 0 CLosses: 4 MAXCWins: 2 MAXCLosses: 5
+        wager: 20480
+here streak: LastOutcome: 3 Wins: 21 Losses: 21 CWins: 0 CLosses: 4 MAXCWins: 2 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 4
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L4 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 40960 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [2♦ J♥], Player: [A♥ 7♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [2♦ J♥ A♠] Total: 13
+2023/03/21 21:23:42 Dealer hits. Hand: [2♦ J♥ A♠ J♠] Total: 23
+2023/03/21 21:23:42 Dealer busted! Hand: [2♦ J♥ A♠ J♠]
+tallyOutcome entry: 2    current bankRoll: Amount: -31460 Min: -31460 Max: 6940 Streak: LastOutcome: 3 Wins: 21 Losses: 21 CWins: 0 CLosses: 4 MAXCWins: 2 MAXCLosses: 5
+        wager: 40960
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 22 Losses: 21 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 22 Losses: 21 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: 9500 bankRoll.Max: 6940
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 9500 Min: -31460 Max: 9500 Streak: LastOutcome: 2 Wins: 22 Losses: 21 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+        wager: 40960
+here streak: LastOutcome: 2 Wins: 22 Losses: 21 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 40960 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [A♠ 7♥], Player: [8♥ A♠]
+2023/03/21 21:23:42 Player hits. Hand: [8♥ A♠ J♦] Total: 19
+2023/03/21 21:23:42 Player hits. Hand: [8♥ A♠ J♦ J♥] Total: 29
+2023/03/21 21:23:42 Player busted!
+tallyOutcome entry: 3    current bankRoll: Amount: 9500 Min: -31460 Max: 9500 Streak: LastOutcome: 2 Wins: 22 Losses: 21 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+        wager: 40960
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 22 Losses: 22 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 22 Losses: 21 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 22 Losses: 22 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 22 Losses: 22 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: -31460 bankRoll.Max: 9500
+tallyOutcome exit: 3     new bankRoll: Amount: -31460 Min: -31460 Max: 9500 Streak: LastOutcome: 3 Wins: 22 Losses: 22 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 5
+        wager: 40960
+here streak: LastOutcome: 3 Wins: 22 Losses: 22 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 81920 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [3♠ 5♣], Player: [6♣ 6♦]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [3♠ 5♣ 3♠] Total: 11
+2023/03/21 21:23:42 Dealer hits. Hand: [3♠ 5♣ 3♠ A♠] Total: 12
+2023/03/21 21:23:42 Dealer hits. Hand: [3♠ 5♣ 3♠ A♠ A♣] Total: 13
+2023/03/21 21:23:42 Dealer hits. Hand: [3♠ 5♣ 3♠ A♠ A♣ J♣] Total: 23
+2023/03/21 21:23:42 Dealer busted! Hand: [3♠ 5♣ 3♠ A♠ A♣ J♣]
+tallyOutcome entry: 2    current bankRoll: Amount: -31460 Min: -31460 Max: 9500 Streak: LastOutcome: 3 Wins: 22 Losses: 22 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 5
+        wager: 81920
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 23 Losses: 22 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 23 Losses: 22 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: 50460 bankRoll.Max: 9500
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 50460 Min: -31460 Max: 50460 Streak: LastOutcome: 2 Wins: 23 Losses: 22 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+        wager: 81920
+here streak: LastOutcome: 2 Wins: 23 Losses: 22 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 81920 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [K♥ 8♠], Player: [3♦ 6♠]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer wins. Dealer: [K♥ 8♠], Player: [3♦ 6♠]
+tallyOutcome entry: 3    current bankRoll: Amount: 50460 Min: -31460 Max: 50460 Streak: LastOutcome: 2 Wins: 23 Losses: 22 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+        wager: 81920
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 23 Losses: 23 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 23 Losses: 22 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 23 Losses: 23 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 23 Losses: 23 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: -31460 bankRoll.Max: 50460
+tallyOutcome exit: 3     new bankRoll: Amount: -31460 Min: -31460 Max: 50460 Streak: LastOutcome: 3 Wins: 23 Losses: 23 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 5
+        wager: 81920
+here streak: LastOutcome: 3 Wins: 23 Losses: 23 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 163840 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [4♦ 5♣], Player: [5♣ 4♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [4♦ 5♣ 9♠] Total: 18
+2023/03/21 21:23:42 Dealer wins. Dealer: [4♦ 5♣ 9♠], Player: [5♣ 4♣]
+tallyOutcome entry: 3    current bankRoll: Amount: -31460 Min: -31460 Max: 50460 Streak: LastOutcome: 3 Wins: 23 Losses: 23 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 5
+        wager: 163840
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 23 Losses: 24 CWins: 0 CLosses: 2 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 23 Losses: 23 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 23 Losses: 24 CWins: 0 CLosses: 2 MAXCWins: 1 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 23 Losses: 24 CWins: 0 CLosses: 2 MAXCWins: 1 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: -195300 bankRoll.Max: 50460
+        NEW MIN
+tallyOutcome exit: 3     new bankRoll: Amount: -195300 Min: -195300 Max: 50460 Streak: LastOutcome: 3 Wins: 23 Losses: 24 CWins: 0 CLosses: 2 MAXCWins: 1 MAXCLosses: 5
+        wager: 163840
+here streak: LastOutcome: 3 Wins: 23 Losses: 24 CWins: 0 CLosses: 2 MAXCWins: 1 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L2 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 327680 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [2♦ 6♠], Player: [4♣ K♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [2♦ 6♠ 10♣] Total: 18
+2023/03/21 21:23:42 Dealer wins. Dealer: [2♦ 6♠ 10♣], Player: [4♣ K♥]
+tallyOutcome entry: 3    current bankRoll: Amount: -195300 Min: -195300 Max: 50460 Streak: LastOutcome: 3 Wins: 23 Losses: 24 CWins: 0 CLosses: 2 MAXCWins: 1 MAXCLosses: 5
+        wager: 327680
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 23 Losses: 25 CWins: 0 CLosses: 3 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 23 Losses: 24 CWins: 0 CLosses: 2 MAXCWins: 1 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 23 Losses: 25 CWins: 0 CLosses: 3 MAXCWins: 1 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 23 Losses: 25 CWins: 0 CLosses: 3 MAXCWins: 1 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: -522980 bankRoll.Max: 50460
+        NEW MIN
+tallyOutcome exit: 3     new bankRoll: Amount: -522980 Min: -522980 Max: 50460 Streak: LastOutcome: 3 Wins: 23 Losses: 25 CWins: 0 CLosses: 3 MAXCWins: 1 MAXCLosses: 5
+        wager: 327680
+here streak: LastOutcome: 3 Wins: 23 Losses: 25 CWins: 0 CLosses: 3 MAXCWins: 1 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 3
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L3 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 655360 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [A♥ A♣], Player: [2♣ 5♦]
+2023/03/21 21:23:42 Player hits. Hand: [2♣ 5♦ 3♥] Total: 10
+2023/03/21 21:23:42 Player hits. Hand: [2♣ 5♦ 3♥ Q♠] Total: 20
+2023/03/21 21:23:42 Player hits. Hand: [2♣ 5♦ 3♥ Q♠ 9♦] Total: 29
+2023/03/21 21:23:42 Player busted!
+tallyOutcome entry: 3    current bankRoll: Amount: -522980 Min: -522980 Max: 50460 Streak: LastOutcome: 3 Wins: 23 Losses: 25 CWins: 0 CLosses: 3 MAXCWins: 1 MAXCLosses: 5
+        wager: 655360
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 23 Losses: 26 CWins: 0 CLosses: 4 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 23 Losses: 25 CWins: 0 CLosses: 3 MAXCWins: 1 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 23 Losses: 26 CWins: 0 CLosses: 4 MAXCWins: 1 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 23 Losses: 26 CWins: 0 CLosses: 4 MAXCWins: 1 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: -1178340 bankRoll.Max: 50460
+        NEW MIN
+tallyOutcome exit: 3     new bankRoll: Amount: -1178340 Min: -1178340 Max: 50460 Streak: LastOutcome: 3 Wins: 23 Losses: 26 CWins: 0 CLosses: 4 MAXCWins: 1 MAXCLosses: 5
+        wager: 655360
+here streak: LastOutcome: 3 Wins: 23 Losses: 26 CWins: 0 CLosses: 4 MAXCWins: 1 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 4
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L4 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 1310720 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [4♣ 4♠], Player: [K♣ 5♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [4♣ 4♠ 10♥] Total: 18
+2023/03/21 21:23:42 Dealer wins. Dealer: [4♣ 4♠ 10♥], Player: [K♣ 5♥]
+tallyOutcome entry: 3    current bankRoll: Amount: -1178340 Min: -1178340 Max: 50460 Streak: LastOutcome: 3 Wins: 23 Losses: 26 CWins: 0 CLosses: 4 MAXCWins: 1 MAXCLosses: 5
+        wager: 1310720
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 23 Losses: 27 CWins: 0 CLosses: 5 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 23 Losses: 26 CWins: 0 CLosses: 4 MAXCWins: 1 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 23 Losses: 27 CWins: 0 CLosses: 5 MAXCWins: 1 MAXCLosses: 5
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 23 Losses: 27 CWins: 0 CLosses: 5 MAXCWins: 1 MAXCLosses: 5
+
+DEBUG compare: nbr.Amount: -2489060 bankRoll.Max: 50460
+        NEW MIN
+tallyOutcome exit: 3     new bankRoll: Amount: -2489060 Min: -2489060 Max: 50460 Streak: LastOutcome: 3 Wins: 23 Losses: 27 CWins: 0 CLosses: 5 MAXCWins: 1 MAXCLosses: 5
+        wager: 1310720
+here streak: LastOutcome: 3 Wins: 23 Losses: 27 CWins: 0 CLosses: 5 MAXCWins: 1 MAXCLosses: 5
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 5
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L5 winsKey: W0 ==> 5
+Compare: wg.Amount: 1310720 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [5♣ 6♦], Player: [7♥ 5♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [5♣ 6♦ A♥] Total: 12
+2023/03/21 21:23:42 Dealer hits. Hand: [5♣ 6♦ A♥ 6♦] Total: 18
+2023/03/21 21:23:42 Dealer wins. Dealer: [5♣ 6♦ A♥ 6♦], Player: [7♥ 5♥]
+tallyOutcome entry: 3    current bankRoll: Amount: -2489060 Min: -2489060 Max: 50460 Streak: LastOutcome: 3 Wins: 23 Losses: 27 CWins: 0 CLosses: 5 MAXCWins: 1 MAXCLosses: 5
+        wager: 1310720
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 3
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 23 Losses: 28 CWins: 0 CLosses: 6 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 3 Wins: 23 Losses: 27 CWins: 0 CLosses: 5 MAXCWins: 1 MAXCLosses: 5
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 23 Losses: 28 CWins: 0 CLosses: 6 MAXCWins: 1 MAXCLosses: 6
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 23 Losses: 28 CWins: 0 CLosses: 6 MAXCWins: 1 MAXCLosses: 6
+
+DEBUG compare: nbr.Amount: -3799780 bankRoll.Max: 50460
+        NEW MIN
+tallyOutcome exit: 3     new bankRoll: Amount: -3799780 Min: -3799780 Max: 50460 Streak: LastOutcome: 3 Wins: 23 Losses: 28 CWins: 0 CLosses: 6 MAXCWins: 1 MAXCLosses: 6
+        wager: 1310720
+here streak: LastOutcome: 3 Wins: 23 Losses: 28 CWins: 0 CLosses: 6 MAXCWins: 1 MAXCLosses: 6
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 6
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L6 winsKey: W0 ==> 8
+BETTINGACTION_STAND - keep bet the same
+Compare: wg.Amount: 1310720 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [2♦ 4♦], Player: [8♦ 7♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [2♦ 4♦ J♠] Total: 16
+2023/03/21 21:23:42 Dealer hits. Hand: [2♦ 4♦ J♠ 8♠] Total: 24
+2023/03/21 21:23:42 Dealer busted! Hand: [2♦ 4♦ J♠ 8♠]
+tallyOutcome entry: 2    current bankRoll: Amount: -3799780 Min: -3799780 Max: 50460 Streak: LastOutcome: 3 Wins: 23 Losses: 28 CWins: 0 CLosses: 6 MAXCWins: 1 MAXCLosses: 6
+        wager: 1310720
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 24 Losses: 28 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 24 Losses: 28 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+
+DEBUG compare: nbr.Amount: -2489060 bankRoll.Max: 50460
+tallyOutcome exit: 2     new bankRoll: Amount: -2489060 Min: -3799780 Max: 50460 Streak: LastOutcome: 2 Wins: 24 Losses: 28 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+        wager: 1310720
+here streak: LastOutcome: 2 Wins: 24 Losses: 28 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 1310720 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [7♥ 2♣], Player: [10♠ 3♦]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [7♥ 2♣ 5♠] Total: 14
+2023/03/21 21:23:42 Dealer hits. Hand: [7♥ 2♣ 5♠ 2♦] Total: 16
+2023/03/21 21:23:42 Dealer hits. Hand: [7♥ 2♣ 5♠ 2♦ 3♠] Total: 19
+2023/03/21 21:23:42 Dealer wins. Dealer: [7♥ 2♣ 5♠ 2♦ 3♠], Player: [10♠ 3♦]
+tallyOutcome entry: 3    current bankRoll: Amount: -2489060 Min: -3799780 Max: 50460 Streak: LastOutcome: 2 Wins: 24 Losses: 28 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+        wager: 1310720
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 24 Losses: 29 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 24 Losses: 28 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 24 Losses: 29 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 6
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 24 Losses: 29 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 6
+
+DEBUG compare: nbr.Amount: -3799780 bankRoll.Max: 50460
+tallyOutcome exit: 3     new bankRoll: Amount: -3799780 Min: -3799780 Max: 50460 Streak: LastOutcome: 3 Wins: 24 Losses: 29 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 6
+        wager: 1310720
+here streak: LastOutcome: 3 Wins: 24 Losses: 29 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 6
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 2621440 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [7♦ Q♥], Player: [A♣ J♠]
+tallyOutcome entry: 2    current bankRoll: Amount: -3799780 Min: -3799780 Max: 50460 Streak: LastOutcome: 3 Wins: 24 Losses: 29 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 6
+        wager: 2621440
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 25 Losses: 29 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 25 Losses: 29 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+
+DEBUG compare: nbr.Amount: -1178340 bankRoll.Max: 50460
+tallyOutcome exit: 2     new bankRoll: Amount: -1178340 Min: -3799780 Max: 50460 Streak: LastOutcome: 2 Wins: 25 Losses: 29 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+        wager: 2621440
+here streak: LastOutcome: 2 Wins: 25 Losses: 29 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 2621440 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [3♣ 4♠], Player: [6♥ Q♣]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [3♣ 4♠ 8♠] Total: 15
+2023/03/21 21:23:42 Dealer hits. Hand: [3♣ 4♠ 8♠ 2♣] Total: 17
+2023/03/21 21:23:42 Dealer wins. Dealer: [3♣ 4♠ 8♠ 2♣], Player: [6♥ Q♣]
+tallyOutcome entry: 3    current bankRoll: Amount: -1178340 Min: -3799780 Max: 50460 Streak: LastOutcome: 2 Wins: 25 Losses: 29 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+        wager: 2621440
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 25 Losses: 30 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 25 Losses: 29 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 25 Losses: 30 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 6
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 25 Losses: 30 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 6
+
+DEBUG compare: nbr.Amount: -3799780 bankRoll.Max: 50460
+tallyOutcome exit: 3     new bankRoll: Amount: -3799780 Min: -3799780 Max: 50460 Streak: LastOutcome: 3 Wins: 25 Losses: 30 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 6
+        wager: 2621440
+here streak: LastOutcome: 3 Wins: 25 Losses: 30 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 6
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 5242880 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [2♦ Q♠], Player: [Q♠ A♠]
+tallyOutcome entry: 2    current bankRoll: Amount: -3799780 Min: -3799780 Max: 50460 Streak: LastOutcome: 3 Wins: 25 Losses: 30 CWins: 0 CLosses: 1 MAXCWins: 1 MAXCLosses: 6
+        wager: 5242880
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 26 Losses: 30 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 26 Losses: 30 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+
+DEBUG compare: nbr.Amount: 1443100 bankRoll.Max: 50460
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 1443100 Min: -3799780 Max: 1443100 Streak: LastOutcome: 2 Wins: 26 Losses: 30 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+        wager: 5242880
+here streak: LastOutcome: 2 Wins: 26 Losses: 30 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W1 ==> 5
+Compare: wg.Amount: 5242880 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [6♥ 5♦], Player: [6♠ Q♦]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [6♥ 5♦ 5♦] Total: 16
+2023/03/21 21:23:42 Dealer hits. Hand: [6♥ 5♦ 5♦ Q♦] Total: 26
+2023/03/21 21:23:42 Dealer busted! Hand: [6♥ 5♦ 5♦ Q♦]
+tallyOutcome entry: 2    current bankRoll: Amount: 1443100 Min: -3799780 Max: 1443100 Streak: LastOutcome: 2 Wins: 26 Losses: 30 CWins: 1 CLosses: 0 MAXCWins: 1 MAXCLosses: 6
+        wager: 5242880
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 27 Losses: 30 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 6
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 27 Losses: 30 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 6
+
+DEBUG compare: nbr.Amount: 6685980 bankRoll.Max: 1443100
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 6685980 Min: -3799780 Max: 6685980 Streak: LastOutcome: 2 Wins: 27 Losses: 30 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 6
+        wager: 5242880
+here streak: LastOutcome: 2 Wins: 27 Losses: 30 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 6
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 2
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W2 ==> 7
+BETTINGACTION_DECREASE - half bet
+Compare: wg.Amount: 2621440 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [10♥ J♣], Player: [A♦ J♠]
+tallyOutcome entry: 2    current bankRoll: Amount: 6685980 Min: -3799780 Max: 6685980 Streak: LastOutcome: 2 Wins: 27 Losses: 30 CWins: 2 CLosses: 0 MAXCWins: 2 MAXCLosses: 6
+        wager: 2621440
+tallyOutcome COUNT WIN
+addWin() LastOutcome: 2 Wins: 28 Losses: 30 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 6
+
+BANKROLL STREAK: LastOutcome: 2 Wins: 28 Losses: 30 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 6
+
+DEBUG compare: nbr.Amount: 9307420 bankRoll.Max: 6685980
+        NEW MAX
+tallyOutcome exit: 2     new bankRoll: Amount: 9307420 Min: -3799780 Max: 9307420 Streak: LastOutcome: 2 Wins: 28 Losses: 30 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 6
+        wager: 2621440
+here streak: LastOutcome: 2 Wins: 28 Losses: 30 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 6
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_WIN - check out the streak, how many wins in a row? => 3
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L0 winsKey: W3 ==> 8
+BETTINGACTION_STAND - keep bet the same
+Compare: wg.Amount: 2621440 to DEFAULT_WAGER: 5
+2023/03/21 21:23:42 Round starts. Dealer: [J♥ 2♠], Player: [Q♥ K♥]
+2023/03/21 21:23:42 Player stands.
+2023/03/21 21:23:42 Dealer hits. Hand: [J♥ 2♠ 9♦] Total: 21
+2023/03/21 21:23:42 Dealer wins. Dealer: [J♥ 2♠ 9♦], Player: [Q♥ K♥]
+tallyOutcome entry: 3    current bankRoll: Amount: 9307420 Min: -3799780 Max: 9307420 Streak: LastOutcome: 2 Wins: 28 Losses: 30 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 6
+        wager: 2621440
+tallyOutcome COUNT LOSS
+addLoss() lastOutcome: 2
+addLoss() SCOMPARATOR: LastOutcome: 3 Wins: 28 Losses: 31 CWins: 0 CLosses: 1 MAXCWins: 0 MAXCLosses: 0
+
+addLoss() SCOMPARATOR2: LastOutcome: 2 Wins: 28 Losses: 30 CWins: 3 CLosses: 0 MAXCWins: 3 MAXCLosses: 6
+
+addLoss() FINAL     : LastOutcome: 3 Wins: 28 Losses: 31 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 6
+
+BANKROLL STREAK: LastOutcome: 3 Wins: 28 Losses: 31 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 6
+
+DEBUG compare: nbr.Amount: 6685980 bankRoll.Max: 9307420
+tallyOutcome exit: 3     new bankRoll: Amount: 6685980 Min: -3799780 Max: 9307420 Streak: LastOutcome: 3 Wins: 28 Losses: 31 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 6
+        wager: 2621440
+here streak: LastOutcome: 3 Wins: 28 Losses: 31 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 6
+
+WAGER_ACTION: 5
+        NewWager OUTCOME_LOSS - check out the streak, how many losses in a row? => 1
+--------- ------ GetBettingAction ------ -----------
+Determine action lossesKey: L1 winsKey: W0 ==> 6
+BETTINGACTION_INCREASE - double bet
+Compare: wg.Amount: 5242880 to DEFAULT_WAGER: 5
+tallyOutcome entry: 0    current bankRoll: Amount: 6685980 Min: -3799780 Max: 9307420 Streak: LastOutcome: 3 Wins: 28 Losses: 31 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 6
+        wager: 5242880
+talyOutcome - PUSHBANKROLL STREAK: LastOutcome: 3 Wins: 28 Losses: 31 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 6
+
+DEBUG compare: nbr.Amount: 6685980 bankRoll.Max: 9307420
+tallyOutcome exit: 0     new bankRoll: Amount: 6685980 Min: -3799780 Max: 9307420 Streak: LastOutcome: 3 Wins: 28 Losses: 31 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 6
+        wager: 5242880
+2023/03/21 21:23:42 Total Hands         61
+2023/03/21 21:23:42 Total Wins          28      (45.902%)
+2023/03/21 21:23:42 Total Losses        31      (50.820%)
+2023/03/21 21:23:42 Total Pushes        1       (1.639%)
+2023/03/21 21:23:42 Bank Roll   Amount: 6685980 Min: -3799780 Max: 9307420 Streak: LastOutcome: 3 Wins: 28 Losses: 31 CWins: 0 CLosses: 1 MAXCWins: 3 MAXCLosses: 6
+
+

@@ -17,6 +17,8 @@ BUSINESS LOGIC:
 - functionally, a "strategy" to "double" will also 
    - hit with that amount if more than 2 cards
 
+8:43pm
+
 
 THINGS not handled in original code:
 Gameplay:
@@ -78,6 +80,10 @@ TRACKING statistics (things I want to track)
  - # of consecutive wins (per streak)
  - # of consecutive losses (per streak)
  - histogram output of # of losses in a row (e.g. had three (3) streaks with four (4) losses in a row)
+ - max/min bankroll
+ - max/min win/loss
+ - max/min consecutive win/loss
+ 
  
  - random number generator effect on outcomes
  
@@ -263,6 +269,8 @@ is construtured.  Load up the strategy from a file on the computer.
 	
 - add Multi-player	
 - add card-counter capability
+- add statistics to graphite
+- add "diffs" in stats calculation (bankroll) max vs min
 - add "AI" engine <- how the hell does this thing learn / adjust?
 	
 - FOLLOWUP: hands.go -> figure out IsSoft() function, is correct?
