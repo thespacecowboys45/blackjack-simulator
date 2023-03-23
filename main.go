@@ -5,10 +5,12 @@ import (
 	"log"
 	"os"
 	"fmt"
+	"bufio"
 )
 
 var strategyFile string
 var bettingStrategyFile string
+var resultsFile string
 var verbose bool
 var games int
 
@@ -18,7 +20,8 @@ func init() {
 	flag.StringVar(&strategyFile, "strategy", "", "strategy file path")
 	flag.StringVar(&bettingStrategyFile, "bettingstrategy", "", "bettingstrategy file path")
 	flag.IntVar(&games, "games", 10, "number of games to play")
-	flag.BoolVar(&verbose, "verbose", false, "should output steps")
+	flag.BoolVar(&verbose, "verbose", false, "should output steps")	
+	flag.StringVar(&resultsFile, "resultsfile", "", "results file")
 	
 	// DAVB @TODO -
 	// starting bank roll
@@ -107,13 +110,37 @@ func main() {
 		}
 	}
 
+
 	log.Printf("Total Hands\t\t%d", totalHands)
 	log.Printf("Total Wins\t\t%d\t(%0.03f%%)", outcomes[OUTCOME_WIN], pct(outcomes[OUTCOME_WIN], totalHands))
 	log.Printf("Total Losses\t%d\t(%0.03f%%)", outcomes[OUTCOME_LOSS], pct(outcomes[OUTCOME_LOSS], totalHands))
 	log.Printf("Total Pushes\t%d\t(%0.03f%%)", outcomes[OUTCOME_PUSH], pct(outcomes[OUTCOME_PUSH], totalHands))
 	
 	log.Printf("Bank Roll\t%v", bankRoll)
-	
+
+    // create file
+    f, err := os.OpenFile(resultsFile, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+    if err != nil {
+        log.Fatal(err)
+    }
+    // remember to close the file
+    defer f.Close()
+
+    // create new buffer
+    buffer := bufio.NewWriter(f)
+    output := fmt.Sprintf("tot=%d,win=%d,win_pct=%0.03f%%,loss=%d,loss_pct=%0.03f%%,push=%d,push_pct=%0.03f%%\n", 
+		totalHands, 
+		outcomes[OUTCOME_WIN],  pct(outcomes[OUTCOME_WIN], totalHands),
+		outcomes[OUTCOME_LOSS], pct(outcomes[OUTCOME_LOSS], totalHands),
+		outcomes[OUTCOME_PUSH], pct(outcomes[OUTCOME_PUSH], totalHands))
+		
+	_, err = buffer.WriteString(output)
+    // flush buffered data to the file
+    if err := buffer.Flush(); err != nil {
+        log.Fatal(err)
+    }
+
+	// exit normally
 	os.Exit(0)
-	
+
 }

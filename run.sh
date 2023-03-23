@@ -19,6 +19,8 @@ fi
 
 BETTINGSTRATEGY="bet_streaks"
 
+RESULTSFILE="results_out.txt"
+
 GAMES=1
 VERBOSE="true"
 
@@ -26,5 +28,5 @@ BINARY="blackjack-simulator"
 
 echo "Run strategy: ${STRATEGY}"
 set -x
-#go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
-./${BINARY} --verbose=${VERBOSE} --games=${GAMES} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+#go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+./${BINARY} --verbose=${VERBOSE} --games=${GAMES}  --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY} --strategy="${STRATEGIES_DIR}/${STRATEGY}"

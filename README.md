@@ -410,3 +410,7 @@ $ ./go-blackjack -strategy strategies/wizard_simple -games 100000
 
 You know what do! Fork and submit a pull request. Strategies are, of course,
 welcome as well.
+
+# Changelog
+##### v1.1
+* added output to file
