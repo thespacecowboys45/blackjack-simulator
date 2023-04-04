@@ -128,11 +128,11 @@ func main() {
 
     // create new buffer
     buffer := bufio.NewWriter(f)
-    output := fmt.Sprintf("tot=%d,win=%d,win_pct=%0.03f%%,loss=%d,loss_pct=%0.03f%%,push=%d,push_pct=%0.03f%%\n", 
+    output := fmt.Sprintf("tot=%d,win=%d,win_pct=%0.03f%%,loss=%d,loss_pct=%0.03f%%,push=%d,push_pct=%0.03f%%\n%v\n\n", 
 		totalHands, 
 		outcomes[OUTCOME_WIN],  pct(outcomes[OUTCOME_WIN], totalHands),
 		outcomes[OUTCOME_LOSS], pct(outcomes[OUTCOME_LOSS], totalHands),
-		outcomes[OUTCOME_PUSH], pct(outcomes[OUTCOME_PUSH], totalHands))
+		outcomes[OUTCOME_PUSH], pct(outcomes[OUTCOME_PUSH], totalHands),bankRoll)
 		
 	_, err = buffer.WriteString(output)
     // flush buffered data to the file
