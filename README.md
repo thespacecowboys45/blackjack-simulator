@@ -24,7 +24,7 @@ THINGS not handled in original code:
 Gameplay:
 - splits ****** This is one major thing not covered
 	concept: add [splits] section
-- dealer hits soft-17
+- dealer hits soft-17 (or stands)
 - betting
 - statistics
 - a good random number generator method

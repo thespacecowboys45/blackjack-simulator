@@ -15,6 +15,7 @@ else
 	STRATEGY="passive"
 	STRATEGY="always_hit"
 	STRATEGY="always_stand"
+	STRATEGY="no_bust"
 fi
 
 BETTINGSTRATEGY="bet_streaks"
@@ -26,7 +27,13 @@ VERBOSE="true"
 
 BINARY="blackjack-simulator"
 
+echo "Building ..."
+./build.sh
+echo "Build complete."
+
 echo "Run strategy: ${STRATEGY}"
 set -x
+
+
 #go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
 ./${BINARY} --verbose=${VERBOSE} --games=${GAMES}  --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
