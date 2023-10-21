@@ -2,7 +2,8 @@
 echo "run_loop.sh"
 
 
-LOOPCOUNT=50000
+#LOOPCOUNT=50000
+LOOPCOUNT=2
 
 i=1
 while [ True ]
@@ -30,7 +31,7 @@ do
 	then
 		echo ""
 		echo ""
-		echo "breaking......"
+		echo "[ END OF LINE ]"
 		echo ""
 		echo ""
 		echo ""

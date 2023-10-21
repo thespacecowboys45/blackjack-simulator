@@ -8,6 +8,8 @@ import (
 	"bufio"
 )
 
+
+var version string = "1.2"
 var strategyFile string
 var bettingStrategyFile string
 var resultsFile string
@@ -15,6 +17,8 @@ var verbose bool
 var games int
 
 var totalHands int
+
+
 
 func init() {
 	flag.StringVar(&strategyFile, "strategy", "", "strategy file path")
@@ -34,6 +38,8 @@ func pct(top, bottom int) float64 {
 }
 
 func main() {
+	log.Printf("Blackjack Simulator version: %s\n", version)
+	
 	outcomes := make(map[Outcome]int)
 	// 'strategy' has two types: softStrategies, and hardStrategies
 	strategy := LoadStrategy(strategyFile)
@@ -46,7 +52,6 @@ func main() {
 	// DAVB - reset
 	bankRoll := NewBankRoll(DEFAULT_BANKROLL)
 	fmt.Printf("Starting bankroll: %s\n", bankRoll.String())
-
 	
 	for i := 0; i < games; i += 1 {
 		deck := NewMultipleDeck(DEFAULT_DECKS)

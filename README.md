@@ -101,21 +101,6 @@ Strategy comparisons()
 
 - betting strategy - martingale
 
-** dev branch CHANGELOG
-v1.3_concept - tracking stats
-- add graphite interaction (tracking)
-
-v1.2_concept - surgery notes
-- strategies.go - mod translateAction (add "split")
-- decks.go - override default_decks variable with flag
-- add "deck #" to card (or something to track which deck it came from)
-- recalculate "minimum_shoe_size" or add as a variable to the AI machine
--- add multi-players (rounds.go)
--- add "auto-strategy" for other players
--- add flag to split / not-split multiple times
--- add logic for "dealer stands on soft 17"
-- determine what hands.go sumWithAlternatives, alternatesUsed variable is for
-- add table limit (and player action if table limit supposed to be exceeded)
 
 
 
@@ -262,7 +247,6 @@ is construtured.  Load up the strategy from a file on the computer.
 - need to modify the round so that if the player 'doubles' then bet is changed
 	-- pass in the bet amount, which may be affected by the round: split/double/blackjack
 
-
 - modify OUTCOME constants to add PUSH as result/outcome
 	- PUSH
 	- DOUBLEDOWN_WON
@@ -276,13 +260,60 @@ is construtured.  Load up the strategy from a file on the computer.
 - FOLLOWUP: hands.go -> figure out IsSoft() function, is correct?
 
 
-v1.1 - surgery notes
-- add 'version #'
-- add "printDeck()" to show the deck of cards being played from
-- only "seed" the random number generator ONCE
-- print hand total in verbose mode
+# Results
+The results are output to a file in .csv format.  It is meant to be
+imported as .csv into Excel.  Then, create a line chart from the
+data.
 
-v1.0 - modify to run on winblowz
+In Excel:
+1) click a blank cell.  Insert "line chart"
+2) Right click on chart, and "Select Data"
+3) For "chart data range": select the entire block of .csv data
+4) Click "Switch Row/Column"
+
+Data in the chart should display each round horizontally, with
+the unique results for each round, with round 1 started at the
+left-most position in the chart, and continuing to the right.
+
+
+
+# Future ideas
+# ** dev branch CHANGELOG
+##### v1.4_concept - tracking stats
+- add graphite interaction (tracking)
+
+##### v1.3_concept
+- strategies.go - mod translateAction (add "split")
+- decks.go - override default_decks variable with flag
+- add "deck #" to card (or something to track which deck it came from)
+- recalculate "minimum_shoe_size" or add as a variable to the AI machine
+-- add multi-players (rounds.go)
+-- add "auto-strategy" for other players
+-- add flag to split / not-split multiple times
+-- add logic for "dealer stands on soft 17"
+- determine what hands.go sumWithAlternatives, alternatesUsed variable is for
+- add table limit (and player action if table limit supposed to be exceeded)
+
+
+
+
+# Changelog
+##### v1.2
+*
+
+##### v1.1
+* added output to a results file
+* add 'version #'
+* add "printDeck()" to show the deck of cards being played from
+* only "seed" the random number generator ONCE
+* print hand total in verbose mode
+
+##### v1.0 
+* modify to run on winblowz
+
+--------------------------------------------------------------------------------
+# Original README is below
+--------------------------------------------------------------------------------
 
 MASTER CHANGE
 
@@ -410,7 +441,3 @@ $ ./go-blackjack -strategy strategies/wizard_simple -games 100000
 
 You know what do! Fork and submit a pull request. Strategies are, of course,
 welcome as well.
-
-# Changelog
-##### v1.1
-* added output to file
