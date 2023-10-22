@@ -306,6 +306,7 @@ left-most position in the chart, and continuing to the right.
 	- # decks for simulation
 	- # games per round (of compiled tracking statistics)
 * make # of decks to use an input variable
+* add outcomes, bankroll, and runtime statitics output to graphite
 	
 ##### v1.3
 * takeup development on windows machine (whitebox)

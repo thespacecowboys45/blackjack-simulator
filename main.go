@@ -198,8 +198,12 @@ dev code - take this out, was put in to test if get working
 		fmt.Sprintf("%ddecks.%dgames.outcome.total_wins", num_decks, games) : float64(outcomes[OUTCOME_WIN]),
 		fmt.Sprintf("%ddecks.%dgames.outcome.total_losses", num_decks, games) : float64(outcomes[OUTCOME_LOSS]),
 		fmt.Sprintf("%ddecks.%dgames.outcome.total_pushes", num_decks, games) : float64(outcomes[OUTCOME_PUSH]),
+		fmt.Sprintf("%ddecks.%dgames.outcome.percent_wins", num_decks, games) : float64(int(pct(outcomes[OUTCOME_WIN], totalHands))),
+		fmt.Sprintf("%ddecks.%dgames.outcome.percent_losses", num_decks, games) : float64(int(pct(outcomes[OUTCOME_LOSS], totalHands))),
+		fmt.Sprintf("%ddecks.%dgames.outcome.percent_pushes", num_decks, games) : float64(int(pct(outcomes[OUTCOME_PUSH], totalHands))),
+		
 	}
-	log.Printf("Send MetricsMap: %v\n", metricsMap)
+	log.Printf("Send MetricsMap 1: %v\n", metricsMap)
 	sendGraphite(metricsMap)
 
 
@@ -209,6 +213,7 @@ dev code - take this out, was put in to test if get working
 		fmt.Sprintf("%ddecks.%dgames.bankroll.min", num_decks, games) : float64(bankRoll.Min),
 		fmt.Sprintf("%ddecks.%dgames.bankroll.max", num_decks, games) : float64(bankRoll.Max), 
 	}
+	log.Printf("Send MetricsMap 2: %v\n", metricsMap)	
 	sendGraphite(metricsMap)
 	
 	metricsMap = map[string]float64{
@@ -221,6 +226,7 @@ dev code - take this out, was put in to test if get working
 		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.MaxWagerWon", num_decks, games) : float64(bankRoll.streak.MaxWagerWon),
 		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.MaxWagerLost", num_decks, games) : float64(bankRoll.streak.MaxWagerLost),
 	}
+	log.Printf("Send MetricsMap 3: %v\n", metricsMap)	
 	sendGraphite(metricsMap)	
 	
 

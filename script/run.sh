@@ -27,7 +27,9 @@ RESULTSFILE="results_out.txt"
 
 # Number of games to play per round (run of program)
 #GAMES=1
-GAMES=10
+#GAMES=10
+GAMES=100
+#GAMES=1000
 VERBOSE="true"
 
 BINARY="blackjack-simulator"
@@ -39,6 +41,16 @@ echo "Build complete."
 echo "Run strategy: ${STRATEGY}"
 set -x
 
+START_TIME=$(date +%s)
 
-go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
-#./${BINARY} --verbose=${VERBOSE} --games=${GAMES}  --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+#go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+./${BINARY} --verbose=${VERBOSE} --games=${GAMES}  --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+
+END_TIME=$(date +%s)
+LOOP_TIME=$((END_TIME-START_TIME))
+
+METRIC="programming.dev.blackjack_simulator.run_program.runtime.execution_loop_time ${LOOP_TIME} ${END_TIME}"
+./script/bash_to_graphite.sh ${METRIC}
+
+METRIC="programming.dev.blackjack_simulator.run_program.runtime.execution_games_count ${GAMES} ${END_TIME}"
+./script/bash_to_graphite.sh ${METRIC}
