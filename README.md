@@ -16,6 +16,18 @@ BUSINESS LOGIC:
 - currently, dealer stands on soft 17
 - functionally, a "strategy" to "double" will also 
    - hit with that amount if more than 2 cards
+   
+FLAWS IN CURRENT BUSINESS LOGIC:
+- If it is a PUSH then the betting "action" to take
+- is to keep the same action in the "streak" - in other words:
+- if last action was to 'increase' bet and this round is a push
+- then the current action, based on a push OUTCOME, is to
+- increase the bet again
+
+- Have to watch for fluctuations in w,l,w,l,w,l - and how this affects
+the betting strategy.  It may increase the bet exponentionally when
+increasing on both L1 and W1 streak events.
+
 
 8:43pm
 
@@ -301,6 +313,15 @@ left-most position in the chart, and continuing to the right.
 
 
 # Changelog
+##### v1.5.1
+* fix "bankroll min" to start at initial bankroll.  It is what it is.
+* conceptualize logic to 'iterate' through possibilities of playing different strategies
+	- idea: create a dynamic load process to "create" a strategy on the fly and iterate through combinations
+* bugfix BETTINGACTION_RESET logic to reset bet to default wager if told to do so (major bugfix)
+* revamp output text - need more visibility into game to develop
+* added ability to run two different betting strategies flip-flop between them
+	- load two strategy files from parameters
+
 ##### v1.4
 * break up metrics name space to front-end track
 	- # decks for simulation

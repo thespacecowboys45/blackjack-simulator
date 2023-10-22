@@ -10,9 +10,10 @@ import (
 )
 
 
-var version string = "1.4"
+var version string = "1.5.1"
 var strategyFile string
 var bettingStrategyFile string
+var bettingStrategyFile2 string
 var resultsFile string
 var verbose bool
 var games int
@@ -25,6 +26,7 @@ var totalHands int
 func init() {
 	flag.StringVar(&strategyFile, "strategy", "", "strategy file path")
 	flag.StringVar(&bettingStrategyFile, "bettingstrategy", "", "bettingstrategy file path")
+	flag.StringVar(&bettingStrategyFile2, "bettingstrategy2", "", "bettingstrategy2 file path")
 	flag.IntVar(&games, "games", 10, "number of games to play")
 	flag.IntVar(&num_decks, "num_decks", DEFAULT_DECKS, "number of decks to play from")
 	flag.BoolVar(&verbose, "verbose", false, "should output steps")	
@@ -72,9 +74,11 @@ func testGraphite() error {
 }
 
 func main() {
+	fmt.Printf("fmt printf[version %s] Blackjack Simulator\n", version)
 	log.Printf("[version %s] Blackjack Simulator\n", version)
+	dlog(fmt.Sprintf("dlog[version %s] Blackjack Simulator\n", version))
 	
-	log.Printf("[version %s] Playing %d games per round.\n", games)
+	log.Printf("[version %s] Playing %d games per round.\n", version, int(games))
 	
 /*
 dev code - take this out, was put in to test if get working	
@@ -92,39 +96,75 @@ dev code - take this out, was put in to test if get working
 	
 	outcomes := make(map[Outcome]int)
 	// 'strategy' has two types: softStrategies, and hardStrategies
+	fmt.Printf("Load playing strategy from file: %s\n", strategyFile)
 	strategy := LoadStrategy(strategyFile)
 	fmt.Printf("Strategy: %v\n", strategy)
 	
 	// DAVB - add betting strategy
-	bettingStrategy := LoadBettingStrategy(bettingStrategyFile)
-	fmt.Printf("Betting Strategy: %v\n", bettingStrategy)
+	fmt.Printf("Load betting strategy 1 from file: %s\n", bettingStrategyFile)
+	bettingStrategy1 := LoadBettingStrategy(bettingStrategyFile)
+	fmt.Printf("Betting Strategy1: %v\n", bettingStrategy1)
+
+	// setup the callback function for the bettingStrategy
+	/*
+	bettingStrategy1fn := func(streak Streak) BettingAction {
+		return bettingStrategy1.GetBettingAction(streak.ConsecutiveLosses,
+												streak.ConsecutiveWins)
+	}
+	*/
+
+	// DAVB - add betting strategy2
+	fmt.Printf("Load betting strategy 2 from file: %s\n", bettingStrategyFile2)
+	bettingStrategy2 := LoadBettingStrategy(bettingStrategyFile2)
+	fmt.Printf("Betting Strategy2: %v\n", bettingStrategy2)	
+
+	// setup the callback function for the bettingStrategy
+	/*	
+
+	bettingStrategy2fn := func(streak Streak) BettingAction {
+		return bettingStrategy2.GetBettingAction(streak.ConsecutiveLosses,
+												streak.ConsecutiveWins)
+	}
+	*/
+
 	
 	// DAVB - reset
 	bankRoll := NewBankRoll(DEFAULT_BANKROLL)
 	fmt.Printf("Starting bankroll: %s\n", bankRoll.String())
+	
 	
 	for i := 0; i < games; i += 1 {
 		//deck := NewMultipleDeck(DEFAULT_DECKS)
 		deck := NewMultipleDeck(num_decks)
 		
 		// DAVB - display the deck before starting
-		log.Printf("Deck: %s\n", deck.String())
+		log.Printf("[main.go][game #%d] Deck before shuffle: %s\n", i, deck.String())
 
 		// This shuffles all decks together, however many there are
 		round := NewRound(deck.Shuffle())
 
 		// DAVB - display the deck before starting
-		log.Printf("Deck NOW: %s\n", round.deck.String())
+		log.Printf("[main.go][game #%d] Deck after shuffle: %s\n", i, round.deck.String())
 		
 		strategy := func(round Round) Action {
 			return strategy.GetAction(round.Player, round.Dealer)
 		}
-		
+
+/*
+move outside of loop		
 		// DAVB - idk try it out
-		bettingStrategy2 := func(streak Streak) BettingAction {
-			return bettingStrategy.GetBettingAction(streak.ConsecutiveLosses,
+		// why is this inside the loop - i do not understand that
+*/			
+		bettingStrategy1fn := func(streak Streak) BettingAction {
+			return bettingStrategy1.GetBettingAction(streak.ConsecutiveLosses,
 													streak.ConsecutiveWins)
 		}
+		bettingStrategy2fn := func(streak Streak) BettingAction {
+			return bettingStrategy2.GetBettingAction(streak.ConsecutiveLosses,
+													streak.ConsecutiveWins)
+		}
+		
+	
 		
 		// DAVB - @TODO implement some swizzle to incorporate
 		// calculating/passing in the bettingstrategy to the computer
@@ -134,9 +174,22 @@ dev code - take this out, was put in to test if get working
 		
 		// Make a new wager
 		wager := Wager{}
+		// dxb - why do I have this here ? Is this to initialize the function with something?
+		// why not use bankRoll.streak instead ? 
 		s := Streak{}
-		wager = wager.NewWager(OUTCOME_INIT, s, bettingStrategy2)
-		wagerAction := BETTINGACTION_RESET
+		
+		//if (i % 2 == 0) {
+//		if (true) {
+			fmt.Printf("[main.go][i=%d][i mod 2=%d - use strategy ONE - on INIT\n", i, (i %2))
+			// temporarily fenagle, unused variable betteingStrategy2fn
+			wager = wager.NewWager(OUTCOME_INIT, s, bettingStrategy2fn)
+//		} else {
+//			fmt.Printf("[main.go][i=%d][i mod 2=%d - use strategy TWO - on INIT\n", i, (i %2))
+//			wager = wager.NewWager(OUTCOME_INIT, s, bettingStrategy2fn)	
+//		}
+		
+		// Is this needed ?- or remove completely.  Decision is not made here.
+		//wagerAction := BETTINGACTION_RESET
 
 		for {
 
@@ -157,7 +210,7 @@ dev code - take this out, was put in to test if get working
 			// DAVB - @TODO this is where to implement a change in wager logic
 			// put this somewhere else, add all functoinality here for now
 			streak := bankRoll.streak
-			fmt.Printf("here streak: %s\n", streak.String())
+			fmt.Printf("[main.go] here streak: %s\n", streak.String())
 
 			
 			/**
@@ -169,7 +222,7 @@ dev code - take this out, was put in to test if get working
 			 
 			// On second glance - this looks to be development code which did not work.
 			// Instead - the bettingStrategy is set above.  We pass the function
-			// 'bettingStrategy2' to the NewWager function in order that it may determine
+			// 'bettingStrategy1fn' to the NewWager function in order that it may determine
 			// a new wager inside itself.
 			
 			// yeah, that.
@@ -178,10 +231,19 @@ dev code - take this out, was put in to test if get working
 			//wagerAction = bettingStrategy.GetBettingAction(s, 2)
 			
 			// @TODO - Fix this! Either take out or comment what is going on.
-			fmt.Printf("New WAGER_ACTION which was determined to be taken: %d\n", wagerAction)
+			//fmt.Printf("[main.go] New WAGER_ACTION to take: %s\n", bettingActionToString(wagerAction))
 			
 			// For now, just keep the same logic
-			wager = wager.NewWager(outcome, streak, bettingStrategy2)			
+			// Toggle between two betting strategies every game
+			
+			if (i % 2 == 0) {
+			//if (true) {
+				fmt.Printf("[main.go][i=%d][i mod 2=%d - use strategy ONE - on PLAY\n", i, (i %2))
+				wager = wager.NewWager(outcome, streak, bettingStrategy1fn)
+			} else {
+				fmt.Printf("[main.go][i=%d][i mod 2=%d - use strategy TWO - on PLAY\n", i, (i %2))
+				wager = wager.NewWager(outcome, streak, bettingStrategy2fn)	
+			}
 		}
 	}
 

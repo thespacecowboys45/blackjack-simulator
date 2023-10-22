@@ -2,7 +2,7 @@ package main
 
 import (
 //	"encoding/binary"
-	"log"
+//	"log"
 	"math/rand"
 //	"os"
 	"fmt"
@@ -28,6 +28,27 @@ const (
 	BETTINGACTION_STAND        // 's'
 )
 
+func bettingActionToString(action BettingAction) string {
+	switch action {
+		case BETTINGACTION_RESET:
+			return "BETTINGACTION_RESET"
+			break
+		case BETTINGACTION_INCREASE:
+			return "BETTINGACTION_INCREASE"
+			break
+		case BETTINGACTION_DECREASE:
+			return "BETTINGACTION_DECREASE"
+			break
+		case BETTINGACTION_STAND:
+			return "BETTINGACTION_STAND"
+			break
+		default:
+			return fmt.Sprintf("[bettingActionToString] unknown action: %d" , action)
+			break
+	}
+	return ""
+}
+
 const (
 	OUTCOME_ABORT = iota
 	OUTCOME_PUSH
@@ -35,6 +56,30 @@ const (
 	OUTCOME_LOSS
 	OUTCOME_INIT // DAVB - added to initialize the wager for 1st bet
 )
+
+func outcomeToString(outcome int) string {
+	switch (outcome) {
+		case OUTCOME_ABORT:
+			return "OUTCOME_ABORT"
+			break
+		case OUTCOME_PUSH:
+			return "OUTCOME_PUSH"
+			break
+		case OUTCOME_WIN:
+			return "OUTCOME_WIN"
+			break
+		case OUTCOME_LOSS:
+			return "OUTCOME_LOSS"
+			break
+		case OUTCOME_INIT:
+			return "OUTCOME_INIT"
+			break
+		default:
+			return fmt.Sprintf("unknown outcome: %d", outcome)
+			break
+	}
+	return ""
+}
 
 // DAVB added The betting action a player takes.
 type BettingAction int
@@ -106,7 +151,7 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 	round.dealToPlayer()
 
 	if verbose {
-		log.Printf("Round starts. Dealer: %s, Player: %s", round.Dealer, round.Player)
+		fmt.Printf("[rounds.go] Round starts. Dealer: %s, Player: %s", round.Dealer, round.Player)
 	}
 
 	// TODO: Add betting in here.
@@ -129,7 +174,7 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 
 		if action == ACTION_STAND {
 			if verbose {
-				log.Println("Player stands.")
+				fmt.Println("[rounds.go] Player stands.")
 			}
 
 			// The user wants to stand so let's see what the dealer
@@ -140,7 +185,7 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 			round.dealToPlayer()
 
 			if verbose {
-				log.Printf("Player hits. Hand: %s Total: %d", round.Player, round.Player.Sum())
+				fmt.Printf("[rounds.go] Player hits. Hand: %s Total: %d", round.Player, round.Player.Sum())
 			}
 
 			// If the player busts, that's a problem.
@@ -151,7 +196,7 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 			round.dealToPlayer()
 
 			if verbose {
-				log.Printf("Player doubles. Hand: %s Total: %d", round.Player, round.Player.Sum())
+				fmt.Printf("[rounds.go] Player doubles. Hand: %s Total: %d", round.Player, round.Player.Sum())
 			}
 
 			break
@@ -160,7 +205,7 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 
 	if round.Player.IsBusted() {
 		if verbose {
-			log.Printf("Player busted!")
+			fmt.Printf("[rounds.go] Player busted!")
 		}
 
 		return OUTCOME_LOSS
@@ -171,7 +216,7 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 		round.dealToDealer()
 
 		if verbose {
-			log.Printf("Dealer hits. Hand: %s Total: %d", round.Dealer, round.Dealer.Sum())
+			fmt.Printf("[rounds.go] Dealer hits. Hand: %s Total: %d", round.Dealer, round.Dealer.Sum())
 		}
 	}
 
@@ -179,26 +224,26 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 	// win.
 	if round.Dealer.IsBusted() {
 		if verbose {
-			log.Printf("Dealer busted! Hand: %s", round.Dealer)
+			fmt.Printf("[rounds.go] Dealer busted! Hand: %s", round.Dealer)
 		}
 
 		return OUTCOME_WIN
 	} else if round.Dealer.Sum() > round.Player.Sum() {
 		if verbose {
-			log.Printf("Dealer wins. Dealer: %s, Player: %s", round.Dealer, round.Player)
+			fmt.Printf("[rounds.go] Dealer wins. Dealer: %s, Player: %s", round.Dealer, round.Player)
 		}
 
 		return OUTCOME_LOSS
 	} else if round.Player.Sum() == round.Dealer.Sum() {
 		if verbose {
-			log.Printf("Round pushes. Dealer: %s, Player: %s", round.Dealer, round.Player)
+			fmt.Printf("[rounds.go] Round pushes. Dealer: %s, Player: %s", round.Dealer, round.Player)
 		}
 
 		return OUTCOME_PUSH
 	}
 
 	if verbose {
-		log.Printf("Player wins! Dealer: %s, Player: %s", round.Dealer, round.Player)
+		fmt.Printf("[rounds.go] Player wins! Dealer: %s, Player: %s", round.Dealer, round.Player)
 	}
 
 	return OUTCOME_WIN

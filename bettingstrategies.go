@@ -29,7 +29,7 @@ type internalBettingStrategy struct {
 func (self *internalBettingStrategy) GetBettingAction(consecutiveLosses int, consecutiveWins int ) BettingAction {
 	// TODO: We'll need a smarter way to look up actions from our strategies than
 	// this...
-	fmt.Printf("--------- ------ GetBettingAction ------ ----------- \n")
+	fmt.Printf("[bettingstrategies.go][GetBettingAction()][entry]\n")
 	
 	// -----> need to figure out how to grab this value for a bet
 	// This is going to be how far down we are in the "consecutive Losses" stack
@@ -41,8 +41,9 @@ func (self *internalBettingStrategy) GetBettingAction(consecutiveLosses int, con
 
 	var action BettingAction
 	
+	// action is of type BettingAction
 	action = self.streakStrategies[lossesKey][winsKey]
-	fmt.Printf("Determine action lossesKey: %s winsKey: %s ==> %d\n", lossesKey, winsKey, action)
+	fmt.Printf("[bettingstrategies.go][GetBettingAction()]Determine action lossesKey: %s winsKey: %s ==> %s\n", lossesKey, winsKey, bettingActionToString(action))
 
 /*	
 	for k, v := range self.streakStrategies[lossesKey] {
@@ -57,6 +58,9 @@ func (self *internalBettingStrategy) GetBettingAction(consecutiveLosses int, con
 		action = ACTION_HIT
 	}
 */
+
+	// validate action - possible bug point if too many consecutive losses/wins and is beyond scope of the maxtrix found in the betting strategy file
+	fmt.Printf("[bettingstrategies.go][GetBettingAction()][exit][return action=%s\n", bettingActionToString(action))
 	return action
 }
 
@@ -76,6 +80,32 @@ func translateBettingAction(action string) BettingAction {
 	// TODO: What is the default action??
 	return BETTINGACTION_STAND
 }
+
+/*
+ dup in rounds.go
+ 
+func bettingActionToString(action BettingAction) string {
+	switch (action) {
+		case BETTINGACTION_RESET:
+			return "BETTINGACTION_RESET"
+			break
+		case BETTINGACTION_INCREASE:
+			return "BETTINGACTION_INCREASE"
+			break
+		case BETTINGACTION_DECREASE:
+			return "BETTINGACTION_DECREASE"
+			break
+		case BETTINGACTION_STAND:
+			return "BETTINGACTION_STAND"
+			break
+		default:
+			return fmt.Sprintf("unknown bettion action: %v", action)
+			break
+	}
+	return ""
+}
+
+*/
 
 func loadBettingStrategy(reader *bufio.Reader) map[string]map[string]BettingAction {
 	// For holding the progression of # of wins in a row...

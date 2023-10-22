@@ -5,7 +5,7 @@ cd $(dirname $0)/..
 
 #LOOPCOUNT=50000
 LOOPCOUNT=10000
-SLEEPTIME=2
+SLEEPTIME=5
 
 i=1
 while [ True ]
