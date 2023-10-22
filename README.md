@@ -298,8 +298,16 @@ left-most position in the chart, and continuing to the right.
 
 
 # Changelog
+##### v1.3
+* takeup development on windows machine (whitebox)
+* integrate library for sending metrics
+	- graphite "github.com/jtaczanowski/go-graphite-client"
+* build dashboard for viewing metrics
+	- game statistics and
+	- bankroll statistics
+
 ##### v1.2
-*
+* skipped
 
 ##### v1.1
 * added output to a results file

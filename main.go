@@ -6,10 +6,11 @@ import (
 	"os"
 	"fmt"
 	"bufio"
+	graphite "github.com/jtaczanowski/go-graphite-client"
 )
 
 
-var version string = "1.2"
+var version string = "1.3"
 var strategyFile string
 var bettingStrategyFile string
 var resultsFile string
@@ -37,8 +38,53 @@ func pct(top, bottom int) float64 {
 	return (float64(top) / float64(bottom)) * 100.0
 }
 
+func sendGraphite(data map[string]float64) error {
+	log.Printf("[main.go][testGraphite()][entry]")
+	graphiteClient := graphite.NewClient("myvps2", 2003, "programming.dev.blackjack_simulator", "tcp")
+	// graphiteClient.SendData(data map[string]float64) error - this method expects a map of metrics as an argument
+	if err := graphiteClient.SendData(data); err != nil {
+		log.Printf("Error sending metrics: %v", err)
+		return err
+	}	
+	return nil	
+}
+
+func testGraphite() error {
+	log.Printf("[main.go][testGraphite()][entry]")
+	graphiteClient := graphite.NewClient("myvps2", 2003, "programming.dev.dev_metrics.prefix", "tcp")
+	 
+	 // metrics map
+	metricsMap := map[string]float64{
+		"test_metric1":  1234.1234,
+		"test_metric2": 12345.12345,
+	}
+	
+	// graphiteClient.SendData(data map[string]float64) error - this method expects a map of metrics as an argument
+	if err := graphiteClient.SendData(metricsMap); err != nil {
+		log.Printf("Error sending metrics: %v", err)
+		return err
+	}	
+	
+	log.Printf("[main.go][testGraphite()][exit]")
+	return nil
+}
+
 func main() {
 	log.Printf("Blackjack Simulator version: %s\n", version)
+	
+/*
+dev code - take this out, was put in to test if get working	
+	 // metrics map
+	metricsMap := map[string]float64{
+		"test_metric1":  55,
+		"test_metric2": 55.0,
+		"test_metric3": 55.5,
+		"test_metric4": 555.55,
+	}
+	
+	//testGraphite()
+	sendGraphite(metricsMap)
+*/	
 	
 	outcomes := make(map[Outcome]int)
 	// 'strategy' has two types: softStrategies, and hardStrategies
@@ -121,8 +167,39 @@ func main() {
 	log.Printf("Total Losses\t%d\t(%0.03f%%)", outcomes[OUTCOME_LOSS], pct(outcomes[OUTCOME_LOSS], totalHands))
 	log.Printf("Total Pushes\t%d\t(%0.03f%%)", outcomes[OUTCOME_PUSH], pct(outcomes[OUTCOME_PUSH], totalHands))
 	
-	log.Printf("Bank Roll\t%v", bankRoll)
+	// Send data to remote ---------------------------
+	// metrics map
+	metricsMap := map[string]float64{
+		"outcome.total_hands":  float64(totalHands),
+		"outcome.total_wins": float64(outcomes[OUTCOME_WIN]),
+		"outcome.total_losses": float64(outcomes[OUTCOME_LOSS]),
+		"outcome.total_pushes": float64(outcomes[OUTCOME_PUSH]),
+	}
+	sendGraphite(metricsMap)
 
+
+	log.Printf("Bank Roll\t%v", bankRoll)
+	metricsMap = map[string]float64{
+		"bankroll.amount": float64(bankRoll.Amount),
+		"bankroll.min": float64(bankRoll.Min),
+		"bankroll.max": float64(bankRoll.Max), 
+	}
+	sendGraphite(metricsMap)
+	
+	metricsMap = map[string]float64{
+		"bankroll.streak.Wins": float64(bankRoll.streak.Wins),
+		"bankroll.streak.Losses": float64(bankRoll.streak.Losses),
+		"bankroll.streak.ConsecutiveWins": float64(bankRoll.streak.ConsecutiveWins), 
+		"bankroll.streak.ConsecutiveLosses": float64(bankRoll.streak.ConsecutiveLosses),
+		"bankroll.streak.MaxConsecutiveWins": float64(bankRoll.streak.MaxConsecutiveWins),
+		"bankroll.streak.MaxConsecutiveLosses": float64(bankRoll.streak.MaxConsecutiveLosses),
+	}
+	sendGraphite(metricsMap)	
+	
+
+	
+
+	// Write results file ---------------------------
     // create file
     f, err := os.OpenFile(resultsFile, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
     if err != nil {
