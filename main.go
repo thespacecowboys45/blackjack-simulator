@@ -10,12 +10,13 @@ import (
 )
 
 
-var version string = "1.3"
+var version string = "1.4"
 var strategyFile string
 var bettingStrategyFile string
 var resultsFile string
 var verbose bool
 var games int
+var num_decks int
 
 var totalHands int
 
@@ -25,6 +26,7 @@ func init() {
 	flag.StringVar(&strategyFile, "strategy", "", "strategy file path")
 	flag.StringVar(&bettingStrategyFile, "bettingstrategy", "", "bettingstrategy file path")
 	flag.IntVar(&games, "games", 10, "number of games to play")
+	flag.IntVar(&num_decks, "num_decks", DEFAULT_DECKS, "number of decks to play from")
 	flag.BoolVar(&verbose, "verbose", false, "should output steps")	
 	flag.StringVar(&resultsFile, "resultsfile", "", "results file")
 	
@@ -50,7 +52,7 @@ func sendGraphite(data map[string]float64) error {
 }
 
 func testGraphite() error {
-	log.Printf("[main.go][testGraphite()][entry]")
+	log.Printf("[main.go][testGraphite()][entry][version %s]", version)
 	graphiteClient := graphite.NewClient("myvps2", 2003, "programming.dev.dev_metrics.prefix", "tcp")
 	 
 	 // metrics map
@@ -70,7 +72,9 @@ func testGraphite() error {
 }
 
 func main() {
-	log.Printf("Blackjack Simulator version: %s\n", version)
+	log.Printf("[version %s] Blackjack Simulator\n", version)
+	
+	log.Printf("[version %s] Playing %d games per round.\n", games)
 	
 /*
 dev code - take this out, was put in to test if get working	
@@ -93,14 +97,15 @@ dev code - take this out, was put in to test if get working
 	
 	// DAVB - add betting strategy
 	bettingStrategy := LoadBettingStrategy(bettingStrategyFile)
-	fmt.Printf("BS: %v\n", bettingStrategy)
+	fmt.Printf("Betting Strategy: %v\n", bettingStrategy)
 	
 	// DAVB - reset
 	bankRoll := NewBankRoll(DEFAULT_BANKROLL)
 	fmt.Printf("Starting bankroll: %s\n", bankRoll.String())
 	
 	for i := 0; i < games; i += 1 {
-		deck := NewMultipleDeck(DEFAULT_DECKS)
+		//deck := NewMultipleDeck(DEFAULT_DECKS)
+		deck := NewMultipleDeck(num_decks)
 		
 		// DAVB - display the deck before starting
 		log.Printf("Deck: %s\n", deck.String())
@@ -141,6 +146,7 @@ dev code - take this out, was put in to test if get working
 			bankRoll = bankRoll.tallyOutcome(outcome, wager)
 
 			// Play 'till we can't play no mo!
+			// Basically: the shoe has run out of cards.
 			if outcome == OUTCOME_ABORT {
 				break
 			} else {
@@ -152,9 +158,27 @@ dev code - take this out, was put in to test if get working
 			// put this somewhere else, add all functoinality here for now
 			streak := bankRoll.streak
 			fmt.Printf("here streak: %s\n", streak.String())
+
+			
+			/**
+			 * Oct '23
+			 * @TODO - okay, this looks like a work in-progress.
+			 * The concept looks like to build in an action based on the results of the last bet
+			 * and the betting streak going on
+			 */
+			 
+			// On second glance - this looks to be development code which did not work.
+			// Instead - the bettingStrategy is set above.  We pass the function
+			// 'bettingStrategy2' to the NewWager function in order that it may determine
+			// a new wager inside itself.
+			
+			// yeah, that.
+			
 			//wagerAction = bettingStrategy.GetBettingAction(bankRoll.streak, outcome)
 			//wagerAction = bettingStrategy.GetBettingAction(s, 2)
-			fmt.Printf("WAGER_ACTION: %d\n", wagerAction)
+			
+			// @TODO - Fix this! Either take out or comment what is going on.
+			fmt.Printf("New WAGER_ACTION which was determined to be taken: %d\n", wagerAction)
 			
 			// For now, just keep the same logic
 			wager = wager.NewWager(outcome, streak, bettingStrategy2)			
@@ -170,29 +194,32 @@ dev code - take this out, was put in to test if get working
 	// Send data to remote ---------------------------
 	// metrics map
 	metricsMap := map[string]float64{
-		"outcome.total_hands":  float64(totalHands),
-		"outcome.total_wins": float64(outcomes[OUTCOME_WIN]),
-		"outcome.total_losses": float64(outcomes[OUTCOME_LOSS]),
-		"outcome.total_pushes": float64(outcomes[OUTCOME_PUSH]),
+		fmt.Sprintf("%ddecks.%dgames.outcome.total_hands", num_decks, games) : float64(totalHands),
+		fmt.Sprintf("%ddecks.%dgames.outcome.total_wins", num_decks, games) : float64(outcomes[OUTCOME_WIN]),
+		fmt.Sprintf("%ddecks.%dgames.outcome.total_losses", num_decks, games) : float64(outcomes[OUTCOME_LOSS]),
+		fmt.Sprintf("%ddecks.%dgames.outcome.total_pushes", num_decks, games) : float64(outcomes[OUTCOME_PUSH]),
 	}
+	log.Printf("Send MetricsMap: %v\n", metricsMap)
 	sendGraphite(metricsMap)
 
 
 	log.Printf("Bank Roll\t%v", bankRoll)
 	metricsMap = map[string]float64{
-		"bankroll.amount": float64(bankRoll.Amount),
-		"bankroll.min": float64(bankRoll.Min),
-		"bankroll.max": float64(bankRoll.Max), 
+		fmt.Sprintf("%ddecks.%dgames.bankroll.amount", num_decks, games) : float64(bankRoll.Amount),
+		fmt.Sprintf("%ddecks.%dgames.bankroll.min", num_decks, games) : float64(bankRoll.Min),
+		fmt.Sprintf("%ddecks.%dgames.bankroll.max", num_decks, games) : float64(bankRoll.Max), 
 	}
 	sendGraphite(metricsMap)
 	
 	metricsMap = map[string]float64{
-		"bankroll.streak.Wins": float64(bankRoll.streak.Wins),
-		"bankroll.streak.Losses": float64(bankRoll.streak.Losses),
-		"bankroll.streak.ConsecutiveWins": float64(bankRoll.streak.ConsecutiveWins), 
-		"bankroll.streak.ConsecutiveLosses": float64(bankRoll.streak.ConsecutiveLosses),
-		"bankroll.streak.MaxConsecutiveWins": float64(bankRoll.streak.MaxConsecutiveWins),
-		"bankroll.streak.MaxConsecutiveLosses": float64(bankRoll.streak.MaxConsecutiveLosses),
+		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.Wins", num_decks, games) : float64(bankRoll.streak.Wins),
+		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.Losses", num_decks, games) : float64(bankRoll.streak.Losses),
+		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.ConsecutiveWins", num_decks, games) : float64(bankRoll.streak.ConsecutiveWins), 
+		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.ConsecutiveLosses", num_decks, games) : float64(bankRoll.streak.ConsecutiveLosses),
+		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.MaxConsecutiveWins", num_decks, games) : float64(bankRoll.streak.MaxConsecutiveWins),
+		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.MaxConsecutiveLosses", num_decks, games) : float64(bankRoll.streak.MaxConsecutiveLosses),
+		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.MaxWagerWon", num_decks, games) : float64(bankRoll.streak.MaxWagerWon),
+		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.MaxWagerLost", num_decks, games) : float64(bankRoll.streak.MaxWagerLost),
 	}
 	sendGraphite(metricsMap)	
 	
@@ -210,7 +237,8 @@ dev code - take this out, was put in to test if get working
 
     // create new buffer
     buffer := bufio.NewWriter(f)
-    output := fmt.Sprintf("tot=%d,win=%d,win_pct=%0.03f%%,loss=%d,loss_pct=%0.03f%%,push=%d,push_pct=%0.03f%%\n%v\n\n", 
+    output := fmt.Sprintf("games=%d,tot=%d,win=%d,win_pct=%0.03f%%,loss=%d,loss_pct=%0.03f%%,push=%d,push_pct=%0.03f%%\n%v\n\n", 
+		games, 
 		totalHands, 
 		outcomes[OUTCOME_WIN],  pct(outcomes[OUTCOME_WIN], totalHands),
 		outcomes[OUTCOME_LOSS], pct(outcomes[OUTCOME_LOSS], totalHands),

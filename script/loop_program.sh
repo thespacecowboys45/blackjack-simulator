@@ -12,7 +12,7 @@ while [ True ]
 do
 	echo ""
 		echo ""
-		echo "PLAYING NEW ROUND ${i}...... MAX: ${LOOPCOUNT}"
+		echo "PLAYING NEW ROUND # ${i}...... of LOOPCOUNT: ${LOOPCOUNT}"
 		echo ""
 		echo ""
 		echo ""

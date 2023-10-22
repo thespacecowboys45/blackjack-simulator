@@ -297,7 +297,16 @@ left-most position in the chart, and continuing to the right.
 
 
 
+
+
+
 # Changelog
+##### v1.4
+* break up metrics name space to front-end track
+	- # decks for simulation
+	- # games per round (of compiled tracking statistics)
+* make # of decks to use an input variable
+	
 ##### v1.3
 * takeup development on windows machine (whitebox)
 * integrate library for sending metrics
@@ -320,7 +329,12 @@ left-most position in the chart, and continuing to the right.
 * modify to run on winblowz
 
 --------------------------------------------------------------------------------
-# Original README is below
+# Original README is found below
+
+#### This is the contribution from the original author.
+
+It is annotated here out of respect.
+
 --------------------------------------------------------------------------------
 
 MASTER CHANGE

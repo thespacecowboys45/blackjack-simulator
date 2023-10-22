@@ -15,9 +15,9 @@ if [ x$1 != "x" ]
 then
 	STRATEGY=$1
 else 
-	STRATEGY="passive"
-	STRATEGY="always_hit"
-	STRATEGY="always_stand"
+	#STRATEGY="passive"
+	#STRATEGY="always_hit"
+	#STRATEGY="always_stand"
 	STRATEGY="no_bust"
 fi
 
@@ -26,8 +26,8 @@ BETTINGSTRATEGY="bet_streaks"
 RESULTSFILE="results_out.txt"
 
 # Number of games to play per round (run of program)
-GAMES=1
-#GAMES=10
+#GAMES=1
+GAMES=10
 VERBOSE="true"
 
 BINARY="blackjack-simulator"
