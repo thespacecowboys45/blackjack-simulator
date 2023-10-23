@@ -32,8 +32,8 @@ RESULTSFILE="results_out.txt"
 
 # Number of games to play per round (run of program)
 #GAMES=1
-GAMES=10
-#GAMES=100
+#GAMES=10
+GAMES=100
 #GAMES=500
 #GAMES=1000
 #GAMES=5000

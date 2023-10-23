@@ -178,15 +178,15 @@ move outside of loop
 		// why not use bankRoll.streak instead ? 
 		s := Streak{}
 		
-		//if (i % 2 == 0) {
+		if (i < (games / 2)) {
 //		if (true) {
 			fmt.Printf("[main.go][i=%d][i mod 2=%d - use strategy ONE - on INIT\n", i, (i %2))
 			// temporarily fenagle, unused variable betteingStrategy2fn
 			wager = wager.NewWager(OUTCOME_INIT, s, bettingStrategy2fn)
-//		} else {
-//			fmt.Printf("[main.go][i=%d][i mod 2=%d - use strategy TWO - on INIT\n", i, (i %2))
-//			wager = wager.NewWager(OUTCOME_INIT, s, bettingStrategy2fn)	
-//		}
+		} else {
+			fmt.Printf("[main.go][i=%d][i mod 2=%d - use strategy TWO - on INIT\n", i, (i %2))
+			wager = wager.NewWager(OUTCOME_INIT, s, bettingStrategy2fn)	
+		}
 		
 		// Is this needed ?- or remove completely.  Decision is not made here.
 		//wagerAction := BETTINGACTION_RESET
@@ -236,7 +236,7 @@ move outside of loop
 			// For now, just keep the same logic
 			// Toggle between two betting strategies every game
 			
-			if (i % 2 == 0) {
+			if (i < (games / 2)) {
 			//if (true) {
 				fmt.Printf("[main.go][i=%d][i mod 2=%d - use strategy ONE - on PLAY\n", i, (i %2))
 				wager = wager.NewWager(outcome, streak, bettingStrategy1fn)
