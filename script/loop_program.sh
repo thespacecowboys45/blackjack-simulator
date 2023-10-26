@@ -26,7 +26,7 @@ do
 
 	#cmd="./run.sh"
 	# works
-	./script/run.sh
+	./script/run.sh binary
 	#eval ${cmd}
 	
 	END_TIME=$(date +%s)

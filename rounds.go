@@ -53,6 +53,7 @@ const (
 	OUTCOME_ABORT = iota
 	OUTCOME_PUSH
 	OUTCOME_WIN
+	OUTCOME_WIN_BLACKJACK
 	OUTCOME_LOSS
 	OUTCOME_INIT // DAVB - added to initialize the wager for 1st bet
 )
@@ -67,6 +68,9 @@ func outcomeToString(outcome int) string {
 			break
 		case OUTCOME_WIN:
 			return "OUTCOME_WIN"
+			break
+		case OUTCOME_WIN_BLACKJACK:
+			return "OUTCOME_WIN_BLACKJACK"
 			break
 		case OUTCOME_LOSS:
 			return "OUTCOME_LOSS"
@@ -90,6 +94,17 @@ type Action int
 // The result of a game
 type Outcome int
 
+/**
+ * dxb - future thought, add structure for Player
+ *
+ * to add multiple-players variable into the mix
+ *
+ * type Player struct {
+ *     seatNumber int  // a thought to track the order of the player
+ *     Hands []Hand
+ * }
+ */
+
 type Round struct {
 	// The deck we are all playing with.
 	deck Deck
@@ -100,8 +115,17 @@ type Round struct {
 	// The player's hand.
 	// DAVB - @TODO make this an array of hands (to handle splits)
 	Player Hand
+	
+	// Implement multiple hands (possible) for a player
+	// @TODO - splits1
+	// PlayersHand []Hand
 }
 /*
+do not know why this is stubbed out or even in here really
+
+maybe as an example of how to use the init() function for a module ???
+
+
 func init() {
 	fmt.Printf("rounds.go [init][entry]\n")
     var b [8]byte
@@ -129,6 +153,21 @@ func (round *Round) dealToPlayer() {
 	// Get the dealer's card first...
 	tmpCard, round.deck = round.deck.Draw()
 	round.Player = round.Player.AddCard(tmpCard)
+	
+	// @TODO - splits1
+	// add logic to handle multiple hands
+	//
+	// 2nd option: put this functionality below and
+	// pass a parameter to this function which is 
+	// *which hand* to deal for the player
+	// - only issue is going to be that we do not want
+	// to alternate between the two hands - we need to
+	// play out one new hand entirely, and then go to
+	// the next hand
+	//
+	// for i = 0; i < len(round.PlayersHand); i++
+	//
+	//    round.PlayersHand[i] = round.PlayersHand[i].AddCard(tmpCard)
 }
 
 func (round *Round) Play(determineAction func(round Round) Action) Outcome {
@@ -141,6 +180,13 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 	// Clear our both hands!
 	round.Dealer = Hand{}
 	round.Player = Hand{}
+	
+	// @TODO - split1
+	// add:
+	// round.PlayersHand = []
+	//
+	// or something
+	
 
 	// First set of cards...
 	round.dealToDealer()
@@ -158,9 +204,35 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 
 	// If the player has blackjack, he wins!
 	if round.Player.Sum() == BUST_LIMIT {
+		//
+		// @TODO - add OUTCOME_BLACKJACK as possibility
+		//
+		// return OUTCOME_WIN_BLACKJACK
+		//
 		return OUTCOME_WIN
 	}
+	
+	// @TODO - splits1
+	// it is possible to use this as insertion point - perhaps
+	// 1) determine if player SPLITS - this is initial decision, just like doubledown
+	//
+	// 2) loop through each hand to play it out.  Variant comes to play if house
+	// allows more than one split opportunity for the player after the first one.
+	//    Maybe that is the option here - deal with all splits, then the player
+	//    has all the hands they will ever have to begin with.
+	//
+	//    Exception to this is: the order that the cards come out - may allow first
+	//    split hand to be played out, then we move on to the second one.  The first
+	//    card for the second split hand is Ace.  So, again, we have to decide if we
+	//    split or not.
+	
+	// test for split opportunity
+	if round.Player[0] == round.Player[1]  {
+		fmt.Printf("[rounds.go][play()] There is a SPLIT OPPORTUNITY.  We drew the same value cards: %d!", round.Player[0])
+	}
+	
 
+	// dxb - we are in a for loop, always HITTING until we either stand, double, or bust
 	for {
 		// DAVB - looking into the guts of this function is going to get interesting ...
 		// So, in the betting module, instead of this (passed in function call), then
@@ -183,6 +255,13 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 		} else if action == ACTION_HIT {
 			// Deal a card to the player and go around again.
 			round.dealToPlayer()
+			
+			// @TODO - splits1
+			// put some logic in here - how do we deal with the players second (or third) hands?
+			//
+			// for i=0; i< len(round.PlayersHand); i++ {
+			//     round.PlayersHand[i].dealToPlayer()
+			
 
 			if verbose {
 				fmt.Printf("[rounds.go] Player hits. Hand: %s Total: %d", round.Player, round.Player.Sum())
@@ -194,6 +273,11 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 			}
 		} else if action == ACTION_DOUBLE {
 			round.dealToPlayer()
+			
+			// @TODO - doubledown1
+			//
+			// We need to impact / affect the current wager - is it available here ?
+			// Perhaps always return, from this function, the players
 
 			if verbose {
 				fmt.Printf("[rounds.go] Player doubles. Hand: %s Total: %d", round.Player, round.Player.Sum())
@@ -201,8 +285,26 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 
 			break
 		}
+		// @TODO - splits1
+		//
+		// add new case
+		// else if action == ACTION_SPLIT {
+		//
+		// -----> need new function to take the cards and create two hands from one
+		// and then deal two more cards on top of the first two, and
+		// THEN
+		// re-evaluate the above code!
+		//
+		//
+		//
 	}
 
+	// @TODO - split1
+	// How do we handle different outcomes for multiple hands?
+	//
+	// Do we *need* to check this here, or is it simply a short-circuit?
+	// *CAN* we do this after the dealer - or is it a short circuit because
+	// we *do not want* the dealer to continue if we busted out completely.
 	if round.Player.IsBusted() {
 		if verbose {
 			fmt.Printf("[rounds.go] Player busted!")
@@ -211,6 +313,13 @@ func (round *Round) Play(determineAction func(round Round) Action) Outcome {
 		return OUTCOME_LOSS
 	}
 
+	// @TODO - put in boolean to check if dealer hits soft-17,
+	//  IF SO
+	//  THEN
+	// this becaomse:
+	//  for round.Dealer.Sum() < 18
+	//
+	
 	// Now for the dealer: While the sum is less than 17, we hit.
 	for round.Dealer.Sum() < 17 {
 		round.dealToDealer()

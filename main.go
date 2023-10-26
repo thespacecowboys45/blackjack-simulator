@@ -6,11 +6,12 @@ import (
 	"os"
 	"fmt"
 	"bufio"
+	"math"
 	graphite "github.com/jtaczanowski/go-graphite-client"
 )
 
 
-var version string = "1.5.1"
+var version string = "1.6"
 var strategyFile string
 var bettingStrategyFile string
 var bettingStrategyFile2 string
@@ -38,8 +39,26 @@ func init() {
 	flag.Parse()
 }
 
+// Find the percentage between 
+// top - value to estimate percentage
+// bottom - value to divide by to estimate percentage
+//
+// Ex: top=50, bottom=100, percentage == 50.00 == (0.5*100)
+//
 func pct(top, bottom int) float64 {
 	return (float64(top) / float64(bottom)) * 100.0
+}
+
+// From: https://gosamples.dev/round-float/
+// used to find precision of loss/win percentages
+func roundFloat(val float64, precision uint) float64 {
+	log.Printf("[main.go][roundFloat()]")
+	ratio := math.Pow(10, float64(precision))
+	
+	result := math.Round(val*ratio) / ratio
+	
+	 log.Printf("[main.go][roundFloat][val=%f precision=%d ratio = %v result=%f\n", val, precision, ratio, result) 
+	return result
 }
 
 func sendGraphite(data map[string]float64) error {
@@ -146,13 +165,16 @@ dev code - take this out, was put in to test if get working
 		// DAVB - display the deck before starting
 		log.Printf("[main.go][game #%d] Deck after shuffle: %s\n", i, round.deck.String())
 		
+		
+		//
+		// dxb - seriously curious (why) are these here and not outside the loop
+		//
 		strategy := func(round Round) Action {
 			return strategy.GetAction(round.Player, round.Dealer)
 		}
 
 /*
 move outside of loop		
-		// DAVB - idk try it out
 		// why is this inside the loop - i do not understand that
 */			
 		bettingStrategy1fn := func(streak Streak) BettingAction {
@@ -172,12 +194,25 @@ move outside of loop
 		//s := Streak{}
 		//fmt.Printf("BettingStrategy: %v\n", bettingStrategy.GetBettingAction(s, 2))
 		
+		
+		// @TODO - splits1
+		// @TODO - for splits this needs to be collapsed into the Hand itself.
+		// Like, the 'hand' structure needs to become more complex, encompasing the
+		// wager, as well as the cards the player owns for the hand.
+		//
+		
 		// Make a new wager
 		wager := Wager{}
+		
+		
+		
 		// dxb - why do I have this here ? Is this to initialize the function with something?
 		// why not use bankRoll.streak instead ? 
 		s := Streak{}
 		
+		
+		
+		// This could be any betting strategy - it's just INITIALIZATION
 		if (i < (games / 2)) {
 //		if (true) {
 			fmt.Printf("[main.go][i=%d][i mod 2=%d - use strategy ONE - on INIT\n", i, (i %2))
@@ -227,15 +262,11 @@ move outside of loop
 			
 			// yeah, that.
 			
-			//wagerAction = bettingStrategy.GetBettingAction(bankRoll.streak, outcome)
-			//wagerAction = bettingStrategy.GetBettingAction(s, 2)
-			
-			// @TODO - Fix this! Either take out or comment what is going on.
-			//fmt.Printf("[main.go] New WAGER_ACTION to take: %s\n", bettingActionToString(wagerAction))
 			
 			// For now, just keep the same logic
 			// Toggle between two betting strategies every game
 			
+			// Flip-flop strategies half-way through games
 			if (i < (games / 2)) {
 			//if (true) {
 				fmt.Printf("[main.go][i=%d][i mod 2=%d - use strategy ONE - on PLAY\n", i, (i %2))
@@ -253,6 +284,9 @@ move outside of loop
 	log.Printf("Total Losses\t%d\t(%0.03f%%)", outcomes[OUTCOME_LOSS], pct(outcomes[OUTCOME_LOSS], totalHands))
 	log.Printf("Total Pushes\t%d\t(%0.03f%%)", outcomes[OUTCOME_PUSH], pct(outcomes[OUTCOME_PUSH], totalHands))
 	
+	winPct := roundFloat(pct(outcomes[OUTCOME_WIN], totalHands), 2)
+	log.Printf("Total Wins percentage two: %0.03f%%", winPct)
+	
 	// Send data to remote ---------------------------
 	// metrics map
 	metricsMap := map[string]float64{
@@ -260,9 +294,9 @@ move outside of loop
 		fmt.Sprintf("%ddecks.%dgames.outcome.total_wins", num_decks, games) : float64(outcomes[OUTCOME_WIN]),
 		fmt.Sprintf("%ddecks.%dgames.outcome.total_losses", num_decks, games) : float64(outcomes[OUTCOME_LOSS]),
 		fmt.Sprintf("%ddecks.%dgames.outcome.total_pushes", num_decks, games) : float64(outcomes[OUTCOME_PUSH]),
-		fmt.Sprintf("%ddecks.%dgames.outcome.percent_wins", num_decks, games) : float64(int(pct(outcomes[OUTCOME_WIN], totalHands))),
-		fmt.Sprintf("%ddecks.%dgames.outcome.percent_losses", num_decks, games) : float64(int(pct(outcomes[OUTCOME_LOSS], totalHands))),
-		fmt.Sprintf("%ddecks.%dgames.outcome.percent_pushes", num_decks, games) : float64(int(pct(outcomes[OUTCOME_PUSH], totalHands))),
+		fmt.Sprintf("%ddecks.%dgames.outcome.percent_wins", num_decks, games) : roundFloat(pct(outcomes[OUTCOME_WIN], totalHands), 2),
+		fmt.Sprintf("%ddecks.%dgames.outcome.percent_losses", num_decks, games) : roundFloat(pct(outcomes[OUTCOME_LOSS], totalHands), 2),
+		fmt.Sprintf("%ddecks.%dgames.outcome.percent_pushes", num_decks, games) : roundFloat(pct(outcomes[OUTCOME_PUSH], totalHands), 2),
 		
 	}
 	log.Printf("Send MetricsMap 1: %v\n", metricsMap)

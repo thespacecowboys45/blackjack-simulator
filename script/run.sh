@@ -11,16 +11,16 @@ cd $(dirname $0)/..
 FILES="bets.go bettingstrategies.go cards.go decks.go  dlogger.go hands.go main.go rounds.go strategies.go"
 STRATEGIES_DIR="strategies"
 
-if [ x$1 != "x" ]
-then
-	STRATEGY=$1
-else 
+#if [ x$1 != "x" ]
+#then
+#	STRATEGY=$1
+#else 
 	#STRATEGY="passive"
 	#STRATEGY="always_hit"
 	#STRATEGY="always_stand"
 	#STRATEGY="wizard_simple"
 	STRATEGY="no_bust"
-fi
+#fi
 
 #BETTINGSTRATEGY="bet_streaks"
 #BETTINGSTRATEGY="bet_flat"
@@ -32,18 +32,17 @@ RESULTSFILE="results_out.txt"
 
 # Number of games to play per round (run of program)
 #GAMES=1
-#GAMES=10
-GAMES=100
+GAMES=10
+#GAMES=100
 #GAMES=500
 #GAMES=1000
 #GAMES=5000
+#GAMES=10000
 VERBOSE="true"
 
 BINARY="blackjack-simulator"
 
-echo "Building ..."
-#./script/build.sh
-echo "Build complete."
+#echo "Building ..." ./script/build.sh;  echo "Build complete."
 
 
 START_TIME=$(date +%s)
@@ -52,8 +51,14 @@ echo "[${START_TIME}][" `date` "] Run strategy: ${STRATEGY}"
 set -x
 
 
-go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
-#./${BINARY} --verbose=${VERBOSE} --games=${GAMES}  --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+if [ x$1 == "xbinary" ]
+then
+	echo "run BINARY version"
+	./${BINARY} --verbose=${VERBOSE} --games=${GAMES}  --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+else
+	go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+fi
+
 
 END_TIME=$(date +%s)
 LOOP_TIME=$((END_TIME-START_TIME))

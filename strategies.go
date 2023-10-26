@@ -34,6 +34,8 @@ func (self *internalStrategy) GetAction(player, dealer Hand) Action {
 	// Need some special rules for this one.
 	var dealerKey string
 
+	//
+	// dxb - do not get this yet
 	if dealer[0].Symbol == CARD_ACE {
 		dealerKey = "A"
 	} else {

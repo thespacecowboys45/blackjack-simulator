@@ -116,6 +116,13 @@ Strategy comparisons()
 
 
 
+HOUSE RULES VARIANTS
+- Dealer hits on soft 17 (true/false)
+- House allows split more than once (true/false)
+- House allows split more than twice (true/false)
+- House allows doubledown on splits (true/false)
+
+
 NATURAL GAME VARIABLES (things found in the real-world, hard to simulate):
 - Dealer placing the cut card to stop drawing from the deck, random human determinate.
 - Player bet wager (typically there is an idea behind how a player bets/alternates betting)
@@ -313,6 +320,9 @@ left-most position in the chart, and continuing to the right.
 
 
 # Changelog
+##### v1.6
+* add decimal place to percentage outputs
+
 ##### v1.5.1
 * fix "bankroll min" to start at initial bankroll.  It is what it is.
 * conceptualize logic to 'iterate' through possibilities of playing different strategies
