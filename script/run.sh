@@ -8,7 +8,7 @@
 
 cd $(dirname $0)/..
 
-FILES="bets.go bettingstrategies.go cards.go decks.go  dlogger.go hands.go main.go rounds.go strategies.go"
+FILES="bets.go bettingstrategies.go cards.go decks.go  dlogger.go hands.go main.go players.go rounds.go strategies.go"
 STRATEGIES_DIR="strategies"
 
 #if [ x$1 != "x" ]
@@ -25,19 +25,24 @@ STRATEGIES_DIR="strategies"
 #BETTINGSTRATEGY="bet_streaks"
 #BETTINGSTRATEGY="bet_flat"
 BETTINGSTRATEGY1="bet_breakit1"
-BETTINGSTRATEGY2="bet_flat"
+#BETTINGSTRATEGY2="bet_flat"
+BETTINGSTRATEGY2="bet_breakit1"
 #BETTINGSTRATEGY2="bet_breakit1"
 
 RESULTSFILE="results_out.txt"
 
 # Number of games to play per round (run of program)
-#GAMES=1
-GAMES=10
+GAMES=1
+#GAMES=10
 #GAMES=100
 #GAMES=500
 #GAMES=1000
 #GAMES=5000
 #GAMES=10000
+
+NUM_DECKS=6
+NUM_PLAYERS=1
+
 VERBOSE="true"
 
 BINARY="blackjack-simulator"
@@ -54,9 +59,9 @@ set -x
 if [ x$1 == "xbinary" ]
 then
 	echo "run BINARY version"
-	./${BINARY} --verbose=${VERBOSE} --games=${GAMES}  --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+	./${BINARY} --verbose=${VERBOSE} --games=${GAMES}  --resultsfile=${RESULTSFILE} --num_decks=${NUM_DECKS} --num_players=${NUM_PLAYERS} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
 else
-	go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --resultsfile=${RESULTSFILE} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+	go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --resultsfile=${RESULTSFILE} --num_decks=${NUM_DECKS} --num_players=${NUM_PLAYERS} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
 fi
 
 

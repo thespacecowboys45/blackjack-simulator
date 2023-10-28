@@ -3,7 +3,7 @@ echo "Building..."
 
 cd $(dirname $0)/..
 
-FILES="main.go bets.go bettingstrategies.go cards.go decks.go dlogger.go hands.go rounds.go strategies.go"
+FILES="main.go bets.go bettingstrategies.go cards.go decks.go dlogger.go hands.go players.go rounds.go strategies.go"
 BINARY="blackjack-simulator"
 
 go build -o ${BINARY} ${FILES}

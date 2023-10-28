@@ -319,7 +319,12 @@ left-most position in the chart, and continuing to the right.
 
 
 
+
 # Changelog
+##### v1.6.1
+* development branch for adding ability for a player to split a hand
+* add multiple players sitting to play
+
 ##### v1.6
 * add decimal place to percentage outputs
 
