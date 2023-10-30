@@ -10,7 +10,7 @@ import (
 	graphite "github.com/jtaczanowski/go-graphite-client"
 )
 
-var version string = "1.6"
+var version string = "1.6.2"
 var strategyFile string
 var bettingStrategyFile string
 var bettingStrategyFile2 string
@@ -394,39 +394,38 @@ move outside of loop
 	}
 	
 
-
+	// output bankroll stats
 	for j:=0; j<num_players; j++ {
 		log.Printf("[player #%d] Bank Roll\t%v", j, playerBankRolls[j])
-		/*
-		 * re-implement
-		 *
 		metricsMap = map[string]float64{
-			fmt.Sprintf("%ddecks.%dgames.bankroll.amount", num_decks, games) : float64(bankRoll.Amount),
-			fmt.Sprintf("%ddecks.%dgames.bankroll.min", num_decks, games) : float64(bankRoll.Min),
-			fmt.Sprintf("%ddecks.%dgames.bankroll.max", num_decks, games) : float64(bankRoll.Max), 
+		
+			fmt.Sprintf("%dplayers.%ddecks.%dgames.players.player%d.bankroll.starting_amount", num_players, num_decks, games, j+1) : float64(DEFAULT_BANKROLL),
+			fmt.Sprintf("%dplayers.%ddecks.%dgames.players.player%d.bankroll.amount", num_players, num_decks, games, j+1) : float64(playerBankRolls[j].Amount),
+			fmt.Sprintf("%dplayers.%ddecks.%dgames.players.player%d.bankroll.min", num_players, num_decks, games,j+1) : float64(playerBankRolls[j].Min),
+			fmt.Sprintf("%dplayers.%ddecks.%dgames.players.player%d.bankroll.max", num_players, num_decks, games,j+1) : float64(playerBankRolls[j].Max), 
 		}
-		log.Printf("Send MetricsMap 2: %v\n", metricsMap)	
+		log.Printf("Send MetricsMap bankroll for player %d:\n%v\n", j, metricsMap)	
 		sendGraphite(metricsMap)
-		*/
-	}
+		
+		/**
+		 * @TODO - idea: implement sharpe ratio tracking (is this possible?  average over ? games ?)
+		 */
+		
 	
-		/*
-		 * re-implement
-		 *	
-	metricsMap = map[string]float64{
-		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.Wins", num_decks, games) : float64(bankRoll.streak.Wins),
-		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.Losses", num_decks, games) : float64(bankRoll.streak.Losses),
-		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.ConsecutiveWins", num_decks, games) : float64(bankRoll.streak.ConsecutiveWins), 
-		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.ConsecutiveLosses", num_decks, games) : float64(bankRoll.streak.ConsecutiveLosses),
-		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.MaxConsecutiveWins", num_decks, games) : float64(bankRoll.streak.MaxConsecutiveWins),
-		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.MaxConsecutiveLosses", num_decks, games) : float64(bankRoll.streak.MaxConsecutiveLosses),
-		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.MaxWagerWon", num_decks, games) : float64(bankRoll.streak.MaxWagerWon),
-		fmt.Sprintf("%ddecks.%dgames.bankroll.streak.MaxWagerLost", num_decks, games) : float64(bankRoll.streak.MaxWagerLost),
+		// output streak stats
+		metricsMap = map[string]float64{
+			fmt.Sprintf("%dplayers.%ddecks.%dgames.players.player%d.bankroll.streak.Wins", num_players, num_decks, games, j+1) : float64(playerBankRolls[j].streak.Wins),
+			fmt.Sprintf("%dplayers.%ddecks.%dgames.players.player%d.bankroll.streak.Losses", num_players, num_decks, games, j+1) : float64(playerBankRolls[j].streak.Losses),
+			fmt.Sprintf("%dplayers.%ddecks.%dgames.players.player%d.bankroll.streak.ConsecutiveWins", num_players, num_decks, games, j+1) : float64(playerBankRolls[j].streak.ConsecutiveWins), 
+			fmt.Sprintf("%dplayers.%ddecks.%dgames.players.player%d.bankroll.streak.ConsecutiveLosses", num_players, num_decks, games, j+1) : float64(playerBankRolls[j].streak.ConsecutiveLosses),
+			fmt.Sprintf("%dplayers.%ddecks.%dgames.players.player%d.bankroll.streak.MaxConsecutiveWins", num_players, num_decks, games, j+1) : float64(playerBankRolls[j].streak.MaxConsecutiveWins),
+			fmt.Sprintf("%dplayers.%ddecks.%dgames.players.player%d.bankroll.streak.MaxConsecutiveLosses", num_players, num_decks, games, j+1) : float64(playerBankRolls[j].streak.MaxConsecutiveLosses),
+			fmt.Sprintf("%dplayers.%ddecks.%dgames.players.player%d.bankroll.streak.MaxWagerWon", num_players, num_decks, games, j+1) : float64(playerBankRolls[j].streak.MaxWagerWon),
+			fmt.Sprintf("%dplayers.%ddecks.%dgames.players.player%d.bankroll.streak.MaxWagerLost", num_players, num_decks, games, j+1) : float64(playerBankRolls[j].streak.MaxWagerLost),
+		}
+		log.Printf("Send MetricsMap streak for player %d:\n%v\n", j, metricsMap)	
+		sendGraphite(metricsMap)	
 	}
-	log.Printf("Send MetricsMap 3: %v\n", metricsMap)	
-	sendGraphite(metricsMap)	
-		*/
-
 	
 
 	// Write results file ---------------------------

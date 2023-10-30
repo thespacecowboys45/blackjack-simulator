@@ -13,7 +13,7 @@ import (
 )
 
 // The minimum number of cards that must be in the deck.
-const MINIMUM_SHOE_SIZE = 15
+const MINIMUM_SHOE_SIZE = 30
 
 const (
 	ACTION_HIT = iota
@@ -226,7 +226,7 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 	round.Dealer = Hand{}
 	//round.Player = Hand{} // refactor for multiplayer
 	for i:=0; i < round.num_players; i++ {
-		log.Printf("[rounds.go][PlayMultiPlayer()][ process player, initialize empty hand: %d]", i+1)
+		log.Printf("[rounds.go][PlayMultiPlayer()][ process player, initialize empty hand: %d]", i)
 		round.Players[i] = Hand{}
 	}
 	
@@ -244,14 +244,14 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 	
 	round.dealToDealer()
 	for i:=0; i < round.num_players; i++ {
-		log.Printf("[rounds.go][PlayMultiPlayer()][ process player first card: %d]", i+1)
+		log.Printf("[rounds.go][PlayMultiPlayer()][ process player first card: %d]", i)
 		round.dealToMultiPlayer(i)
 	}
 	
 	// Second set of cards...
 	round.dealToDealer()
 	for i:=0; i < round.num_players; i++ {
-		log.Printf("[rounds.go][PlayMultiPlayer()][ process player second card: %d]", i+1)
+		log.Printf("[rounds.go][PlayMultiPlayer()][ process player second card: %d]", i)
 		round.dealToMultiPlayer(i)
 	}
 
@@ -318,14 +318,29 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 			
 			//action := determineAction(*round)
 			action := determineAction(*round, i)
+
+
+			// dxb - had to add additional check here.  With max players we can
+			// run out of cards in middle of round and that is no es bueno
+			// ...			
+			// If there are less than (some number) cards in the deck, we'll abort
+			// this round.
+			if len(round.deck) < MINIMUM_SHOE_SIZE {
+				// @TODO - refactor for multiplayer
+				// hack attack
+				for i:=0; i<round.num_players; i++ {
+					round.Outcomes[i] = OUTCOME_ABORT
+				}
+				//return OUTCOME_ABORT
+				return round.Outcomes
+			}			
 	
 			if action == ACTION_STAND {
 				if verbose {
 					log.Printf("[rounds.go][PlayMultiPlayer()][player #%d] Player stands.", i)
 				}
 	
-				// The user wants to stand so let's see what the dealer
-				// does.
+				// The user wants to stand so let's see what the dealer does.
 				break
 			} else if action == ACTION_HIT {
 				// Deal a card to the player and go around again.
@@ -361,6 +376,7 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 					log.Printf("[rounds.go][PlayMultiPlayer()][player #%d] Player doubles. Hand: %s Total: %d", i, round.Player, round.Player.Sum())
 				}
 	
+				// no more cards
 				break
 			}
 			// @TODO - splits1

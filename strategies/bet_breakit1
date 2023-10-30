@@ -31,13 +31,13 @@
 ###############
 [streakvariant]
    W0 W1 W2 W3 W4 W5 W6 W7 W8 W9
-L0  R I R R R R R R R R
-L1  I R R R R R R R R R
+L0  R R R R R R R R R R
+L1  R R R R R R R R R R
 L2  R R R R R R R R R R
 L3  R R R R R R R R R R
 L4  R R R R R R R R R R
 L5  R R R R R R R R R R
 L6  R R R R R R R R R R
-L7  R R R R R R R R R R
-L8  R R R R R R R R R R
+L7  I R R R R R R R R R
+L8  I R R R R R R R R R
 L9  R R R R R R R R R R

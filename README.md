@@ -40,6 +40,17 @@ Gameplay:
 - betting
 - statistics
 - a good random number generator method
+
+
+THINGS I've noticed that seem to matter
+1) cut-card.  how deep into the shoe you go.  I tweaked this from 15 to 25, and W/L ratio seemed to changed.
+	- requires less players to go deep, otherwise game bombs out.
+2) wizard_simple
+	- altering soft-hand strategy seems to alter things
+3) consecutive w/loss.  This number went waay down after I changed playing strategy.
+	- seems there may be a sweet spot to indicate increased bet when loss-streak goes haywire (greater than 4)
+	 or (greater than 7).  Played w/ increasing bets on L7+L8 in bet_breakit1
+	 
 	
 
 
@@ -321,9 +332,13 @@ left-most position in the chart, and continuing to the right.
 
 
 # Changelog
-##### v1.6.1
+##### v1.6.2
 * development branch for adding ability for a player to split a hand
 * add multiple players sitting to play
+* refactor metric name space for stats tracking to include player #
+* move 'strategy' to play as variable into loop_program for altering over time
+* add additional check to look for cut-card in the middle of the round.
+* create loop_looper_program.sh to run tests
 
 ##### v1.6
 * add decimal place to percentage outputs
