@@ -1,0 +1,43 @@
+#
+# dxb The Space Cowboy
+#
+# Streak Betting Strategy
+#
+# Vary bet based on W/L streak
+#
+# Note, each column (or header) must be unique value
+#
+#
+# R = RESET
+# I = INCREASE
+# D = DECREASE
+# S = STAND
+#
+#
+# This may get complex, as the intracacies of programming this
+# matrix, along with whatever patterns may emerge amonst win/loss
+# streaks
+#
+# Like, the first win after 'n' consecutive losses - you cannot just
+# continue to increase, because if you lost this bet then...what?  
+#  You fall back into the "first loss" column and forever keep
+# increasing your bet, until you have 2 consecutive wins in a row.
+#
+# Also, I have witnessed somewhere near 30 as the "max" consecutive losses per round
+# running 5000 games per round at 6-decks per game.
+#
+# And so, it gets complicated.
+#
+###############
+[streakvariant]
+   W0 W1 W2 W3 W4 W5 W6 W7 W8 W9
+L0  R R R R R R R R R R
+L1  R R R R R R R R R R
+L2  R R R R R R R R R R
+L3  R R R R R R R R R R
+L4  R R R R R R R R R R
+L5  I R R R R R R R R R
+L6  I R R R R R R R R R
+L7  R R R R R R R R R R
+L8  R R R R R R R R R R
+L9  R R R R R R R R R R

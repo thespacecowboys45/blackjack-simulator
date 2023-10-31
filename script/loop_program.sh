@@ -4,9 +4,9 @@ echo "[" $(date) "] Executing: $0"
 cd $(dirname $0)/..
 
 #LOOPCOUNT=50000
-LOOPCOUNT=1
+LOOPCOUNT=100
 #LOOPCOUNT=30
-SLEEPTIME=5
+SLEEPTIME=2
 
 
 if [ x$1 != "x" ]
@@ -27,19 +27,19 @@ else
 	STRATEGY3="no_bust2"
 fi
 
-#BETTINGSTRATEGY1="bet_streaks"
-#BETTINGSTRATEGY1="bet_flat"
-#BETTINGSTRATEGY1="bet_breakit1"
-#BETTINGSTRATEGY1="bet_breakit2"
-BETTINGSTRATEGY2="bet_flat"
-#BETTINGSTRATEGY2="bet_breakit1"
-#BETTINGSTRATEGY2="bet_breakit2"
-#BETTINGSTRATEGY2="bet_breakit1"
+
+
+if [ x$2 != "x" ]
+then
+	BETTING_STRATEGY=$2
+else
+	echo "NO betting strategy specified.  Required"
+	exit
+fi
 
 
 
 i=1
-MODULUS=2
 while [ True ]
 do
 	START_TIME=$(date +%s)
@@ -54,7 +54,7 @@ do
 	STRATEGY_TO_USE=${STRATEGY}
 		
 	set -x
-	./script/run.sh ${STRATEGY_TO_USE} binary
+	./script/run.sh ${STRATEGY_TO_USE} ${BETTING_STRATEGY} binary
 	set +x
 	
 	END_TIME=$(date +%s)

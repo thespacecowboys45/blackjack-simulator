@@ -26,14 +26,28 @@ else
 	exit
 fi
 
-BETTINGSTRATEGY1="bet_streaks"
-#BETTINGSTRATEGY1="bet_flat"
+if [ x$2 != "x" ]
+then
+	BETTING_STRATEGY=$2
+else
+	echo "NO betting strategy specified.  Required"
+	exit
+fi
+
+
+#BETTINGSTRATEGY1="bet_streaks"
+BETTINGSTRATEGY1="bet_flat"
 #BETTINGSTRATEGY1="bet_breakit1"
 #BETTINGSTRATEGY1="bet_breakit2"
 #BETTINGSTRATEGY2="bet_flat"
 #BETTINGSTRATEGY2="bet_breakit1"
 #BETTINGSTRATEGY2="bet_breakit2"
 #BETTINGSTRATEGY2="bet_breakit1"
+
+
+# @TODO - fix this nonsense
+
+BETTINGSTRATEGY1=${BETTING_STRATEGY}
 
 BETTINGSTRATEGY2=${BETTINGSTRATEGY1}
 
@@ -60,17 +74,17 @@ BINARY="blackjack-simulator"
 
 START_TIME=$(date +%s)
 
-echo "[${START_TIME}][" `date` "] Run strategy: ${STRATEGY}"
+echo "[${START_TIME}][" `date` "] Run strategy: ${STRATEGY} against betting_strategy: ${BETTING_STRATEGY}"
 set -x
 
 
-if [ x$2 == "xbinary" ]
+if [ x$3 == "xbinary" ]
 then
 	echo "run BINARY version"
-	#./${BINARY} --verbose=${VERBOSE} --games=${GAMES}  --resultsfile=${RESULTSFILE} --num_decks=${NUM_DECKS} --num_players=${NUM_PLAYERS} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+	./${BINARY} --verbose=${VERBOSE} --games=${GAMES}  --resultsfile=${RESULTSFILE} --num_decks=${NUM_DECKS} --num_players=${NUM_PLAYERS} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
 else
 	echo "run GOLANG version from source"
-	#go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --resultsfile=${RESULTSFILE} --num_decks=${NUM_DECKS} --num_players=${NUM_PLAYERS} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+	go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --resultsfile=${RESULTSFILE} --num_decks=${NUM_DECKS} --num_players=${NUM_PLAYERS} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
 fi
 
 
@@ -83,4 +97,10 @@ METRIC="programming.dev.blackjack_simulator.run_program.runtime.execution_loop_t
 ./script/bash_to_graphite.sh ${METRIC}
 
 METRIC="programming.dev.blackjack_simulator.run_program.runtime.execution_games_count ${GAMES} ${END_TIME}"
+./script/bash_to_graphite.sh ${METRIC}
+
+METRIC="programming.dev.blackjack_simulator.run_program.runtime.selected_strategy.${STRATEGY} 1 ${END_TIME}"
+./script/bash_to_graphite.sh ${METRIC}
+
+METRIC="programming.dev.blackjack_simulator.run_program.runtime.selected_betting_strategy.${BETTING_STRATEGY} 3 ${END_TIME}"
 ./script/bash_to_graphite.sh ${METRIC}
