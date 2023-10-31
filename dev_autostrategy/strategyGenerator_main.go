@@ -14,6 +14,7 @@ package main
 import(
 	"fmt"
 	"log"
+	"os"
 	)
 
 func init() {
@@ -45,10 +46,54 @@ func exp(base int, multiplier int) int {
 }
 
 
+/**
+ * DEV
+ 
 const NUM_COLS = 3
-const NUM_ROWS = 2
+//const NUM_COLS = 10
 
+const NUM_ROWS = 2
+//const NUM_ROWS = 3
+//const NUM_ROWS = 4
+const NUM_POTENTIAL_VALUES = 2
+
+// THE MATRIX!
 var strategyMatrix[NUM_ROWS][NUM_COLS] string
+
+var columnHeadings = [NUM_COLS]string{"2", "13", "4"}
+//var columnHeadings = [NUM_COLS]string{"2", "3", "4", "5", "6", "7", "8", "9", "10", "A"}
+
+var rowHeadings = [NUM_ROWS]string{"4", "15"}
+//var rowHeadings = [NUM_ROWS]string{"4", "5", "6"}
+//var rowHeadings = [NUM_ROWS]string{"4", "5", "6", "7"}
+
+var valuesArray = [NUM_POTENTIAL_VALUES]string{"S", "H"}
+
+const WRITEFILE_ITERATOR=10 
+
+ DEV
+ */
+ 
+
+/**
+ * PROD
+ */
+const NUM_COLS = 10
+const NUM_ROWS = 18
+const NUM_POTENTIAL_VALUES = 2
+
+// THE MATRIX!
+var strategyMatrix[NUM_ROWS][NUM_COLS] string
+
+var columnHeadings = [NUM_COLS]string{"2", "3", "4", "5", "6", "7", "8", "9", "10", "A"}
+var rowHeadings = [NUM_ROWS]string{"4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"}
+
+var valuesArray = [NUM_POTENTIAL_VALUES]string{"S", "H"}
+
+const WRITEFILE_ITERATOR=100000
+ /*
+ PROD
+ */
 
 
 
@@ -56,7 +101,7 @@ var strategyMatrix[NUM_ROWS][NUM_COLS] string
 func createStrategyMatrix(row_pos int, col_pos int, currVal string) string {
 	log.Printf("[createStrategyMatrix][entry]")
 	var result string
-	valuesArray := [3]string{"a", "b", "c"} 
+	//valuesArray := [3]string{"a", "b", "c"} 
 	
 	for _, v := range(valuesArray) {
 		log.Printf("Add value: %s", v)
@@ -88,7 +133,7 @@ func incValAtPosition(row int, col int) bool {
 	log.Printf("[incValAtPosition][entry]")
 	log.Printf("request for row=%d col=%d", row, col)
 
-	valuesArray := [3]string{"a", "b", "c"} 
+	//valuesArray := [3]string{"a", "b", "c"} 
 	log.Printf("valuesArray length: %d", len(valuesArray))
 	
 	currentValue := strategyMatrix[row][col]
@@ -129,7 +174,7 @@ func initMatrix() [NUM_ROWS][NUM_COLS]string {
 	for i:=0; i<NUM_ROWS; i++ {
 		for j:=0; j<NUM_COLS; j++ {
 			log.Printf("%d,%d", i, j)
-			strategyMatrix[i][j] = "a"
+			strategyMatrix[i][j] = valuesArray[0]
 		}
 	}
 	return strategyMatrix
@@ -137,27 +182,27 @@ func initMatrix() [NUM_ROWS][NUM_COLS]string {
 
 
 func incVal(row int, col int) bool {
-	log.Printf("[incVal][entry]")
-	valuesArray := [3]string{"a", "b", "c"} 
+	//log.Printf("[incVal][entry]")
+	//valuesArray := [3]string{"a", "b", "c"} 
 
 	currentValue := strategyMatrix[row][col]
 	valPosition := 0
-	for k, val := range valuesArray {
+	for _, val := range valuesArray {
 		if currentValue == val {
-			log.Printf("[%d][%d]Found matching value: %s at pos %d / %d", row, col, val, valPosition, k)
+			//log.Printf("[%d][%d]Found matching value: %s at pos %d / %d", row, col, val, valPosition, k)
 			break
 		}
 		valPosition++
 	}
 
-	log.Printf("[%d][%d] Compare: %d to %d", row,col, valPosition, (len(valuesArray)-1))
+	//log.Printf("[%d][%d] Compare: %d to %d", row,col, valPosition, (len(valuesArray)-1))
 	if valPosition >= (len(valuesArray)-1) {
-		log.Printf("cannot increment")
+		//log.Printf("cannot increment")
 		// cannot increment
 		
 		// First, see if we have any more columns left after this one
 		if col >= (NUM_COLS-1) {
-			log.Printf("DONE with this column - try to move to next row")
+			//log.Printf("DONE with this column - try to move to next row")
 			
 			// reset current item to the first possible value
 			strategyMatrix[row][col] = valuesArray[0]
@@ -165,7 +210,7 @@ func incVal(row int, col int) bool {
 			// start over in first column
 			col = 0
 			
-			log.Printf("Compare row values: %d to %d", row, (NUM_ROWS-1))
+			//log.Printf("Compare row values: %d to %d", row, (NUM_ROWS-1))
 			if row >= (NUM_ROWS-1) {
 				log.Printf("DONE with all rows - final inner loop point reached.")
 				// DONE!!!!! -> this is the innermost loop
@@ -183,7 +228,7 @@ func incVal(row int, col int) bool {
 		// increment the value of the next column over instead
 		return incVal(row, col+1)
 	}
-	log.Printf("we can increment")
+	//log.Printf("we can increment")
 	
 	nextVal := valuesArray[valPosition+1]
 	strategyMatrix[row][col] = nextVal
@@ -191,20 +236,117 @@ func incVal(row int, col int) bool {
 	return true
 }
 
+func writeMatrixToFile(filename string) {
+	//fp, err := os.OpenFile(filename,  os.O_APPEND|os.O_WRONLY, 0600)
+	fp, err := os.Create(filename)
+	if err != nil {
+		log.Fatal("Cannot open: ", filename, " ", err)
+	}
+	
+	defer fp.Close()
+
+	// This is the hard hand strategy data
+	_, err = fp.WriteString("[Hard]\n")
+	if err != nil {
+		log.Fatal("Cannot write to: ", filename, " ", err)
+	}		
+	
+	// first column heading is 3-spaces over to right
+	_, err = fp.WriteString("   ")
+	if err != nil {
+		log.Fatal("Cannot write to: ", filename, " ", err)
+	}		
+	
+	// Spit out the column heading
+	for col :=0; col <=(NUM_COLS-1); col++ {
+		text := fmt.Sprintf("%s ", columnHeadings[col])
+		_, err = fp.WriteString(text)
+			
+		if err != nil {
+			log.Fatal("Cannot write to: ", filename, " ", err)
+		}		
+	}
+	
+	// carriage return separates rows
+	_, err = fp.WriteString("\n")
+	if err != nil {
+		log.Fatal("Cannot write to: ", filename, " ", err)
+	}		
+	
+	
+	// create the matrix	
+	for row:=0; row<=(NUM_ROWS-1); row++ {
+		// Print the row heading
+		// Make it look nice for headings with more than one character
+		rh := rowHeadings[row]
+		if len(rh) == 1 {
+			//log.Printf("Single character row heading.")
+			rh = fmt.Sprintf(" %s ", rh)
+		} else {
+			//log.Printf("Double character row heading.")
+			rh = fmt.Sprintf("%s ", rh)
+		}
+		
+		_, err = fp.WriteString(rh)
+		if err != nil {
+			log.Fatal("Cannot write to: ", filename, " ", err)
+		}
+	
+		for col:=0; col<=(NUM_COLS-1); col++ {
+			// make it look nice for the one column with a 10-card in it.  add a leading space.
+			var text string
+			if len(columnHeadings[col]) > 1 {
+				text = fmt.Sprintf(" %s ", strategyMatrix[row][col])
+			} else {
+				text = fmt.Sprintf("%s ", strategyMatrix[row][col])
+			}
+			
+			// write the text to the file
+			_, err = fp.WriteString(text)
+				
+			if err != nil {
+				log.Fatal("Cannot write to: ", filename, " ", err)
+			}
+		}
+		
+		// carriage return separates rows
+		_, err = fp.WriteString("\n")
+		if err != nil {
+			log.Fatal("Cannot write to: ", filename, " ", err)
+		}		
+	}
+}
+
 
 func main2() {
 	log.Printf("[main2][entry]")
 	count := 0
+	
+	var strategyFileDir = "output"
+	var strategyFileBasename = "autostrat"
+	
 	for incVal(0, 0) != false {
-		log.Printf("Matrix NOW: %v", strategyMatrix)
-		log.Printf("iterate count: %d", count)
+		log.Printf("[%d] Matrix NOW: %v", count, strategyMatrix)
+		//log.Printf("iterate count: %d", count)
+		
+		// every so often write a file
+		if count % WRITEFILE_ITERATOR == 0 {
+			log.Printf("[%d] Qualifies for strategy test.", count)
+	
+			filename := fmt.Sprintf("%s/%s_%d.txt", strategyFileDir, strategyFileBasename, count)
+			log.Printf("[%d] Qualifies for strategy test. Write: %s", count, filename)
+
+			writeMatrixToFile(filename)
+		}
 		count++
 	}
+	log.Printf("Count of iterations: %d", count)
 	
 	// Check if any more rows to go through
 	
 	// At this point - we are done
 	log.Printf("Matrix FINAL: %v", strategyMatrix)
+	writeMatrixToFile("autostrat1.txt")
 }
 
 
