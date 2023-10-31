@@ -29,14 +29,22 @@ SLEEPTIME=6
 
 # all available strategies to test
 STRATEGIES=()
-STRATEGIES+=("advanced")
-STRATEGIES+=("aggressive")
-STRATEGIES+=("always_hit")
-STRATEGIES+=("always_stand")
-STRATEGIES+=("no_bust")
-STRATEGIES+=("no_bust2")
-STRATEGIES+=("passive")
-STRATEGIES+=("wizard_simple")
+
+
+#STRATEGIES+=("advanced")
+#STRATEGIES+=("aggressive")
+#STRATEGIES+=("always_hit")
+#STRATEGIES+=("always_stand")
+#STRATEGIES+=("no_bust")
+#STRATEGIES+=("no_bust2")
+#STRATEGIES+=("passive")
+#STRATEGIES+=("wizard_simple")
+
+STRATEGIES+=("auto_strats/autostrat_100000.txt")
+STRATEGIES+=("auto_strats/autostrat_200000.txt")
+STRATEGIES+=("auto_strats/autostrat_1000000.txt")
+STRATEGIES+=("auto_strats/autostrat_2000000.txt")
+
 
 # @TODO - loop through betting strategies
 #BETTING_STRATEGIES=("bet_streaks" "bet_flat" "bet_break1" "bet_break2")

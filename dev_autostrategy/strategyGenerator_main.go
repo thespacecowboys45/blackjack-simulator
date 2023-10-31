@@ -48,7 +48,7 @@ func exp(base int, multiplier int) int {
 
 /**
  * DEV
- 
+ *
 const NUM_COLS = 3
 //const NUM_COLS = 10
 
@@ -70,7 +70,7 @@ var rowHeadings = [NUM_ROWS]string{"4", "15"}
 var valuesArray = [NUM_POTENTIAL_VALUES]string{"S", "H"}
 
 const WRITEFILE_ITERATOR=10 
-
+/
  DEV
  */
  
@@ -94,6 +94,28 @@ const WRITEFILE_ITERATOR=100000
  /*
  PROD
  */
+ 
+ 
+// SOFT Strategy 
+// @TODO - implement iterator for this too
+
+const NUM_COLS_SOFT = 10
+const NUM_ROWS_SOFT = 9
+
+var columnHeadingsSoft = [NUM_COLS_SOFT]string{"2", "3", "4", "5", "6", "7", "8", "9", "10", "A"}
+var rowHeadingsSoft = [NUM_ROWS_SOFT]string{"13", "14", "15", "16", "17", "18", "19", "20", "21"}
+
+var softStrategyMatrix = [NUM_ROWS_SOFT][NUM_COLS_SOFT]string{
+	{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+	{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+	{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+	{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+	{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+	{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+	{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+	{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+	{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+}
 
 
 
@@ -236,6 +258,87 @@ func incVal(row int, col int) bool {
 	return true
 }
 
+func appendSoftStrategyMatrixToFile(filename string) {
+	
+	fp, err := os.OpenFile(filename,  os.O_APPEND|os.O_WRONLY, 0600)
+	if err != nil {
+		log.Fatal("Cannot open: ", filename, " ", err)
+	}
+	
+	defer fp.Close()
+	
+	// This is the hard hand strategy data
+	_, err = fp.WriteString("\n\n[Soft]\n")
+	if err != nil {
+		log.Fatal("Cannot write to: ", filename, " ", err)
+	}		
+	
+	// first column heading is 3-spaces over to right
+	_, err = fp.WriteString("   ")
+	if err != nil {
+		log.Fatal("Cannot write to: ", filename, " ", err)
+	}		
+	
+	// Spit out the column heading
+	for col :=0; col <=(NUM_COLS_SOFT-1); col++ {
+		text := fmt.Sprintf("%s ", columnHeadingsSoft[col])
+		_, err = fp.WriteString(text)
+			
+		if err != nil {
+			log.Fatal("Cannot write to: ", filename, " ", err)
+		}		
+	}
+	
+	// carriage return separates rows
+	_, err = fp.WriteString("\n")
+	if err != nil {
+		log.Fatal("Cannot write to: ", filename, " ", err)
+	}		
+	
+	
+	// create the matrix	
+	for row:=0; row<=(NUM_ROWS_SOFT-1); row++ {
+		// Print the row heading
+		// Make it look nice for headings with more than one character
+		rh := rowHeadingsSoft[row]
+		if len(rh) == 1 {
+			//log.Printf("Single character row heading.")
+			rh = fmt.Sprintf(" %s ", rh)
+		} else {
+			//log.Printf("Double character row heading.")
+			rh = fmt.Sprintf("%s ", rh)
+		}
+		
+		_, err = fp.WriteString(rh)
+		if err != nil {
+			log.Fatal("Cannot write to: ", filename, " ", err)
+		}
+	
+		for col:=0; col<=(NUM_COLS_SOFT-1); col++ {
+			// make it look nice for the one column with a 10-card in it.  add a leading space.
+			var text string
+			if len(columnHeadingsSoft[col]) > 1 {
+				text = fmt.Sprintf(" %s ", softStrategyMatrix[row][col])
+			} else {
+				text = fmt.Sprintf("%s ", softStrategyMatrix[row][col])
+			}
+			
+			// write the text to the file
+			_, err = fp.WriteString(text)
+				
+			if err != nil {
+				log.Fatal("Cannot write to: ", filename, " ", err)
+			}
+		}
+		
+		// carriage return separates rows
+		_, err = fp.WriteString("\n")
+		if err != nil {
+			log.Fatal("Cannot write to: ", filename, " ", err)
+		}		
+	}
+}
+
 func writeMatrixToFile(filename string) {
 	//fp, err := os.OpenFile(filename,  os.O_APPEND|os.O_WRONLY, 0600)
 	fp, err := os.Create(filename)
@@ -337,6 +440,7 @@ func main2() {
 			log.Printf("[%d] Qualifies for strategy test. Write: %s", count, filename)
 
 			writeMatrixToFile(filename)
+			appendSoftStrategyMatrixToFile(filename)
 		}
 		count++
 	}
