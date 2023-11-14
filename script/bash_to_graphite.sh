@@ -22,8 +22,13 @@ then
 fi
 
 
-BINARY=ncat #windows
-#BINARY=nc #linux
+if [ $OSTYPE == 'darwin20' ]
+then
+	BINARY=nc #linux / MacOS
+else
+	BINARY=ncat #windows
+fi
+
 
 echo "Bash to graphite send: ${METRIC} through ${BINARY} to ${HOST} on port ${PORT}"
 echo "${METRIC}"| ${BINARY} ${HOST} ${PORT}
