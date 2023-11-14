@@ -1,5 +1,10 @@
 package main
-
+/**
+ * @author dxb The Space Cowboy David Boardman
+ * @date Nov '23
+ *
+ * An example of a recursive function
+ */
 import(
 	"log"
 	)

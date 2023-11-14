@@ -81,6 +81,8 @@ const WRITEFILE_ITERATOR=10
 const NUM_COLS = 10
 const NUM_ROWS = 18
 const NUM_POTENTIAL_VALUES = 2
+// includes double-down
+//const NUM_POTENTIAL_VALUES = 3
 
 // THE MATRIX!
 var strategyMatrix[NUM_ROWS][NUM_COLS] string
@@ -89,6 +91,7 @@ var columnHeadings = [NUM_COLS]string{"2", "3", "4", "5", "6", "7", "8", "9", "1
 var rowHeadings = [NUM_ROWS]string{"4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21"}
 
 var valuesArray = [NUM_POTENTIAL_VALUES]string{"S", "H"}
+//var valuesArray = [NUM_POTENTIAL_VALUES]string{"S", "H", "D"}
 
 const WRITEFILE_ITERATOR=100000
  /*
@@ -101,6 +104,11 @@ const WRITEFILE_ITERATOR=100000
 
 const NUM_COLS_SOFT = 10
 const NUM_ROWS_SOFT = 9
+
+// idea: stop iterating at a certain point that makes sense
+//     : never hit on 18,19,20,21 - for example
+const MAX_COL_SHORTCIRCUIT = NUM_COLS_SOFT
+const MAX_ROW_SHORTCIRCUIT = NUM_ROWS_SOFT
 
 var columnHeadingsSoft = [NUM_COLS_SOFT]string{"2", "3", "4", "5", "6", "7", "8", "9", "10", "A"}
 var rowHeadingsSoft = [NUM_ROWS_SOFT]string{"13", "14", "15", "16", "17", "18", "19", "20", "21"}
@@ -189,6 +197,59 @@ func incValAtPosition(row int, col int) bool {
 }
 
 
+// Create a hard-coded matrix of values
+func initMatrixStatic1() [NUM_ROWS][NUM_COLS]string {
+	strategyMatrix = [NUM_ROWS][NUM_COLS]string{
+		//2    3    4    5    6    7    8    9    10   A
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 4
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 5
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 6
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 8
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 10
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 12
+
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 14
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 16
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 18
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 19
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 20
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 21
+	}
+	return strategyMatrix
+}
+
+// Create a hard-coded matrix of values
+func initMatrixStatic() [NUM_ROWS][NUM_COLS]string {
+	strategyMatrix = [NUM_ROWS][NUM_COLS]string{
+		//2    3    4    5    6    7    8    9    10   A
+		{"H", "H", "H", "H", "H", "H", "H", "H", "H", "H"}, // 4
+		{"H", "H", "H", "H", "H", "H", "H", "H", "H", "H"}, // 5
+		{"H", "H", "H", "H", "H", "H", "H", "H", "H", "H"}, // 6
+		{"H", "H", "H", "H", "H", "H", "H", "H", "H", "H"}, // 7
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 8
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 10
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 12
+
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 14
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 16
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 18
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 19
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 20
+		{"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}, // 21
+	}
+	return strategyMatrix
+}
 
 
 func initMatrix() [NUM_ROWS][NUM_COLS]string {
@@ -436,7 +497,7 @@ func main2() {
 		if count % WRITEFILE_ITERATOR == 0 {
 			log.Printf("[%d] Qualifies for strategy test.", count)
 	
-			filename := fmt.Sprintf("%s/%s_%d.txt", strategyFileDir, strategyFileBasename, count)
+			filename := fmt.Sprintf("%s/%s_%d", strategyFileDir, strategyFileBasename, count)
 			log.Printf("[%d] Qualifies for strategy test. Write: %s", count, filename)
 
 			writeMatrixToFile(filename)
@@ -449,15 +510,16 @@ func main2() {
 	// Check if any more rows to go through
 	
 	// At this point - we are done
-	log.Printf("Matrix FINAL: %v", strategyMatrix)
-	writeMatrixToFile("autostrat1.txt")
+//	log.Printf("Matrix FINAL: %v", strategyMatrix)
+//	writeMatrixToFile("autostrat1.txt")
 }
 
 
 func main() {
 	log.Printf("[main][entry]")
 	
-	matrixToPrint := initMatrix()
+	//matrixToPrint := initMatrix()
+	matrixToPrint := initMatrixStatic()
 	log.Printf("matrixToPrint INITIALIZED: %v", matrixToPrint) 
 		
 	main2()

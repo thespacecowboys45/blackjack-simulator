@@ -64,6 +64,9 @@ do
 	METRIC="programming.dev.blackjack_simulator.loop_program.runtime.execution_time ${LOOP_TIME} ${END_TIME}"
 	./script/bash_to_graphite.sh ${METRIC}
 	
+	METRIC="programming.dev.blackjack_simulator.loop_program.runtime.loop_count ${i} ${END_TIME}"
+	./script/bash_to_graphite.sh ${METRIC}	
+	
 	METRIC="programming.dev.blackjack_simulator.loop_program.runtime.selected_strategy.${STRATEGY_TO_USE} 1 ${END_TIME}"
 	./script/bash_to_graphite.sh ${METRIC}
 

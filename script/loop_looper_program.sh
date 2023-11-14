@@ -35,15 +35,42 @@ STRATEGIES=()
 #STRATEGIES+=("aggressive")
 #STRATEGIES+=("always_hit")
 #STRATEGIES+=("always_stand")
-#STRATEGIES+=("no_bust")
-#STRATEGIES+=("no_bust2")
+STRATEGIES+=("no_bust")
+STRATEGIES+=("no_bust2")
 #STRATEGIES+=("passive")
-#STRATEGIES+=("wizard_simple")
+STRATEGIES+=("wizard_simple")
 
-STRATEGIES+=("auto_strats/autostrat_100000.txt")
-STRATEGIES+=("auto_strats/autostrat_200000.txt")
-STRATEGIES+=("auto_strats/autostrat_1000000.txt")
-STRATEGIES+=("auto_strats/autostrat_2000000.txt")
+#STRATEGIES+=("autostrat_100000")
+#STRATEGIES+=("autostrat_200000")
+
+######### RUN 1
+#
+#STRATEGIES+=("autostrat_1000000")
+#STRATEGIES+=("autostrat_2000000")
+#STRATEGIES+=("autostrat_3000000")
+#STRATEGIES+=("autostrat_4000000")
+#STRATEGIES+=("autostrat_5000000")
+#STRATEGIES+=("autostrat_6000000")
+#STRATEGIES+=("autostrat_7000000")
+#STRATEGIES+=("autostrat_8000000")
+#STRATEGIES+=("autostrat_9000000")
+
+
+
+
+#STRATEGIES+=("autostrat_100000000")
+#STRATEGIES+=("autostrat_200000000")
+#STRATEGIES+=("autostrat_300000000")
+#STRATEGIES+=("autostrat_400000000")
+#STRATEGIES+=("autostrat_500000000")
+#STRATEGIES+=("autostrat_600000000")
+#STRATEGIES+=("autostrat_700000000")
+#STRATEGIES+=("autostrat_800000000")
+#STRATEGIES+=("autostrat_900000000")
+
+
+
+
 
 
 # @TODO - loop through betting strategies
