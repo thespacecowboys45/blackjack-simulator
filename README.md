@@ -311,6 +311,7 @@ left-most position in the chart, and continuing to the right.
 # ** dev branch CHANGELOG
 ##### v1.4_concept - tracking stats
 - add graphite interaction (tracking)
+- store hand every 'n' hands into a database for review of round for accuracy in playing strategy
 
 ##### v1.3_concept
 - strategies.go - mod translateAction (add "split")

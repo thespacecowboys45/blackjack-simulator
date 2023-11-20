@@ -14,7 +14,9 @@ package main
  
 import(
 	"fmt"
-
+	"strconv"
+	"math"
+	"math/big"
 	bc "github.com/chtison/baseconverter"
 )
 
@@ -135,11 +137,11 @@ func tryIt() {
 	//
 }
 
-func convertToHex() {
+func convertDecimalToHex(number string) {
 	fmt.Printf("[convert_base.go][convertToHex()][entry]\n")
 	
 	// This is beginning to hit the idea - for blackjack
-	var number string = "1"
+	//var number string = "15"
 	var toBase string= "0123456789ABCDEF"
 	var inBase string= "0123456789"
 	converted, _, _ := bc.BaseToBase(number, inBase, toBase)
@@ -147,34 +149,117 @@ func convertToHex() {
 }
 
 
-func convertToHand() {
+func convertToHand(number string) {
 	fmt.Printf("[convert_base.go][convertToHand()][entry]\n")
 	
 	// This is beginning to hit the idea - for blackjack
-	var number string = "20"
+	//var number string = "20"
 	var toBase string= "hsd"
 	var inBase string= "012"
 	converted, _, _ := bc.BaseToBase(number, inBase, toBase)
 	fmt.Printf("convertToHand 1: %s\n", converted) // should be 'dh'
 	
+	// @TODO - add a 'precision' value - in order to indicate how large the number could be
+	// trick out the system - bitmask a '1' value in one bit higher than the highest value,
+	// causing the outcome result to have a 1's place in the highest value, and trickling
+	// down zero's (0) to the rest of the chain
+}
+
+
+func convertDecimalToHand(number string) {
+	fmt.Printf("[convert_base.go][convertDecimalToHand()][entry] number=%s\n", number)
+	
 	// This is beginning to hit the idea - for blackjack
-	number = "1111111111"
-	toBase = "hsd"
-	inBase = "012"
-	converted, _, _ = bc.BaseToBase(number, inBase, toBase)
-	fmt.Printf("convertToHand 2: %s\n", converted) // should be 'dh'
+	//var number string = "20"
+	var toBase string= "hsd"
+	var inBase string= "0123456789"
+	converted, _, _ := bc.BaseToBase(number, inBase, toBase)
+	fmt.Printf("convertDecimalToHand 1: %s\n", converted) // should be 'dh'
 	
-	
+	// @TODO - add a 'precision' value - in order to indicate how large the number could be
+	// trick out the system - bitmask a '1' value in one bit higher than the highest value,
+	// causing the outcome result to have a 1's place in the highest value, and trickling
+	// down zero's (0) to the rest of the chain
+}
+
+// ripped from: https://stackoverflow.com/questions/30182129/calculating-large-exponentiation-in-golang
+func powBig(a, n int) *big.Int{
+    tmp := big.NewInt(int64(a))
+    res := big.NewInt(1)
+    for n > 0 {
+        temp := new(big.Int)
+        if n % 2 == 1 {
+            temp.Mul(res, tmp)
+            res = temp
+        }
+        temp = new(big.Int)
+        temp.Mul(tmp, tmp)
+        tmp = temp
+        n /= 2
+    }
+    return res
+}
+
+func writeBigIntToString() {
+	fmt.Printf("[convert_base.go][writeBigIntToString()][entry]\n")
+	bigInt := big.NewFloat(math.Pow(3, 150))
+	//bigInt := big.NewInt(123456789)
+	bigStr := bigInt.String()
+
+	fmt.Println("String value is " , bigStr)
+
 }
 
 func main() {
-	fmt.Printf("[convert_base.go][main][entry]")
+	fmt.Printf("[convert_base.go][main][entry]\n")
 	//example1()
 	//tryIt()
+/*
+ works, commenting out	
 	
-	convertToHex()
+	convertDecimalToHex("15")
 
 	// not ready for this yet
-	//convertToHand()
+	convertToHand("20")
+	convertToHand("1")
+	convertToHand("101")
+	convertToHand("0101") // produces same output result as above
+	convertToHand("1111111111")
+	convertToHand("1000000000")
 	
+	convertDecimalToHand("0")
+	convertDecimalToHand("1")
+	convertDecimalToHand("2")
+	convertDecimalToHand("3")
+	convertDecimalToHand("4")
+	convertDecimalToHand("5")
+	convertDecimalToHand("6")
+	convertDecimalToHand("7")
+	convertDecimalToHand("8")
+	convertDecimalToHand("9")
+	convertDecimalToHand("10")
+*/
+	
+	//writeBigIntToString()	
+	res := powBig(3, 181)
+	fmt.Printf("result: %v\n", res)
+	str := res.String()
+	fmt.Printf("result string: %s\n", str)
+	convertDecimalToHand(str)
+	
+	// start somewhere and print out 10 values
+	//startAt := 20
+	var num_values float64 = 0
+	startAt := math.Pow(2,4) // 2^4 = 16
+	//startAt = math.Pow(3,100) // 3^10
+	
+	fmt.Printf("startAt: %v", startAt)
+	
+	for i:=startAt; i< (startAt + num_values); i++ {
+		s1 := strconv.FormatInt(int64(i), 10)
+  		//s2 := strconv.Itoa(i)
+  		//fmt.Printf("[%d] Looper: %v, %v\n", i, s1, s2)
+  		fmt.Printf("[%v] Looper: %v\n", i, s1)
+  		convertDecimalToHand(s1)
+	}
 }
