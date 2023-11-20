@@ -31,14 +31,15 @@ SLEEPTIME=6
 STRATEGIES=()
 
 
-#STRATEGIES+=("advanced")
-#STRATEGIES+=("aggressive")
-#STRATEGIES+=("always_hit")
-#STRATEGIES+=("always_stand")
+STRATEGIES+=("advanced")
+STRATEGIES+=("aggressive")
+STRATEGIES+=("always_hit")
+STRATEGIES+=("always_stand")
 STRATEGIES+=("no_bust")
 STRATEGIES+=("no_bust2")
-#STRATEGIES+=("passive")
+STRATEGIES+=("passive")
 STRATEGIES+=("wizard_simple")
+STRATEGIES+=("almost_always_hit")
 
 #STRATEGIES+=("autostrat_100000")
 #STRATEGIES+=("autostrat_200000")
