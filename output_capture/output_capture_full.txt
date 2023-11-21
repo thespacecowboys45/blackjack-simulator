@@ -9367,8 +9367,8 @@ Run strategy: always_stand
 + go run cards.go decks.go hands.go main.go rounds.go strategies.go bets.go bettingstrategies.go dlogger.go --verbose=true --games=1 --bettingstrategy=strategies/bet_streaks --strategy=strategies/always_stand
 
 
-dboardman@DESKTOP-AASIMVH MINGW64 /c/programming/go/src/github.com/thespacecowboys45/blackjack-simulator (dev)
+/c/programming/go/src/github.com/thespacecowboys45/blackjack-simulator (dev)
 $ ^C
 
-dboardman@DESKTOP-AASIMVH MINGW64 /c/programming/go/src/github.com/thespacecowboys45/blackjack-simulator (dev)
+/c/programming/go/src/github.com/thespacecowboys45/blackjack-simulator (dev)
 $
