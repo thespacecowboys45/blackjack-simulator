@@ -53,6 +53,28 @@ THINGS I've noticed that seem to matter
 	 
 	
 
+### On splits
+
+Splits are not only something good to be able to do, but the are also a part of the basic strategy
+of Blackjack.
+
+What if you are dealt with two similar valued cards?  Do you play more than one hand by splitting
+them into two hands?  Possibly more?
+
+Here is how we are handling splits:
+
+IF a player splits a hand, then it is added to:
+	- total number of hands for the entire table
+	- total number of hands for that player
+	- win / loss ratio for entire table
+	- win / loss ratio for that player
+	
+For, we are just dealing one additional hand out to a player during the same round.  It is
+no different than dealing that player on the side a single hand with those same cards , and
+letting them play their own separate game from the round at hand.
+
+---
+
 
 Priority 1
 --------------
@@ -304,6 +326,13 @@ In Excel:
 Data in the chart should display each round horizontally, with
 the unique results for each round, with round 1 started at the
 left-most position in the chart, and continuing to the right.
+
+# Paths forward
+
+- fix splits and statistics surround total # of hands dealt / win-loss ratio calculation
+- create binary tree traversal mechanism for single strategy generator
+
+---
 
 
 
