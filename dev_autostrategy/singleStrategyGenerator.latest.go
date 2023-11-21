@@ -24,8 +24,8 @@ package main
  *         - # of strategies generated per second, output every 10 seconds
  *
  * v4.0 - minimize screen output, and give a final output to file option
- * v3.0 - reverse the string and output in correct order
- * (current) v2.0 - refining to output values as a matrix
+ * (current) v3.0 - reverse the string and output in correct order
+ * v2.0 - refining to output values as a matrix
  * v1.0 - initial concept
  *
  *
@@ -44,7 +44,8 @@ import(
 	bc "github.com/chtison/baseconverter"
 )
 
-var version = "2.0"
+var version = "3.0"
+var basename = "bi_singlestrat"
 
 
 
@@ -615,11 +616,46 @@ func printMaxPossibilities() {
 	fmt.Printf("\n---\nThis is what we are shooting for.  To run all these possibilities.  Yes!  DWAV quantum computing, here we come.\n---\n\n")
 	
 }
+
+
+// abstract all the functionality in main()
+func generateStrategy(stratNum *big.Int) {
+		fmt.Printf("[singleStrategyGenerator.go][generateStrategy()][entry]\n")
+	 	//stratNum := big.NewInt(int64(i))
+
+		addTo := powBig(3, 180)
+
+ 		filename := fmt.Sprintf("%s_%s.txt", basename, stratNum.String())
+	 	
+		writeMetadataToFile(stratNum.String(), filename)
+
+		fmt.Printf("Stratnum before: %v\n", stratNum)	 	
+	 	h := stratNum.Add(stratNum, addTo)
+	 	
+	 	fmt.Printf("h after: %v\n", h)
+	 	fmt.Printf("Stratnum after: %v\n", stratNum)
+	 	
+	 	asString := displayStrategyNumber(h)
+	 	
+	 	// 10-columns
+ 		//formatStringAsMatrix(asString, 10)
+ 		matrix := printStrategyAsMatrix(asString, 10)
+ 		fmt.Printf("OUTPUT MATRIX:\n%v\n", matrix)
+ 		fmt.Printf("--- reformatted:\n")
+ 		for _, c := range matrix {
+ 			fmt.Printf("%s",c)
+ 		}
+
+ 		writeMatrixToFile(matrix, filename)
+ 		
+ 		// ripped from strategyGenerator_main program
+ 		appendSoftStrategyMatrixToFile(filename)
+}
  
 func main() {
  	fmt.Printf("[singleStrategyGenerator.go][main][entry]\n")
  	
- 	basename := "bi_singlestrat"
+
  	 	
  	printMaxPossibilities()
  	
@@ -640,7 +676,7 @@ func main() {
 	// last strategy possible
 	f := powBig(3, 180)
 	g := f.Sub(f, big.NewInt(1))
-	displayStrategyNumber(g)	
+	displayStrategyNumber(g)	// I believe that g, is actually also f (pointers)
  	displayFinalStrategy() // should match above
  	
  	fmt.Printf("=============================\n")
@@ -678,10 +714,12 @@ func main() {
  	// For the last strategy we'll get it, plus all the bits underneath it.
  	
  	fmt.Printf("HERE WE GO ------------->\n")
+ 	fmt.Printf("This generates the first four strategies ------------->\n")
  	
+/*
+// disable 	
  	addTo := powBig(3, 180)
  	for i:=0; i<4; i++ {
- 	
 	 	stratNum := big.NewInt(int64(i))
 
  		filename := fmt.Sprintf("%s_%s.txt", basename, stratNum.String())
@@ -707,60 +745,43 @@ func main() {
 
  		writeMatrixToFile(matrix, filename)
  		
- 		
- 		
  		// ripped from strategyGenerator_main program
  		appendSoftStrategyMatrixToFile(filename)
  	}
+*/
  	
- 	
- 	/*
- 	displayStrategyNumber(big.NewInt(1))
- 	displayStrategyNumber(big.NewInt(2))
- 	displayStrategyNumber(big.NewInt(3))
- 	displayStrategyNumber(big.NewInt(4))
- 	displayStrategyNumber(big.NewInt(4))
- 	*/
+ 	/***
+ 	 *
+ 	 * dxb
+ 	 *
+ 	 * create the eight(8)
+ 	 *
+ 	generateStrategy(big.NewInt(4))
+ 	generateStrategy(big.NewInt(5))
+ 	generateStrategy(big.NewInt(6))
+ 	 */
+ 	 
+ 	firstStrategyNum := big.NewInt(0)
+ 	// final
+	res := powBig(3, 180) // 
+	// subtract one from res
+	lastStrategyNum := res.Sub(res, big.NewInt(1))
+	
+	midpointStrategyNum, _ := new(big.Int).SetString(lastStrategyNum.String(), 10)
+	midpointStrategyNum = midpointStrategyNum.Div(midpointStrategyNum, big.NewInt(2))
+	
+	fmt.Printf("First:\t\t%s\nFinal:\t\t%s\nMidpoint:\t%s\n", 
+	firstStrategyNum.String(),
+	lastStrategyNum.String(),
+	midpointStrategyNum.String())
 
-// 	testingStill2()
- 	
- 	os.Exit(0)
- 	
-		
-	//res := powBig(3, 181) // what we may have to deal with as maximum # of possibilities
-	res := powBig(3, 20) // start halfway
-	fmt.Printf("result: %v\n", res)
+	// first
+//	generateStrategy(firstStrategyNum)
 	
-	// Link: https://pkg.go.dev/math/big#Int.Lsh
-	// and
-	// https://stackoverflow.com/questions/30182129/calculating-large-exponentiation-in-golang
-	//
-	// bit shift 
-
-/**
-
-// okay, deal with this later - the idea is that we want to left shift this thing all the
-// way over to max_value + 1, so that the resultant "string" will have leading values
-// in order to fill in the entire matrix.
-//
-// We are going to use this resulting string to output the final strategy to a file
+	// final
+//	generateStrategy(lastStrategyNum)
 	
-	shifted := res.Lsh(res, 2)
-	fmt.Printf("shifted: %v\n", shifted)
-**/
-	
-	// Convert to string
-	str := res.String()
-	fmt.Printf("result string: %s\n", str)
-	
-	// Use our base conversion thingie to convert into the 'pseudo string we want'
-	s := convertDecimalToHand(str)
-	fmt.Printf("Final: %s\n", s)
-	
-	rowInfo := sliceOutRowInfo(0, s)
-	fmt.Printf("RowInfo: %s\n", rowInfo)
-	
-	
-	
-	
+	// midpoint
+//	midPoint := resMinusOne.Div(resMinusOne, big.NewInt(2))
+//	generateStrategy(midPoint)
  }
