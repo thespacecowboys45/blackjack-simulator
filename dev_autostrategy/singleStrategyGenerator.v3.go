@@ -620,12 +620,13 @@ func printMaxPossibilities() {
 
 
 // abstract all the functionality in main()
-func generateStrategy(stratNum *big.Int, filename string) {
+func generateStrategy(stratNum *big.Int) {
 		fmt.Printf("[singleStrategyGenerator.go][generateStrategy()][entry]\n")
 	 	//stratNum := big.NewInt(int64(i))
 
 		addTo := powBig(3, 180)
 
+ 		filename := fmt.Sprintf("%s_%s", basename, stratNum.String())
 	 	
 		writeMetadataToFile(stratNum.String(), filename)
 
@@ -735,7 +736,7 @@ func main() {
  	for i:=0; i<4; i++ {
 	 	stratNum := big.NewInt(int64(i))
 
- 		filename := fmt.Sprintf("%s_%s", basename, stratNum.String())
+ 		filename := fmt.Sprintf("%s_%s.txt", basename, stratNum.String())
 	 	
 		writeMetadataToFile(stratNum.String(), filename)
 
@@ -823,40 +824,19 @@ func main() {
 	fmt.Printf("point9:\t\t%s\n", point9.String())  
 
 	// first
-	generateStrategy(firstStrategyNum, fmt.Sprintf("%s_%s", basename, firstStrategyNum.String()))
-
+	generateStrategy(firstStrategyNum)
 	
 	// final
-	generateStrategy(lastStrategyNum, fmt.Sprintf("%s_%s", basename, firstStrategyNum.String()))
-	
-/*
-// what's the point with the code below this
+	generateStrategy(lastStrategyNum)
 	
 	// points 3-9
-	generateStrategy(point3, fmt.Sprintf("%s_%s", basename, point3.String()))
-	generateStrategy(point4, fmt.Sprintf("%s_%s", basename, point4.String()))
-	generateStrategy(point5, fmt.Sprintf("%s_%s", basename, point5.String()))
-	generateStrategy(point6, fmt.Sprintf("%s_%s", basename, point6.String()))
-	generateStrategy(point7, fmt.Sprintf("%s_%s", basename, point7.String()))
-	generateStrategy(point8, fmt.Sprintf("%s_%s", basename, point8.String()))
-	generateStrategy(point9, fmt.Sprintf("%s_%s", basename, point9.String()))
-*/	
-	
-	/**
-	 * new idea - for now, start and iterate through each power up to 180
-	 *
-	 * and spit out strategy file for them apples
-	 *
-	 */
-	//for j:=0; j<180; j++ {
-	for j:=0; j<180; j++ {
-		fmt.Printf("GO on process strategy: %d\n", j)
-		stratNum := powBig(3, j)
-		// make sure to output three digits for #
-		generateStrategy(stratNum, fmt.Sprintf("%s_%03d_%s", basename, j, stratNum.String()))
-	
-	}
-	
+	generateStrategy(point3)
+	generateStrategy(point4)
+	generateStrategy(point5)
+	generateStrategy(point6)
+	generateStrategy(point7)
+	generateStrategy(point8)
+	generateStrategy(point9)
 	
 	// -= End of Line =-
  }
