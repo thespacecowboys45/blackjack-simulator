@@ -355,11 +355,31 @@ is pretty close to:
 
 and so our previous teachers would all be happy that math brain estimation continues to work soo close to how it should.
 Esp. when writing documentation, ( and not doing math ) , and brain can comprehend what it means to write fluently
-in the English language.  And do math.  That said she would be even more happy with a very precise number.  
+in the English language.  And do math.  That said she would be even more happy with the very precise number.  And not
+the estimate.  The bigger the better, in this case.  In other cases the estimate, well...it is just simply, well,
+it's not big enough.  
 
-Hence the micrometer.
+And, to that matter - even the difference in the estimation and the real value is still...well, a very larger number.
 
-And the precision.
+
+The difference in the real # vs. the estimated # is truly appreciable.  DAF.
+
+At:
+
+```
+
+045,866,392,339,289,727,720,615,561,750,424,801,402,395,196,724,001,565,744,957,137,343,033,038,019,601
+
+```
+
+So, as we conclude this auto-generated study for now (Nov '23) , we say that the goal going forward is to take
+
+whatever is left, between the estimate and the real number (the number above) and run with it.  To run this
+
+number of strategies.  To simulate, if you will, what happens if we can run this many number of strategies
+
+and see what the diff is?
+
 
 We can all appreciate precision. [ Yes?  No? | Si / No? | 1 | 0 ]
 
