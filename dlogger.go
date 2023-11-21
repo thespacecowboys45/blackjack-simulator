@@ -1,5 +1,7 @@
 package main
-
+// Reference origin: 
+//
+// https://bitbucket.org/thespacecowboys45/dlogger/src/master/
 import(
 	"fmt"
 )
