@@ -434,11 +434,11 @@ into a strategy hand looks like
 
 	I think that the program is trying to tell us to be quiet ....
     
-![Single Strategy Generator](images/singleStrategyGenerator_output_Screenshot 2023-11-20_193555.png)
+![Single Strategy Generator](images/singleStrategyGenerator_output_Screenshot_2023-11-20_193555.png)
 
 	And then again, maybe not
 	
-![Single Strategy Generator](images/singleStrategyGenerator_output_v2_Screenshot 2023-11-21_020352.png)
+![Single Strategy Generator](images/singleStrategyGenerator_output_v2_Screenshot_2023-11-21_020352.png)
 
 	First run of 9-basic auto generated strategies.  Well, really 13, but the
 	first four (4) I will not comment on, as they should be apparantly obvious
