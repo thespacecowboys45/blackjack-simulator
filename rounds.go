@@ -119,7 +119,7 @@ type Round struct {
 	
 	// Implement multiple hands (possible) for a player
 	// @TODO - splits1
-	// probably make this the player object
+	// probably make this a player object (NOT A PLAYA object!)
 	num_players int
 	Players []Hand
 	Outcomes []Outcome
@@ -315,6 +315,9 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 			// 
 			// and, therefore, is available to this code block
 			//
+			
+			// this is actually passing a players hand 
+			// to compare against the dealer
 			
 			//action := determineAction(*round)
 			action := determineAction(*round, i)

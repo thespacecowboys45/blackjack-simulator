@@ -18,6 +18,7 @@ package main
  * Links:
  *   https://pkg.go.dev/math/big
  *   https://github.com/ctison/baseconverter
+ *   https://sciencing.com/calculate-midpoint-between-two-numbers-2807.html
  *
  * Versions:
  * v5.0 - add runtime statistics
@@ -30,7 +31,7 @@ package main
  *
  *
  * Next steps:
- *  output as a space separated string
+ *  find the mid point between two big numbers
  
  ****/
  
@@ -625,7 +626,7 @@ func generateStrategy(stratNum *big.Int) {
 
 		addTo := powBig(3, 180)
 
- 		filename := fmt.Sprintf("%s_%s.txt", basename, stratNum.String())
+ 		filename := fmt.Sprintf("%s_%s", basename, stratNum.String())
 	 	
 		writeMetadataToFile(stratNum.String(), filename)
 
@@ -650,6 +651,21 @@ func generateStrategy(stratNum *big.Int) {
  		
  		// ripped from strategyGenerator_main program
  		appendSoftStrategyMatrixToFile(filename)
+}
+
+// make sure to copy the values so we do not modify them inside of this function
+func bigMidpoint(a *big.Int, b *big.Int) *big.Int {
+	fmt.Printf("[singleStrategyGenerator.go][bigMidpoint()][entry]\n")
+	fmt.Printf("a:%s\nb:%s\n", a.String(), b.String())
+	
+	// make a copy of a into r1
+	r1, _ := new(big.Int).SetString(a.String(), 10)
+	// add b to a (aka. r1)
+	r1 = r1.Add(r1, b)
+	// divide r1 by 2 (find the midpoint
+	r1 = r1.Div(r1, big.NewInt(2))
+	
+	return r1
 }
  
 func main() {
@@ -716,8 +732,6 @@ func main() {
  	fmt.Printf("HERE WE GO ------------->\n")
  	fmt.Printf("This generates the first four strategies ------------->\n")
  	
-/*
-// disable 	
  	addTo := powBig(3, 180)
  	for i:=0; i<4; i++ {
 	 	stratNum := big.NewInt(int64(i))
@@ -748,40 +762,81 @@ func main() {
  		// ripped from strategyGenerator_main program
  		appendSoftStrategyMatrixToFile(filename)
  	}
-*/
  	
  	/***
  	 *
  	 * dxb
  	 *
- 	 * create the eight(8)
+ 	 * create the nine(9)
+ 	 *
+ 	 *     1 ..................... 7.6177e+85    (1st abd 2nd)
+ 	 *                |                          (3rd)
+ 	 *           |          |                    (4th and 5th)
+ 	 *        |     |    |     |                 (6, 7, 8, and 9th)
+ 	 *
+ 	 *
+ 	 * I get the idea that a recursive function is in order to traverse the tree n-levels deep
+ 	 *
+ 	 * Simplified (gen three strategies - uncomment to use:
  	 *
  	generateStrategy(big.NewInt(4))
  	generateStrategy(big.NewInt(5))
  	generateStrategy(big.NewInt(6))
  	 */
- 	 
+
+	// --> first 	 
  	firstStrategyNum := big.NewInt(0)
- 	// final
+ 	
+ 	// --> final
 	res := powBig(3, 180) // 
 	// subtract one from res
 	lastStrategyNum := res.Sub(res, big.NewInt(1))
 	
-	midpointStrategyNum, _ := new(big.Int).SetString(lastStrategyNum.String(), 10)
-	midpointStrategyNum = midpointStrategyNum.Div(midpointStrategyNum, big.NewInt(2))
+	// --> midpoint between first and lastStrategyNum
+	point3 := bigMidpoint(firstStrategyNum, lastStrategyNum)
 	
-	fmt.Printf("First:\t\t%s\nFinal:\t\t%s\nMidpoint:\t%s\n", 
-	firstStrategyNum.String(),
-	lastStrategyNum.String(),
-	midpointStrategyNum.String())
+	// --> midpoint between first and point3
+	point4 := bigMidpoint(firstStrategyNum, point3)
+	
+	// --> midpoint between point3 and lastStrategyNum
+	point5 := bigMidpoint(point3, lastStrategyNum)
+
+	// --> midpoint between first and point4
+	point6 := bigMidpoint(firstStrategyNum, point4)
+
+	// --> midpoint between point4 and point3
+	point7 := bigMidpoint(point4, point3)
+
+	// --> midpoint between point3 and point5
+	point8 := bigMidpoint(point3, point5)
+
+	// --> midpoint between point4 and lastStrategyNum
+	point9 := bigMidpoint(point5, lastStrategyNum)
+
+	fmt.Printf("First:\t\t%s\n", firstStrategyNum.String())
+	fmt.Printf("Final:\t\t%s\n", lastStrategyNum.String())
+	fmt.Printf("point3:\t\t%s\n", point3.String())
+	fmt.Printf("point4:\t\t%s\n", point4.String())
+	fmt.Printf("point5:\t\t%s\n", point5.String())
+	fmt.Printf("point6:\t\t%s\n", point6.String()) 
+	fmt.Printf("point7:\t\t%s\n", point7.String()) 
+	fmt.Printf("point8:\t\t%s\n", point8.String()) 
+	fmt.Printf("point9:\t\t%s\n", point9.String())  
 
 	// first
-//	generateStrategy(firstStrategyNum)
+	generateStrategy(firstStrategyNum)
 	
 	// final
-//	generateStrategy(lastStrategyNum)
+	generateStrategy(lastStrategyNum)
 	
-	// midpoint
-//	midPoint := resMinusOne.Div(resMinusOne, big.NewInt(2))
-//	generateStrategy(midPoint)
+	// points 3-9
+	generateStrategy(point3)
+	generateStrategy(point4)
+	generateStrategy(point5)
+	generateStrategy(point6)
+	generateStrategy(point7)
+	generateStrategy(point8)
+	generateStrategy(point9)
+	
+	// -= End of Line =-
  }
