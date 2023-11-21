@@ -238,9 +238,9 @@ or
 
 We have 180 "bits" or (potential column values) and three (3) possibilities for each column.
 
-Therefore, the number of potential moves we can make is large , not as large as some
+Therefore, the number of potential moves we can make is large.  Not... as large ... as some ...
 
-people traveling on a road-trip right now would like , however , it is still large enough
+traveling on road-trips would like , however , it is still large enough
 
 to know that it will be difficult to consume this with a single computer.
 
@@ -315,7 +315,7 @@ zeros (0) after it
 76,177,348,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000
 ```
 
-Now, that's Big.  She would be only happy with that number of inches.
+Now, that's Big.  She would be only happy with that number.
 
 To be precise, the above programmy program spits out:
 
@@ -323,9 +323,18 @@ To be precise, the above programmy program spits out:
 76177348045866392339289727720615561750424801402395196724001565744957137343033038019601
 ```
 
-We are not quite sure if anything else is spitting out anything right now, and who could be certain except for one or two
-people on this entire planet anyway?  But, let's add some commas in order to visualize it all properly and put things
-into perspective:
+We do know that the computer spit that number out.
+We can never be certain if anything else is spitting out anything right now.  
+Who could be certain? 
+Only one , or two , people on the planet.  
+
+And they are most-likely actuaries.  
+
+Professional actuaries.  
+
+We may be not be sastistifes with the estimate number in the end.
+
+To see let's add some commas in order to visualize it all properly and put things into perspective:
 
 ```
 
@@ -354,21 +363,23 @@ is pretty close to:
 ```
 
 and so our previous teachers would all be happy that math brain estimation continues to work soo close to how it should.
-Esp. when writing documentation, ( and not doing math ) , and brain can comprehend what it means to write fluently
-in the English language.  And do math.  That said she would be even more happy with the very precise number.  And not
-the estimate.  The bigger the better, in this case.  In other cases the estimate, well...it is just simply, well,
-it's not big enough.  
+Esp. when writing documentation, ( and not doing math ) , and brain can comprehend what it means to write in multiple
+languages.  And do math.  That said she would be even more happy with the more precise and larger number.  And not just ...
+well, the estimate.  The bigger the better, in this case.  In other cases the estimate, well...it is just simply, well,
+it's good enough.  
 
-And, to that matter - even the difference in the estimation and the real value is still...well, a very larger number.
+And, to that matter - even the difference in the estimation and the real value is still...well, Yes, it is still
+a very large number.
 
 
-The difference in the real # vs. the estimated # is truly appreciable.  DAF.
+Nontheless, the **difference** in the **real** # vs. the **estimated** # is truly **appreciable**.  DAF.
 
 At:
 
 ```
 
 045,866,392,339,289,727,720,615,561,750,424,801,402,395,196,724,001,565,744,957,137,343,033,038,019,601
+
 
 ```
 
@@ -381,7 +392,7 @@ number of strategies.  To simulate, if you will, what happens if we can run this
 and see what the diff is?
 
 
-We can all appreciate precision. [ Yes?  No? | Si / No? | 1 | 0 ]
+We can all appreciate precision. [ Yes / No? | Si / No? | Wi / No ? | 1? / 0? ]
 
 
 ##### Conversion
@@ -438,7 +449,7 @@ into a strategy hand looks like
  resultant output desired.
  
  ^^^ The above was a final thought in order to lead us in the right direction.  One step back,
- too big a number, and two steps forwards - add this very large number to the number we wan to
+ too big a number, and two steps forwards - add this very large number to the number we want to
  display , and there we go!  Es muy muy muy, muy facil!  
  
  ```
