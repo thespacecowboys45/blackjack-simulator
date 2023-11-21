@@ -182,6 +182,17 @@ func convertDecimalToHand(number string) {
 	// down zero's (0) to the rest of the chain
 }
 
+
+func writeBigIntToString() {
+	fmt.Printf("[convert_base.go][writeBigIntToString()][entry]\n")
+	bigInt := big.NewFloat(math.Pow(3, 150))
+	//bigInt := big.NewInt(123456789)
+	bigStr := bigInt.String()
+
+	fmt.Println("String value is " , bigStr)
+
+}
+
 // ripped from: https://stackoverflow.com/questions/30182129/calculating-large-exponentiation-in-golang
 func powBig(a, n int) *big.Int{
     tmp := big.NewInt(int64(a))
@@ -200,15 +211,6 @@ func powBig(a, n int) *big.Int{
     return res
 }
 
-func writeBigIntToString() {
-	fmt.Printf("[convert_base.go][writeBigIntToString()][entry]\n")
-	bigInt := big.NewFloat(math.Pow(3, 150))
-	//bigInt := big.NewInt(123456789)
-	bigStr := bigInt.String()
-
-	fmt.Println("String value is " , bigStr)
-
-}
 
 func main() {
 	fmt.Printf("[convert_base.go][main][entry]\n")
@@ -238,20 +240,12 @@ func main() {
 	convertDecimalToHand("8")
 	convertDecimalToHand("9")
 	convertDecimalToHand("10")
-*/
-	
-	//writeBigIntToString()	
-	res := powBig(3, 181)
-	fmt.Printf("result: %v\n", res)
-	str := res.String()
-	fmt.Printf("result string: %s\n", str)
-	convertDecimalToHand(str)
 	
 	// start somewhere and print out 10 values
 	//startAt := 20
 	var num_values float64 = 0
 	startAt := math.Pow(2,4) // 2^4 = 16
-	//startAt = math.Pow(3,100) // 3^10
+	//startAt = math.Pow(3,100) // 3^10 - does not work with this large number to strconv.FormatInt()
 	
 	fmt.Printf("startAt: %v", startAt)
 	
@@ -261,5 +255,22 @@ func main() {
   		//fmt.Printf("[%d] Looper: %v, %v\n", i, s1, s2)
   		fmt.Printf("[%v] Looper: %v\n", i, s1)
   		convertDecimalToHand(s1)
-	}
+	}	
+*/
+	
+	
+	/*****
+	 *
+	 * Stopping point - at this point I have a methodology to do what I want to do with this idea
+	 *
+	 ****/
+	
+	
+	//writeBigIntToString()	
+	res := powBig(3, 181)
+	fmt.Printf("result: %v\n", res)
+	str := res.String()
+	fmt.Printf("result string: %s\n", str)
+	convertDecimalToHand(str)
+	
 }

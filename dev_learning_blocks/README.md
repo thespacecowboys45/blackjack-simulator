@@ -18,5 +18,6 @@ Programs:
 
 1) recursive functions
 2) converting a number in one base to another
+3) slicing out a portion of a string
 
 
