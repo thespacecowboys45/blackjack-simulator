@@ -630,6 +630,8 @@ move outside of loop
 
 		for {
 
+			// @TODO - handle splits - return # of hands played in the round
+			// 
 			outcome := round.Play(strategy)
 			totalHands += 1
 			
