@@ -109,4 +109,4 @@ The focus is on the inflection points in the graph to understand which strategie
 
 Here is an output for the last 3-days of computer simulations:
 
-![Simulation One Completed](images/first_official_run_singleStrategyGenerator_Screenshot_2023-11-21_113634.png)
+![Simulation One Completed](images/firstSimRun_complete_Screenshot_2023-11-23_194429.png)
