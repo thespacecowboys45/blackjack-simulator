@@ -216,7 +216,6 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 	total_hands_played_this_round := 0
 	dlog.Debug("[rounds.go][PlayMultiPlayer][initialize total_hands_played_this_round to %d]", total_hands_played_this_round)
 	
-	
 	// If there are less than (some number) cards in the deck, we'll abort
 	// this round.fvgbdxsefr
 	if len(round.deck) < MINIMUM_SHOE_SIZE {
@@ -225,17 +224,20 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 		for i:=0; i<round.num_players; i++ {
 			round.Outcomes[i] = OUTCOME_ABORT
 		}
-		//return OUTCOME_ABORT
+		
+		//return OUTCOME_ABORT, aand that we played 0 hands (no one gets to play this round)
 		return round.Outcomes, total_hands_played_this_round
 	}
 
 	// Clear out all hands!
-	round.Dealer = Hand{}
 	//round.Player = Hand{} // refactor for multiplayer
 	for i:=0; i < round.num_players; i++ {
 		log.Printf("[rounds.go][PlayMultiPlayer()][ process player, initialize empty hand: %d]", i)
 		round.Players[i] = Hand{}
 	}
+
+	round.Dealer = Hand{}
+
 	
 	/////////
 	// LET'S PLAY!
@@ -246,21 +248,29 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 	 * implement multi-player
 	 */
 
-	// First set of cards...
-	log.Printf("[rounds.go][PlayMultiPlayer()][ deal to dealer ]")
-	
-	round.dealToDealer()
+	// First card for players...
 	for i:=0; i < round.num_players; i++ {
 		log.Printf("[rounds.go][PlayMultiPlayer()][ process player first card: %d]", i)
 		round.dealToMultiPlayer(i)
 	}
-	
-	// Second set of cards...
+
+	// First card to dealer...
+	log.Printf("[rounds.go][PlayMultiPlayer()][ deal first card to dealer ]")
 	round.dealToDealer()
+	
+	// Second card for players...
+	// Everyone receives a second card, and then we evaluate the players action choice.
+	// We do not evaluate (splits) as the second card is dealt to each player.
+	// In other words - player 2 cannot split her hand before player 3 is dealt a second
+	// initial card.
 	for i:=0; i < round.num_players; i++ {
 		log.Printf("[rounds.go][PlayMultiPlayer()][ process player second card: %d]", i)
 		round.dealToMultiPlayer(i)
 	}
+
+	// Second card to dealer...
+	log.Printf("[rounds.go][PlayMultiPlayer()][ deal second card to dealer ]")
+	round.dealToDealer()
 
 	if verbose {
 		log.Printf("[rounds.go][PlayMultiPlayer()] Round starts. Dealer: %s", round.Dealer)
@@ -270,14 +280,14 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 	}
 	
 	/**
-	 * Main player loop - deal to all players first
+	 * Main player loop - deal for all players 
 	 */
 	for i:=0; i< round.num_players; i++ {
 		// Play
 		// TODO: Add betting in here.
 		log.Printf("[rounds.go][player loop][player #%d playing][Current hand total: %d", i, round.Players[i].Sum())
 		
-		// We played another hand for this player.  Count it.
+		// Assume we played another hand for this player.  Count it.
 		total_hands_played_this_round++		
 		dlog.Debug("[rounds.go][PlayMultiPlayer][incremented total_hands_played_this_round == %d]", total_hands_played_this_round)
 		
@@ -314,12 +324,20 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 		// test for split opportunity
 		if round.Players[i][0] == round.Players[i][1]  {
 			log.Printf("[rounds.go][PlayMultiPlayer()][player #%d] There is a SPLIT OPPORTUNITY.  We drew the same value cards: %d!", i, round.Players[i][0])
+			
+			
+			// Add a new hand for this player
+			round.PlayersObj[i].Hands = round.PlayersObj[i].AddHand(Hand{}) 
+			round.PlayersObj[i].activeHand = 0
+			
+			dlog.Always("[rounds.go][PlayMultiPlayer()][player #%d SPLIT this hand and now has %d hands, %d h-cap]",
+				i, len(round.PlayersObj[i].Hands), cap(round.PlayersObj[i].Hands))			
 		}
 		
 	
 		// dxb - we are in a for loop, always HITTING until we either stand, double, or bust
 		for {
-			// DAVB - looking into the guts of this function is going to get interesting ...
+			// dxb - looking into the guts of this function is going to get interesting ...
 			// So, in the betting module, instead of this (passed in function call), then
 			// call it here.  I get it - this was done this way so that the 
 			// strategy employed can be passed in as a function, one which was
@@ -328,7 +346,7 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 			// and, therefore, is available to this code block
 			//
 			
-			// this is actually passing a players hand 
+			// determineAction is actually looking at a players hand 
 			// to compare against the dealer
 			
 			
@@ -337,7 +355,7 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 			action := determineAction(*round, i)
 
 
-			// dxb - had to add additional check here.  With max players we can
+			// dxb - had to add additional check here.  With multiple players we can
 			// run out of cards in middle of round and that is no es bueno
 			// ...			
 			// If there are less than (some number) cards in the deck, we'll abort
@@ -363,6 +381,10 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 			} else if action == ACTION_HIT {
 				// Deal a card to the player and go around again.
 				//round.dealToPlayer()
+				if verbose {
+					dlog.Debug("[rounds.go][PlayMultiPlayer()][player #%d] Player hits. Hand: %s Total: %d", i, round.Players[i], round.Players[i].Sum())
+				}
+				
 				round.dealToMultiPlayer(i)
 
 				// @TODO - splits1
@@ -371,9 +393,6 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 				// for i=0; i< len(round.PlayersHand); i++ {
 				//     round.PlayersHand[i].dealToPlayer()
 				
-				if verbose {
-					log.Printf("[rounds.go][PlayMultiPlayer()][player #%d] Player hits. Hand: %s Total: %d", i, round.Players[i], round.Players[i].Sum())
-				}
 	
 				// If the player busts, that's a problem.
 				//if round.Player.IsBusted() {
@@ -381,6 +400,10 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 					break
 				}
 			} else if action == ACTION_DOUBLE {
+				if verbose {
+					dlog.Debug("[rounds.go][PlayMultiPlayer()][player #%d] Player doubles. Hand: %s Total: %d", i, round.Player, round.Player.Sum())
+				}
+
 				//round.dealToPlayer()
 				round.dealToMultiPlayer(i)
 
@@ -390,11 +413,7 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 				// We need to impact / affect the current wager - is it available here ?
 				// Perhaps always return, from this function, the players
 	
-				if verbose {
-					log.Printf("[rounds.go][PlayMultiPlayer()][player #%d] Player doubles. Hand: %s Total: %d", i, round.Player, round.Player.Sum())
-				}
-	
-				// no more cards
+				// player doubled and gets no more cards
 				break
 			}
 			// @TODO - splits1

@@ -362,6 +362,10 @@ left-most position in the chart, and continuing to the right.
 
 
 # Changelog
+##### v1.6.5
+* re-order.  Players get dealt first, THEN dealer.  Not the other way around.
+
+
 ##### v1.6.4
 * recalculated statistics for accurate hands played count
 * add usage() function to helper scripts
