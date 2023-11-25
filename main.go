@@ -30,6 +30,7 @@ import (
 	"bufio"
 	"math"
 	graphite "github.com/jtaczanowski/go-graphite-client"
+	dlog "bitbucket.org/thespacecowboys45/dlogger"
 )
 
 var version string = "1.6.2"
@@ -42,6 +43,7 @@ var games int
 var num_decks int
 var num_players int
 var totalHands int
+var totalHandsRecalc int
 
 func init() {
 	flag.StringVar(&strategyFile, "strategy", "", "strategy file path")
@@ -129,11 +131,16 @@ func printRuntimeVars() {
 
 func main() {
 	// figuring out proper way to log output
+	configureDlogger()
+
 	fmt.Printf("fmt printf[version %s] Blackjack Simulator\n", version)
 	log.Printf("[version %s] Blackjack Simulator\n", version)
-	dlog(fmt.Sprintf("dlog[version %s] Blackjack Simulator\n", version))
+	dlog.Debug(fmt.Sprintf("dlog[version %s] Blackjack Simulator\n", version))
 	
 	printRuntimeVars()
+	
+	// @TODO - incorporate
+	dlog.Debug("dlogger - HERE - dlog")
 	
 	log.Printf("[version %s] Playing %d games per round.\n", version, int(games))
 	
@@ -292,11 +299,21 @@ move outside of loop
 
 			//outcome := round.Play(strategy)
 			//outcome := round.PlayMultiPlayer(strategy)
-			roundOutcomes := round.PlayMultiPlayer(strategy)
+			roundOutcomes, total_hands_played_this_round := round.PlayMultiPlayer(strategy)
 			
 			//totalHands += 1
 			// @TODO - splits1 - adapt for multiple hands per player
+			//totalHands += num_players
 			totalHands += num_players
+			totalHandsRecalc += total_hands_played_this_round
+
+
+			dlog.Debug("[main.go][round over][total_hands_played_this_round==%d, total_hands==%d, totalHandsRecalc==%d]", 
+				total_hands_played_this_round,
+				totalHands,
+				totalHandsRecalc)
+
+
 			
 			endOfRound := false
 			for j:=0; j<num_players; j++ {
@@ -304,7 +321,7 @@ move outside of loop
 				if roundOutcomes[j] == OUTCOME_ABORT {
 					log.Printf("[main.go][player #%d][Round is over - we are out of cards.]", j)
 					endOfRound = true
-					// short-circuit.  If here: all players will have the same outcome==OUTCOME_ABORT
+					// short-circuit.  If we are hitting this code then: all players will have the same outcome==OUTCOME_ABORT
 					break
 				} else {
 					// Track overall game stats per outcome possibility
@@ -317,8 +334,7 @@ move outside of loop
 					// @TODO - refactor for splits
 					playerTotalHands[j] += 1
 					
-					
-					// re-implement per-player @TODO
+										// re-implement per-player @TODO
 					//bankRoll = bankRoll.tallyOutcome(outcome, wager)
 					playerBankRolls[j] = playerBankRolls[j].tallyOutcome(roundOutcomes[j], playerWagers[j])
 		
@@ -373,6 +389,7 @@ move outside of loop
 
 	log.Printf("Total Rounds\t%d", roundsPlayed)
 	log.Printf("Total Hands\t\t%d", totalHands)
+	log.Printf("Total Hands recalculated\t\t%d", totalHandsRecalc)
 	log.Printf("Total Round Wins\t\t%d\t(%0.03f%%)", outcomes[OUTCOME_WIN], pct(outcomes[OUTCOME_WIN], totalHands))
 	log.Printf("Total Round Losses\t%d\t(%0.03f%%)", outcomes[OUTCOME_LOSS], pct(outcomes[OUTCOME_LOSS], totalHands))
 	log.Printf("Total Round Pushes\t%d\t(%0.03f%%)", outcomes[OUTCOME_PUSH], pct(outcomes[OUTCOME_PUSH], totalHands))
@@ -493,7 +510,8 @@ func mainPreserveSingleplayerCode() {
 	// figuring out proper way to log output
 	fmt.Printf("fmt printf[version %s] Blackjack Simulator\n", version)
 	log.Printf("[version %s] Blackjack Simulator\n", version)
-	dlog(fmt.Sprintf("dlog[version %s] Blackjack Simulator\n", version))
+	//dlog(fmt.Sprintf("dlog[version %s] Blackjack Simulator\n", version))
+	dlog.Debug("dlog[version %s] Blackjack Simulator\n", version)
 	
 	printRuntimeVars()
 	
@@ -630,8 +648,6 @@ move outside of loop
 
 		for {
 
-			// @TODO - handle splits - return # of hands played in the round
-			// 
 			outcome := round.Play(strategy)
 			totalHands += 1
 			

@@ -7,6 +7,8 @@ import (
 	"log"
 	"os"
 	"strings"
+	dlog "bitbucket.org/thespacecowboys45/dlogger"
+
 )
 
 type Strategy interface {
@@ -87,7 +89,7 @@ func loadStrategy(reader *bufio.Reader) map[string]map[string]Action {
 	for {
 		line, err := reader.ReadString('\n')
 		msg := fmt.Sprintf("line: %s\n", line)
-		dlog(msg)
+		dlog.Debug(msg)
 
 		if err == io.EOF {
 			break
@@ -103,7 +105,7 @@ func loadStrategy(reader *bufio.Reader) map[string]map[string]Action {
 
 			for _, tok := range toks {
 				msg := fmt.Sprintf("tok: %s\n", tok)
-				dlog(msg)
+				dlog.Debug(msg)
 				dealerCards = append(dealerCards, tok)
 			}
 		} else if line == "" || strings.HasPrefix(line, "#") {

@@ -10,6 +10,7 @@ import (
 //	"time"
 	crypto_rand "crypto/rand"
 	"encoding/binary"
+	dlog "bitbucket.org/thespacecowboys45/dlogger"
 )
 
 // The minimum number of cards that must be in the deck.
@@ -207,11 +208,16 @@ func (round *Round) dealToMultiPlayer(player_num int) {
 
 
 // creating new function so I don't pollute the original working function
-func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_number int) Action) []Outcome {
+func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_number int) Action) ([]Outcome, int) {
 	log.Printf("[rounds.go][PlayMultiPlayer][entry]")
 	
+	// Total number of hands played this round
+	total_hands_played_this_round := 0
+	dlog.Debug("[rounds.go][PlayMultiPlayer][initialize total_hands_played_this_round to %d]", total_hands_played_this_round)
+	
+	
 	// If there are less than (some number) cards in the deck, we'll abort
-	// this round.
+	// this round.fvgbdxsefr
 	if len(round.deck) < MINIMUM_SHOE_SIZE {
 		// @TODO - refactor for multiplayer
 		// hack attack
@@ -219,7 +225,7 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 			round.Outcomes[i] = OUTCOME_ABORT
 		}
 		//return OUTCOME_ABORT
-		return round.Outcomes
+		return round.Outcomes, total_hands_played_this_round
 	}
 
 	// Clear out all hands!
@@ -269,6 +275,11 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 		// Play
 		// TODO: Add betting in here.
 		log.Printf("[rounds.go][player loop][player #%d playing][Current hand total: %d", i, round.Players[i].Sum())
+		
+		// We played another hand for this player.  Count it.
+		total_hands_played_this_round++		
+		dlog.Debug("[rounds.go][PlayMultiPlayer][incremented total_hands_played_this_round == %d]", total_hands_played_this_round)
+		
 	
 		// If the player has blackjack, he wins!
 		if round.Players[i].Sum() == BUST_LIMIT {
@@ -335,9 +346,10 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 					round.Outcomes[i] = OUTCOME_ABORT
 				}
 				//return OUTCOME_ABORT
-				return round.Outcomes
-			}			
-	
+				dlog.Always("[rounds.go][PlayMultiPlayer()][ran out of cards.  deck length==%d, min=%d]", len(round.deck), MINIMUM_SHOE_SIZE)
+				return round.Outcomes, total_hands_played_this_round
+			}	
+			
 			if action == ACTION_STAND {
 				if verbose {
 					log.Printf("[rounds.go][PlayMultiPlayer()][player #%d] Player stands.", i)
@@ -395,6 +407,7 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 			//
 			//
 		}
+		
 	
 		// @TODO - split1
 		// How do we handle different outcomes for multiple hands?
@@ -433,7 +446,7 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 	// short-circuit and do not deal to the dealer
 	if everyoneBusted {
 		log.Printf("[rounds.go][PlayerMultiPlayer()][everyone busted.  skip dealer.]")
-		return round.Outcomes
+		return round.Outcomes, total_hands_played_this_round
 	}
 	 
 
@@ -505,7 +518,7 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 		log.Printf("[rounds.go][PlayerMultiPlayer()][outcome for player #%d=%s", i, outcomeToString(round.Outcomes[i]))	
 	}
 	
-	return round.Outcomes
+	return round.Outcomes, total_hands_played_this_round
 }
 
 

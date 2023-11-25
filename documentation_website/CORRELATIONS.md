@@ -95,7 +95,7 @@ The first sim run is completed: I am very pleased with the results.  More encour
 The most notable run, in my opinion, is the very last one.  Double-down on everything.  Produced
 the highest ending bankroll, with a simple flat-bet of $5.00 USD.
 
-That's notable because, in essence, it leads in a direction that the best thing to do is to:
+That's notable because, in essence, it leads in a direction that a favorable thing to do would be to:
 
 ```
 

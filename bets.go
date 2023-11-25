@@ -5,8 +5,9 @@ package main
 //
 /////
 import(
-"fmt"
-"log"
+	"fmt"
+	"log"
+	dlog "bitbucket.org/thespacecowboys45/dlogger"
 )
 
 // Players start with a default amount to wager with
@@ -274,7 +275,7 @@ func (bankRoll BankRoll) tallyOutcome(outcome Outcome, wager Wager) BankRoll {
 	msg := fmt.Sprintf("[bets.go][talyOutcome][entry] - wager was: %d\ninitial bankRoll: %s\n", 
 		wager.Amount,
 		bankRoll.String())
-	dlog(msg)
+	dlog.Debug(msg)
 			
 	if outcome == OUTCOME_WIN {
 		log.Printf("[bets.go][talyOutcome] COUNT WIN\n")
@@ -328,7 +329,7 @@ func (bankRoll BankRoll) tallyOutcome(outcome Outcome, wager Wager) BankRoll {
 		wager.Amount,
 		nbr.String())
 
-	dlog(msg)
+	dlog.Debug(msg)
 	
 	// new bankroll amount
 	return nbr

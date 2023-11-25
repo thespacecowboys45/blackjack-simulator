@@ -8,8 +8,14 @@
 
 cd $(dirname $0)/..
 
-FILES="bets.go bettingstrategies.go cards.go decks.go  dlogger.go hands.go main.go players.go rounds.go strategies.go"
+FILES="bets.go bettingstrategies.go cards.go decks.go  dlogger_config.go hands.go main.go players.go rounds.go strategies.go"
 STRATEGIES_DIR="strategies"
+
+function usage() {
+	echo "Usage: $0 { strategy } { betting_strategy }"
+	echo ""
+	echo "example: $0 always_hit bet_flat"
+}
 
 if [ x$1 != "x" ]
 then
@@ -23,6 +29,7 @@ else
 	#STRATEGY="no_bust"
 	#STRATEGY="no_bust2"
 	echo "NO strategy specified.  Required"
+	usage
 	exit
 fi
 
@@ -31,6 +38,7 @@ then
 	BETTING_STRATEGY=$2
 else
 	echo "NO betting strategy specified.  Required"
+	usage
 	exit
 fi
 
@@ -54,9 +62,9 @@ BETTINGSTRATEGY2=${BETTINGSTRATEGY1}
 RESULTSFILE="results_out.txt"
 
 # Number of games to play per round (run of program)
-#GAMES=1
+GAMES=1
 #GAMES=10
-GAMES=100
+#GAMES=100
 #GAMES=500
 #GAMES=1000
 #GAMES=5000
@@ -64,6 +72,7 @@ GAMES=100
 
 NUM_DECKS=6
 NUM_PLAYERS=6
+#NUM_PLAYERS=1
 
 VERBOSE="true"
 
@@ -75,7 +84,7 @@ BINARY="blackjack-simulator"
 START_TIME=$(date +%s)
 
 echo "[${START_TIME}][" `date` "] Run strategy: ${STRATEGY} against betting_strategy: ${BETTING_STRATEGY}"
-set -x
+#set -x
 
 
 if [ x$3 == "xbinary" ]
@@ -85,6 +94,12 @@ then
 else
 	echo "run GOLANG version from source"
 	go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --resultsfile=${RESULTSFILE} --num_decks=${NUM_DECKS} --num_players=${NUM_PLAYERS} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+fi
+
+retVal=$?
+if [ $retVal -ne 0 ]; then
+    echo "Error trying to run program"
+    exit
 fi
 
 

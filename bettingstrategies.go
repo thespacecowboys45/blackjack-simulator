@@ -7,6 +7,8 @@ import (
 	"log"
 	"os"
 	"strings"
+	dlog "bitbucket.org/thespacecowboys45/dlogger"
+
 )
 
 type BettingStrategy interface {
@@ -115,7 +117,7 @@ func loadBettingStrategy(reader *bufio.Reader) map[string]map[string]BettingActi
 	for {
 		line, err := reader.ReadString('\n')
 		msg := fmt.Sprintf("line: %s\n", line)
-		dlog(msg)
+		dlog.Debug(msg)
 
 		if err == io.EOF {
 			break
@@ -131,7 +133,7 @@ func loadBettingStrategy(reader *bufio.Reader) map[string]map[string]BettingActi
 
 			for _, tok := range toks {
 				msg := fmt.Sprintf("tok: %s\n", tok)
-				dlog(msg)
+				dlog.Debug(msg)
 				winStreak = append(winStreak, tok)
 			}
 			
