@@ -33,7 +33,7 @@ import (
 	dlog "bitbucket.org/thespacecowboys45/dlogger"
 )
 
-var version string = "1.6.2"
+var version string = "1.6.4"
 var strategyFile string
 var bettingStrategyFile string
 var bettingStrategyFile2 string
@@ -51,7 +51,7 @@ func init() {
 	flag.StringVar(&bettingStrategyFile2, "bettingstrategy2", "", "bettingstrategy2 file path")
 	flag.IntVar(&games, "games", 10, "number of games to play")
 	flag.IntVar(&num_decks, "num_decks", DEFAULT_DECKS, "number of decks to play from")
-	flag.IntVar(&num_players, "num_players", DEFAULT_PLAYERS, "number of players sitting at the table")
+	flag.IntVar(&num_players, "num_players", MIN_PLAYERS, "number of players sitting at the table")
 	flag.BoolVar(&verbose, "verbose", false, "should output steps")	
 	flag.StringVar(&resultsFile, "resultsfile", "", "results file")
 	
@@ -389,10 +389,33 @@ move outside of loop
 
 	log.Printf("Total Rounds\t%d", roundsPlayed)
 	log.Printf("Total Hands\t\t%d", totalHands)
-	log.Printf("Total Hands recalculated\t\t%d", totalHandsRecalc)
 	log.Printf("Total Round Wins\t\t%d\t(%0.03f%%)", outcomes[OUTCOME_WIN], pct(outcomes[OUTCOME_WIN], totalHands))
 	log.Printf("Total Round Losses\t%d\t(%0.03f%%)", outcomes[OUTCOME_LOSS], pct(outcomes[OUTCOME_LOSS], totalHands))
 	log.Printf("Total Round Pushes\t%d\t(%0.03f%%)", outcomes[OUTCOME_PUSH], pct(outcomes[OUTCOME_PUSH], totalHands))
+
+
+	// Sanity checking
+	log.Printf("---- recalculating win/loss percentage --- sanity checking ----")
+	validateTotalHands := outcomes[OUTCOME_WIN] + outcomes[OUTCOME_LOSS] + outcomes[OUTCOME_PUSH]
+	if totalHandsRecalc != validateTotalHands {
+		dlog.Debug("[main.go][sanity check!!!!!!!!!!!][ totalHandsRecalc (%d) != validateTotalHands (%d} ]",
+			totalHandsRecalc,
+			validateTotalHands)
+			
+		// @TODO - handle this and check program code
+		log.Fatal("[main.go][program logic is not sane.]")
+	}
+
+	log.Printf("Total Rounds\t%d", roundsPlayed)
+	log.Printf("Total Hands recalculated\t\t%d", totalHandsRecalc)
+	log.Printf("Total Round Wins recalculated\t\t%d\t(%0.03f%%)", outcomes[OUTCOME_WIN], pct(outcomes[OUTCOME_WIN], totalHandsRecalc))
+	log.Printf("Total Round Losses recalculated\t%d\t(%0.03f%%)", outcomes[OUTCOME_LOSS], pct(outcomes[OUTCOME_LOSS], totalHandsRecalc))
+	log.Printf("Total Round Pushes recalculated\t%d\t(%0.03f%%)", outcomes[OUTCOME_PUSH], pct(outcomes[OUTCOME_PUSH], totalHandsRecalc))
+
+
+	///// end sanity checking
+
+
 
 	// Send data to remote ---------------------------
 	// metrics map
@@ -409,6 +432,18 @@ move outside of loop
 	}
 	log.Printf("Send MetricsMap 1: %v\n", metricsMap)
 	sendGraphite(metricsMap)
+	
+	// Send data to remote ---------------------------
+	// metrics map
+	metricsMap = map[string]float64{
+		fmt.Sprintf("%dplayers.%ddecks.%dgames.round.outcome.total_hands_recalc", num_players, num_decks, games) : float64(totalHandsRecalc),
+		fmt.Sprintf("%dplayers.%ddecks.%dgames.round.outcome.percent_wins_recalc", num_players, num_decks, games) : roundFloat(pct(outcomes[OUTCOME_WIN], totalHandsRecalc), 2),
+		fmt.Sprintf("%dplayers.%ddecks.%dgames.round.outcome.percent_losses_recalc", num_players, num_decks, games) : roundFloat(pct(outcomes[OUTCOME_LOSS], totalHandsRecalc), 2),
+		fmt.Sprintf("%dplayers.%ddecks.%dgames.round.outcome.percent_pushes_recalc", num_players, num_decks, games) : roundFloat(pct(outcomes[OUTCOME_PUSH], totalHandsRecalc), 2),
+		
+	}
+	log.Printf("Send MetricsMap 2 recalculated: %v\n", metricsMap)
+	sendGraphite(metricsMap)	
 
 	
 	// output player stats

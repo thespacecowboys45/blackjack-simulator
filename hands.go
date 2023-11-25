@@ -4,7 +4,7 @@ import(
 	//"fmt"
 )
 
-// Represents a set of cards...obviously...
+// A hand represents a slice of cards
 type Hand []Card
 
 // Adds a card to the current hand, creating a new hand. This doesn't work in

@@ -115,16 +115,17 @@ type Round struct {
 	Dealer Hand
 
 	// The player's hand.
-	// DAVB - @TODO make this an array of hands (to handle splits)
 	Player Hand
-	
-	// Implement multiple hands (possible) for a player
-	// @TODO - splits1
-	// probably make this a player object (NOT A PLAYA object!)
+
+	// Implement multiple players sitting for a round	
 	num_players int
 	Players []Hand
 	Outcomes []Outcome
 	
+	// @TODO - splits1
+	// Implement multiple hands (possible) for a player
+	// probably make this a player object (NOT A PLAYA object!)
+
 	// implement Players as objects
 	PlayersObj []Player
 	
@@ -330,6 +331,8 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 			// this is actually passing a players hand 
 			// to compare against the dealer
 			
+			
+			
 			//action := determineAction(*round)
 			action := determineAction(*round, i)
 
@@ -345,9 +348,9 @@ func (round *Round) PlayMultiPlayer(determineAction func(round Round, player_num
 				for i:=0; i<round.num_players; i++ {
 					round.Outcomes[i] = OUTCOME_ABORT
 				}
-				//return OUTCOME_ABORT
+				//return OUTCOME_ABORT, aand that we played 0 hands (no one gets to play this round)
 				dlog.Always("[rounds.go][PlayMultiPlayer()][ran out of cards.  deck length==%d, min=%d]", len(round.deck), MINIMUM_SHOE_SIZE)
-				return round.Outcomes, total_hands_played_this_round
+				return round.Outcomes, 0
 			}	
 			
 			if action == ACTION_STAND {
@@ -738,11 +741,46 @@ func NewRound(deck Deck, num_players int) *Round {
 	round.Players = make([]Hand, num_players)
 	round.Outcomes = make([]Outcome, num_players)
 	
+	// ^^^ do not modify, working code for multi-player
+	
+	// phase 2 - code uses an object (as opposed to just a single Hand) per player
 	round.PlayersObj = make([]Player, num_players)
 	
-//	for i:=0; i<num_players; i++ {
-//		log.Printf("[rounds.go][NewRound()][create new player #%d", i)
-//		//round.Players
-//	}
+	// dev - learning (workd)
+//	round.PlayersObj[0].Hand = Hand{}
+//	round.PlayersObj[0].Hands = make([]Hand, 1)
+	
+	// dev - learning try 2
+	//round.PlayersObj[0].Hands = append(round.PlayersObj[0].Hands, Hand{})
+	
+	// try 2- works (??)
+	for j:=0; j<num_players; j++ {
+/*
+
+//work through this -> preferred way
+		round.PlayersObj[j] = round.PlayersObj[j].NewPlayer()
+		
+*/
+		
+		round.PlayersObj[j].Hands = round.PlayersObj[j].AddHand(Hand{}) 
+		round.PlayersObj[j].activeHand = 0
+		
+		dlog.Always("[rounds.go][NewRound()][player #%d has %d hands, %d h-cap]",
+			j, len(round.PlayersObj[j].Hands), cap(round.PlayersObj[j].Hands))
+					
+	}		
+	
+	
+	//round.PlayersObj[0].AddHand(Hand{}) 
+	
+	/*
+	for i:=0; i<num_players; i++ {
+		log.Printf("[rounds.go][NewRound()][create new player #%d]", i)
+		player := NewPlayer()
+		//round.PlayersObj[i] = player
+		round.PlayersObj = append(round.PlayersObj, player)
+	}
+	*/
+	
 	return round
 }

@@ -9,12 +9,20 @@ LOOPCOUNT=100
 SLEEPTIME=2
 
 
+function usage() {
+	echo "Usage: $0 { strategy } { betting_strategy }"
+	echo ""
+	echo "example: $0 always_hit bet_flat"
+}
+
+
 if [ x$1 != "x" ]
 then
 	STRATEGY=$1
 else
 	
 	echo "NO strategy specified.  Required"
+	usage
 	exit
 	 
 	#STRATEGY="passive"
@@ -34,6 +42,7 @@ then
 	BETTING_STRATEGY=$2
 else
 	echo "NO betting strategy specified.  Required"
+	usage
 	exit
 fi
 

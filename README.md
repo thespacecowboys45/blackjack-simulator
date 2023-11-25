@@ -362,6 +362,10 @@ left-most position in the chart, and continuing to the right.
 
 
 # Changelog
+##### v1.6.4
+* recalculated statistics for accurate hands played count
+* add usage() function to helper scripts
+
 ##### v1.6.3
 * development code for single auto-strategy generator
 

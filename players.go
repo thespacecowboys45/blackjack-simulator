@@ -9,9 +9,9 @@ package main
  */
  
 // The number of players sitting at the table
-const DEFAULT_PLAYERS = 1
+const MIN_PLAYERS = 1
 // Max number of players sitting at any one time
-const MAX_PLAYSER = 6
+const MAX_PLAYERS = 6
 
 // in dev, not used right now
 type Player struct {
@@ -19,8 +19,11 @@ type Player struct {
 	Hand Hand
 	Outcome Outcome
 	
-	// phase 2 - add hands for splits
+	// phase 2 - add hands and outcome for hands to handle splits
 	Hands []Hand
+	HandOutcomes []Outcome
+	
+	activeHand int
 	// Outcomes []Outcome
 	
 	
@@ -28,4 +31,32 @@ type Player struct {
 	Wager Wager
 	BankRoll BankRoll
 	Streak Streak
+}
+
+// Adds an empty hand to the players current set of hands
+// This is so a player can play multiple hands
+func (player Player) AddHand(hand Hand) []Hand {
+	return append(player.Hands, hand)
+}
+
+//func (player Player) NewPlayer() *Player {
+func (player Player) NewPlayer() {
+	//player := new(Player)
+	
+	// initial code deals with one-hand only
+	player.Hand = Hand{}
+	// assume one hand only
+	player.activeHand = 0 
+	
+	// phase 2 - use a slice to handle split possibility (multiple-hands per game)
+	// works
+	player.Hands = make([]Hand, 1)
+	
+	// alternative way
+	//player.Hands = player.Hands.AddHand(Hand{})
+	
+	// or (idk if this'll work tho ...)
+	//player.Hands[0] = Hand{}
+	
+//	return player
 }
