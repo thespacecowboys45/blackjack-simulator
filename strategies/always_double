@@ -1,0 +1,42 @@
+#
+# SingleStrategy # 76177348045866392339289727720615561750424801402395196724001565744957137343033038019600
+#
+# Copyright
+# @author dxb The Space Cowboy
+# @date 2023-11-21 14:27:27.6090258 -0500 EST m=+0.033681801
+#
+#
+
+[hard]
+   2 3 4 5 6 7 8 9 10 A
+ 4 D D D D D D D D  D D 
+ 5 D D D D D D D D  D D 
+ 6 D D D D D D D D  D D 
+ 7 D D D D D D D D  D D 
+ 8 D D D D D D D D  D D 
+ 9 D D D D D D D D  D D 
+10 D D D D D D D D  D D 
+11 D D D D D D D D  D D 
+12 D D D D D D D D  D D 
+13 D D D D D D D D  D D 
+14 D D D D D D D D  D D 
+15 D D D D D D D D  D D 
+16 D D D D D D D D  D D 
+17 D D D D D D D D  D D 
+18 D D D D D D D D  D D 
+19 D D D D D D D D  D D 
+20 D D D D D D D D  D D 
+21 D D D D D D D D  D D 
+
+
+[Soft]
+   2 3 4 5 6 7 8 9 10 A 
+13 S S S S S S S S  S S 
+14 S S S S S S S S  S S 
+15 S S S S S S S S  S S 
+16 S S S S S S S S  S S 
+17 S S S S S S S S  S S 
+18 S S S S S S S S  S S 
+19 S S S S S S S S  S S 
+20 S S S S S S S S  S S 
+21 S S S S S S S S  S S 
