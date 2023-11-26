@@ -2,6 +2,8 @@ package main
 
 import(
 	//"fmt"
+	dlog "bitbucket.org/thespacecowboys45/dlogger"
+	
 )
 
 // A hand represents a slice of cards
@@ -13,13 +15,80 @@ func (hand Hand) AddCard(card Card) Hand {
 	return append(hand, card)
 }
 
+// dxb - see if hand is splittable
+func (hand Hand) CanSplit() bool {
+	dlog.Always("[hands.go][CanSplit()][entry]")
+	dlog.Always("Hand: %v", hand)
+	dlog.Always("Hand has %d cards", len(hand))
+	
+	// if the hand has more than 2-cards, no splitting
+	if len(hand) > 2 {
+		dlog.Always("Hand has more than 2 cards.  Cannot split.")
+		return false
+	}
+	
+	dlog.Always("Hand values: %d, %d", hand[0].Value, hand[1].Value)
+	
+	if hand[0].Value == hand[1].Value {
+		dlog.Info("Yes, can split")
+		return true
+	}
+	dlog.Info("No, can't split")
+	return false
+}
+
+// dxb - see if a splittable hand is supposed to be split
+// ( based on a split strategy )
+func (hand Hand) DoesSplit() bool {
+	dlog.Always("[hands.go][CanSplit()][entry]")
+	dlog.Always("Hand: %v", hand)
+	dlog.Always("Hand values: %d, %d", hand[0].Value, hand[1].Value)
+	
+	// dxb - potentially we can *only* split if it is the same
+	// card.  Only applies for 10-value cards, 10, J, Q, K
+	// This function may change also depending on house-rules.
+	//
+	// For example: Some houses may not allow splitting certain cards (???)
+	//  --> tbd
+	
+	// Do we need to check if the same symbol (for 10-value cards)?
+	//dlog.Always("Hand symbols: %d, %d", hand[0].Symbol, hand[1].Symbol)
+
+	// For now, always split like handed cards	
+	if hand[0].Value == hand[1].Value {
+		dlog.Info("Yes, choose to split")
+		return true
+	}
+	dlog.Info("No, choose NOT to split")
+	return false
+}
+
+// dxb - see if hand is splittable
+func (hand Hand) Split() (Hand, Hand) {
+	// HERE WE ARE< finally.  After many coding hours.  This func
+	dlog.Always("[hands.go][Split()][entry]")
+	dlog.Always("Hand: %v", hand)
+	dlog.Always("Hand values: %d, %d", hand[0].Value, hand[1].Value)
+
+	// create two new hands, return both as "the split" and discard the existing Hand
+	newHand1 := Hand{}
+	newHand2 := Hand{}
+	
+	// Divy up existing cards
+	newHand1 = newHand1.AddCard(hand[0])
+	newHand2 = newHand2.AddCard(hand[1])
+	
+	return newHand1, newHand2
+}
+
+
 // Recursively optimizes the hand for busting. Given the number of alternatives
-// allowed to use, determins if we can make a sum with that number of
+// allowed to use, determines if we can make a sum with that number of
 // alternatives. If it can't, it will try again with ANOTHER number of
 // alternatives.
 func (hand Hand) sumWithAlternates(alternates int) int {
 	accum := 0
-	// DAVB - not sure what this variable is used for
+	// dxb - not sure what this variable is used for
 	alternatesUsed := 0
 
 	for _, card := range hand {

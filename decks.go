@@ -45,7 +45,7 @@ func (deck Deck) String() string {
 
 // Draws a card from the deck and removes it from the deck.
 func (deck Deck) Draw() (Card, Deck) {
-	log.Printf("[decks.go][Draw()][length of deck: %d", len(deck))
+	log.Printf("[decks.go][Draw()][length of deck: %d]", len(deck))
 	return deck[0], deck[1:len(deck)]
 }
 

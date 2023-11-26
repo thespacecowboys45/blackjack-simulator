@@ -135,7 +135,11 @@ func main() {
 
 	fmt.Printf("fmt printf[version %s] Blackjack Simulator\n", version)
 	log.Printf("[version %s] Blackjack Simulator\n", version)
+	
+	// Test dlogger is working for the levels we want to 
 	dlog.Debug(fmt.Sprintf("dlog[version %s] Blackjack Simulator\n", version))
+	dlog.Info(fmt.Sprintf("dlog[version %s] Blackjack Simulator\n", version))
+	dlog.Error(fmt.Sprintf("dlog[version %s] Blackjack Simulator\n", version))
 	
 	printRuntimeVars()
 	
@@ -238,9 +242,20 @@ dev code - take this out, was put in to test if graphite metrics are working
 //		strategy := func(round Round) Action {
 //			return strategy.GetAction(round.Player, round.Dealer)
 //		}
+	
 		
-		strategy := func(round Round, player_number int) Action {
-			return strategy.GetAction(round.Players[player_number], round.Dealer)
+		// dxb - Nov '23
+		// deprecate, this is using the "single hand" code only
+		// multi-player code
+//		strategy := func(round Round, player_number int) Action {
+//			return strategy.GetAction(round.Players[player_number], round.Dealer)
+//		}
+
+		// dxb - Nov '23
+		// multi-hand code		
+		strategy := func(round Round, player_number int, hand_number int) Action {
+			//return strategy.GetAction(round.Players[player_number], round.Dealer)
+			return strategy.GetAction(round.PlayersObj[player_number].Hands[hand_number], round.Dealer)
 		}
 		
 
@@ -301,6 +316,9 @@ move outside of loop
 			//outcome := round.PlayMultiPlayer(strategy)
 			roundOutcomes, total_hands_played_this_round := round.PlayMultiPlayer(strategy)
 			
+			dlog.Info("AFTER ROUND, Round looks like:")
+			round.toString()
+			
 			//totalHands += 1
 			// @TODO - splits1 - adapt for multiple hands per player
 			//totalHands += num_players
@@ -317,8 +335,15 @@ move outside of loop
 			
 			endOfRound := false
 			for j:=0; j<num_players; j++ {
-				log.Printf("[main.go][player #%d][Examing all player outcomes][outcome=%s]", j, outcomeToString(roundOutcomes[j]))
+				log.Printf("[main.go][player #%d][Examining all player outcomes][outcome=%s]", j, outcomeToString(roundOutcomes[j]))
 				if roundOutcomes[j] == OUTCOME_ABORT {
+				
+					// code-sanity check!
+					if len(round.deck) > MINIMUM_SHOE_SIZE {
+						dlog.Error("[main.go][sanity check failed!][There are still enough cards in the deck: %d", len(round.deck))
+						dlog.Error("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+					}
+					
 					log.Printf("[main.go][player #%d][Round is over - we are out of cards.]", j)
 					endOfRound = true
 					// short-circuit.  If we are hitting this code then: all players will have the same outcome==OUTCOME_ABORT
@@ -327,12 +352,20 @@ move outside of loop
 					// Track overall game stats per outcome possibility
 					outcomes[roundOutcomes[j]] += 1
 					
-					// per player stats
+					// per player stats (@TODO - deprecate single-hand code
+					// NOTE: roundOutcomes[j] is of type Outcome (e.g. INIT, WIN, LOSS, etc.)
 					playerOutcomes[j][roundOutcomes[j]] += 1
 					
-					// hack attack - refactor for splits
-					// @TODO - refactor for splits
-					playerTotalHands[j] += 1
+					// multi-hand code
+					for k:=0; k<len(round.PlayersObj[j].Outcomes); k++ {
+						playerOutcomes[j][round.PlayersObj[j].Outcomes[k]] += 1	
+					}
+					
+					// deprecated, single-hand code
+					//playerTotalHands[j] += 1
+					
+					// refactored for multi-hand code
+					playerTotalHands[j] += len(round.PlayersObj[j].Hands)
 					
 										// re-implement per-player @TODO
 					//bankRoll = bankRoll.tallyOutcome(outcome, wager)

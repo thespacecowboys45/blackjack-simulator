@@ -31,13 +31,17 @@ type internalStrategy struct {
 func (self *internalStrategy) GetAction(player, dealer Hand) Action {
 	// TODO: We'll need a smarter way to look up actions from our strategies than
 	// this...
+	// dxb - did I write this comment?  Not sure why that statement above.
 	playerKey := fmt.Sprintf("%d", player.Sum())
 
 	// Need some special rules for this one.
 	var dealerKey string
 
 	//
-	// dxb - do not get this yet
+	// dxb - do not get this yet...
+	// explained: CARD_ACE is a constant, so the "column value"
+	// in the strategy matrix is really an Integer.  Use the cards value
+	// to correspond to the column # in the strategy matrix.
 	if dealer[0].Symbol == CARD_ACE {
 		dealerKey = "A"
 	} else {
