@@ -17,6 +17,19 @@ func dlog(msg string) {
 }
 */
 
+func enableEvents() {
+	
+}
+
 func configureDlogger() {
 	dlog.SetLevel("debug")
+
+	// event types available so far	
+	dlog.EnableEvent("basic")
+	//dlog.EnableEvent("bets")
+	//dlog.EnableEvent("bettingstrategy")
+	//dlog.EnableEvent("bankroll")
+	//dlog.EnableEvent("foo")
+	//dlog.EnableEvent("metrics")
+	//dlog.EnableEvent("trace")
 }

@@ -25,7 +25,7 @@ cd $(dirname $0)/..
 echo "[" $(date) "] Executing: $0"
 #print " Executing: "
 
-SLEEPTIME=6
+SLEEPTIME=3
 
 # all available strategies to test
 STRATEGIES=()
@@ -53,6 +53,10 @@ STRATEGIES=()
 # Are we having fun yet?
 # Nov '23
 #
+
+STRATEGIES+=("always_stand")
+STRATEGIES+=("always_hit")
+STRATEGIES+=("almost_always_hit")
 STRATEGIES+=("bi_singlestrat_0")
 STRATEGIES+=("bi_singlestrat_000_1")
 STRATEGIES+=("bi_singlestrat_001_3")

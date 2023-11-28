@@ -62,9 +62,15 @@ do
 	# deprecate the above nonsense.  Use loop_looper_program.sh instead.
 	STRATEGY_TO_USE=${STRATEGY}
 		
-	set -x
 	./script/run.sh ${STRATEGY_TO_USE} ${BETTING_STRATEGY} binary
-	set +x
+	#./script/run.sh ${STRATEGY_TO_USE} ${BETTING_STRATEGY}
+
+	# check return code	
+	retVal=$?
+	if [ $retVal -ne 0 ]; then
+	    echo "[loop_program.sh] Error trying to run program"
+	    exit $?
+	fi	
 	
 	END_TIME=$(date +%s)
 	LOOP_TIME=$((END_TIME-START_TIME))

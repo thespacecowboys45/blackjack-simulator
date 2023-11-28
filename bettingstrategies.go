@@ -31,7 +31,7 @@ type internalBettingStrategy struct {
 func (self *internalBettingStrategy) GetBettingAction(consecutiveLosses int, consecutiveWins int ) BettingAction {
 	// TODO: We'll need a smarter way to look up actions from our strategies than
 	// this...
-	fmt.Printf("[bettingstrategies.go][GetBettingAction()][entry]\n")
+	dlog.LogEvent("[bettingstrategies.go][GetBettingAction()][entry]\n", "trace")
 	
 	// -----> need to figure out how to grab this value for a bet
 	// This is going to be how far down we are in the "consecutive Losses" stack
@@ -45,7 +45,7 @@ func (self *internalBettingStrategy) GetBettingAction(consecutiveLosses int, con
 	
 	// action is of type BettingAction
 	action = self.streakStrategies[lossesKey][winsKey]
-	fmt.Printf("[bettingstrategies.go][GetBettingAction()]Determine action lossesKey: %s winsKey: %s ==> %s\n", lossesKey, winsKey, bettingActionToString(action))
+	dlog.LogEvent(fmt.Sprintf("[bettingstrategies.go][GetBettingAction()]Determine action lossesKey: %s winsKey: %s ==> %s\n", lossesKey, winsKey, bettingActionToString(action)), "bettingstrategy")
 
 /*	
 	for k, v := range self.streakStrategies[lossesKey] {
@@ -53,16 +53,8 @@ func (self *internalBettingStrategy) GetBettingAction(consecutiveLosses int, con
 	}
 */	
 
-/*
-	// If the player's hand has more than 2 cards and the action the strategy
-	// calls for is double, we'll hit instead.
-	if action == ACTION_DOUBLE && len(player) > 2 {
-		action = ACTION_HIT
-	}
-*/
-
 	// validate action - possible bug point if too many consecutive losses/wins and is beyond scope of the maxtrix found in the betting strategy file
-	fmt.Printf("[bettingstrategies.go][GetBettingAction()][exit][return action=%s\n", bettingActionToString(action))
+	dlog.LogEvent("[bettingstrategies.go][GetBettingAction()][exit]", "trace")
 	return action
 }
 
@@ -117,7 +109,7 @@ func loadBettingStrategy(reader *bufio.Reader) map[string]map[string]BettingActi
 	for {
 		line, err := reader.ReadString('\n')
 		msg := fmt.Sprintf("line: %s\n", line)
-		dlog.Debug(msg)
+		dlog.LogEvent(msg, "bettingstrategy")
 
 		if err == io.EOF {
 			break
@@ -133,11 +125,11 @@ func loadBettingStrategy(reader *bufio.Reader) map[string]map[string]BettingActi
 
 			for _, tok := range toks {
 				msg := fmt.Sprintf("tok: %s\n", tok)
-				dlog.Debug(msg)
+				dlog.LogEvent(msg, "bettingstrategy")
 				winStreak = append(winStreak, tok)
 			}
 			
-			fmt.Printf("winStreak final: %v\n", winStreak)
+			dlog.LogEvent(fmt.Sprintf("winStreak final: %v\n", winStreak), "bettingstrategy")
 		} else if line == "" || strings.HasPrefix(line, "#") {
 			break
 		} else {
@@ -147,10 +139,10 @@ func loadBettingStrategy(reader *bufio.Reader) map[string]map[string]BettingActi
 			
 			// AH HA - the scenario is the "1st column" value 
 			scenario, actions := toks[0], toks[1:len(toks)-1]
-			fmt.Printf("scenario: %s\n", scenario)
+			dlog.LogEvent(fmt.Sprintf("scenario: %s\n", scenario), "bettingstrategy")
 			
-			fmt.Printf("Parsing strategy line.\n")
-			fmt.Printf("Toks here: %s\n", toks)
+			dlog.LogEvent(fmt.Sprintf("Parsing strategy line.\n"), "bettingstrategy")
+			dlog.LogEvent(fmt.Sprintf("Toks here: %s\n", toks), "bettingstrategy")
 
 			// We'll need a new map here...
 			data := make(map[string]BettingAction)
@@ -165,18 +157,18 @@ func loadBettingStrategy(reader *bufio.Reader) map[string]map[string]BettingActi
 					continue
 				}
 
-				fmt.Printf("[%d] Add action: %s\n", idx, action)
+				dlog.LogEvent(fmt.Sprintf("[%d] Add action: %s\n", idx, action), "bettingstrategy")
 				data[winStreak[idx]] = translateBettingAction(action)
-				fmt.Printf("winStreak[idx] = %v\n", winStreak[idx])
+				dlog.LogEvent(fmt.Sprintf("winStreak[idx] = %v\n", winStreak[idx]), "bettingstrategy")
 
-				fmt.Printf("Data now: %v\n", data)
+				dlog.LogEvent(fmt.Sprintf("Data now: %v\n", data), "bettingstrategy")
 
 				// Gotta keep track of this outselves because we can't trust i here.
 				idx += 1
 			}
 
 			bettingstrategy[scenario] = data
-			fmt.Printf("for scenario %s betting strategy: %v\n", scenario, bettingstrategy[scenario])
+			dlog.LogEvent(fmt.Sprintf("for scenario %s betting strategy: %v\n", scenario, bettingstrategy[scenario]), "bettingstrategy")
 		}
 	}
 
@@ -207,13 +199,13 @@ func LoadBettingStrategy(path string) BettingStrategy {
 		line, err := reader.ReadString('\n')
 
 		if err == io.EOF {
-			fmt.Printf("End of file reached\n")
+			dlog.LogEvent(fmt.Sprintf("End of file reached\n"), "bettingstrategy")
 			break
 		} else if err != nil {
 			panic(err)
 		}
 		
-		fmt.Printf("line: %s\n", line)
+		dlog.LogEvent(fmt.Sprintf("line: %s\n", line), "bettingstrategy")
 		
 
 		// If the line starts with a # it's a comment.
@@ -225,10 +217,10 @@ func LoadBettingStrategy(path string) BettingStrategy {
 			// Empty line, nothing to see here.
 			continue
 		} else if line == "[streakvariant]" {
-			fmt.Printf("Foudn streakvariant betting strategy\n")
+			dlog.LogEvent(fmt.Sprintf("Foudn streakvariant betting strategy\n"), "bettingstrategy")
 			bettingstrategy.streakStrategies = loadBettingStrategy(reader)
 		} else if line == "[nhandsvariant]" {
-			fmt.Printf("Foudn nhandsvariant betting strategy\n")
+			dlog.LogEvent(fmt.Sprintf("Foudn nhandsvariant betting strategy\n"), "bettingstrategy")
 			bettingstrategy.nhandsStrategies = loadBettingStrategy(reader)
 		}
 	}

@@ -52,7 +52,7 @@ func (streak Streak) init() Streak {
 
 // keeping the code simple/readable
 func (streak Streak) addWin(wager_amount int) Streak {
-	log.Printf("[bets.go] addWin() lastOutcome: %s\n", outcomeToString(streak.LastOutcome))
+	dlog.LogEvent(fmt.Sprintf("[bets.go] addWin() lastOutcome: %s\n", outcomeToString(streak.LastOutcome)), "bets")
 
 	s := Streak{}
 	if (streak.LastOutcome == OUTCOME_INIT) {
@@ -91,13 +91,13 @@ func (streak Streak) addWin(wager_amount int) Streak {
 	s.ConsecutiveLosses = 0
 	s.MaxConsecutiveLosses = streak.MaxConsecutiveLosses
 	
-	log.Printf("addWin() %s\n", s.String())
+	dlog.LogEvent(fmt.Sprintf("addWin() %s\n", s.String()), "bets")
 	return s
 }
 
 // keeping the code simple/readable
 func (streak Streak) addLoss(wager_amount int) Streak {
-	log.Printf("[bets.go] addLoss() lastOutcome: %s\n", outcomeToString(streak.LastOutcome))
+	dlog.LogEvent(fmt.Sprintf("[bets.go] addLoss() lastOutcome: %s\n", outcomeToString(streak.LastOutcome)), "bets")
 
 	s := Streak{}
 	if (streak.LastOutcome == OUTCOME_INIT) {
@@ -115,7 +115,7 @@ func (streak Streak) addLoss(wager_amount int) Streak {
 	s.MaxWagerWon = streak.MaxWagerWon
 	s.MaxWagerLost = streak.MaxWagerLost
 	
-	log.Printf("[bets.go] addLoss() previous streak: %s\n", streak.String())	
+	dlog.LogEvent(fmt.Sprintf("[bets.go] addLoss() previous streak: %s\n", streak.String()), "bets")
 	
 	if s.ConsecutiveLosses > streak.MaxConsecutiveLosses {
 		// NEW High count
@@ -137,7 +137,7 @@ func (streak Streak) addLoss(wager_amount int) Streak {
 	s.ConsecutiveWins = 0
 	s.MaxConsecutiveWins = streak.MaxConsecutiveWins
 
-	log.Printf("[bets.go] addLoss() new streak : %s\n", s.String())
+	dlog.LogEvent(fmt.Sprintf("[bets.go] addLoss() new streak : %s\n", s.String()), "bets")
 	return s
 }
 
@@ -197,7 +197,7 @@ func NewBankRoll(amount int) BankRoll {
 	br.streak = Streak{}
 	br.streak = br.streak.init()
 	
-	log.Printf("[bets.go] NewBankRoll: %v\n", br)
+	dlog.LogEvent(fmt.Sprintf("[bets.go] NewBankRoll: %v\n", br), "bankroll")
 	return br
 }
 
@@ -212,7 +212,7 @@ func NewBankRoll(amount int) BankRoll {
 //          outcome will be set to OUTCOME_INIT
 //
 func (wager Wager) NewWager(outcome Outcome, streak Streak, determineBet func(streak Streak) BettingAction) Wager {
-	log.Printf("[bets.go][NewWager][entry]\n")
+	dlog.LogEvent("[bets.go][NewWager][entry]", "bets")
 	
 	wg := Wager{}
 	// Initialize from current object
@@ -220,53 +220,53 @@ func (wager Wager) NewWager(outcome Outcome, streak Streak, determineBet func(st
 	
 	// Implements betting strategy
 	if outcome == OUTCOME_INIT {
-		log.Printf("[bets.go][NewWager] OUTCOME_INIT -> Wager default ammount.\n")
+		dlog.LogEvent("[bets.go][NewWager] OUTCOME_INIT -> Wager default ammount.", "bets")
 		wg.Amount = DEFAULT_WAGER	
 		
 		// short circuit and return?
 		return wg
 		
 	} else if outcome == OUTCOME_WIN {
-		log.Printf("[bets.go][NewWager] OUTCOME_WIN - check out the streak, how many wins in a row? => %d\n", streak.ConsecutiveWins)
+		dlog.LogEvent(fmt.Sprintf("[bets.go][NewWager] OUTCOME_WIN - check out the streak, how many wins in a row? => %d\n", streak.ConsecutiveWins), "bets")
 	} else if outcome == OUTCOME_LOSS {
-		log.Printf("[bets.go][NewWager] OUTCOME_LOSS - check out the streak, how many losses in a row? => %d\n", streak.ConsecutiveLosses)
+		dlog.LogEvent(fmt.Sprintf("[bets.go][NewWager] OUTCOME_LOSS - check out the streak, how many losses in a row? => %d\n", streak.ConsecutiveLosses), "bets")
 	}
 			
 	nextAction := determineBet(streak)	
 	switch (nextAction) {
 		case BETTINGACTION_RESET:
-			log.Printf("[bets.go][NewWager] BETTINGACTION_RESET - return to default\n")
+			dlog.LogEvent(fmt.Sprintf("[bets.go][NewWager] BETTINGACTION_RESET - return to default\n"), "bets")
 			wg.Amount = DEFAULT_WAGER
 			break
 		case BETTINGACTION_INCREASE:
-			log.Printf("[bets.go][NewWager] BETTINGACTION_INCREASE - double bet\n")
+			dlog.LogEvent(fmt.Sprintf("[bets.go][NewWager] BETTINGACTION_INCREASE - double bet\n"), "bets")
 			// DEV - basically martingale, always double when loosing
 			wg.Amount = wg.Amount * 2
 			break
 		case BETTINGACTION_DECREASE:
-			log.Printf("[bets.go][NewWager] BETTINGACTION_DECREASE - half bet\n")
+			dlog.LogEvent(fmt.Sprintf("[bets.go][NewWager] BETTINGACTION_DECREASE - half bet\n"), "bets")
 			wg.Amount = wg.Amount / 2
 			break	
 		case BETTINGACTION_STAND:
-			log.Printf("[bets.go][NewWager] BETTINGACTION_STAND - keep bet the same\n")
+			dlog.LogEvent(fmt.Sprintf("[bets.go][NewWager] BETTINGACTION_STAND - keep bet the same\n"), "bets")
 			wg.Amount = wager.Amount
 			break
 		default:
-			log.Printf("[bets.go][NewWager] UNHANDLED betting strategy action: %d\n", nextAction)
+			dlog.LogEvent(fmt.Sprintf("[bets.go][NewWager] UNHANDLED betting strategy action: %d\n", nextAction), "bets")
 			break
 					
 	}
 	
-	log.Printf("[bets.go][NewWager] New wager Amount is: %d old wager Amount was: %d and DEFAULT_WAGER is: %d\n", wg.Amount, wager.Amount, DEFAULT_WAGER)
+	dlog.LogEvent(fmt.Sprintf("[bets.go][NewWager]\nNew wager Amount is: %d old wager Amount was: %d and DEFAULT_WAGER is: %d\n", wg.Amount, wager.Amount, DEFAULT_WAGER), "bets")
 	// If we are at the lowest bet amount, and the betting strategy calls for a decrease
 	// then do not decrease.  Keep the bet at the minimum amount.
 	// @TODO - make a new variable called "min_allowed_wager" or something like this
 	if wg.Amount < DEFAULT_WAGER {
-		log.Printf("[bets.go][NewWager] At minimum bet.  Reset to DEFAULT_WAGER.\n")
+		dlog.LogEvent(fmt.Sprintf("[bets.go][NewWager] At minimum bet.  Reset to DEFAULT_WAGER.\n"), "bets")
 		wg.Amount = DEFAULT_WAGER
 	}
 	
-	log.Printf("[bets.go][NewWager][exit]\n")
+	dlog.LogEvent(fmt.Sprintf("[bets.go][NewWager][exit]\n"), "bets")
 	return wg
 }
 
@@ -275,19 +275,19 @@ func (bankRoll BankRoll) tallyOutcome(outcome Outcome, wager Wager) BankRoll {
 	msg := fmt.Sprintf("[bets.go][talyOutcome][entry] - wager was: %d\ninitial bankRoll: %s\n", 
 		wager.Amount,
 		bankRoll.String())
-	dlog.Debug(msg)
+	dlog.LogEvent(msg, "bets")
 			
 	if outcome == OUTCOME_WIN {
-		log.Printf("[bets.go][talyOutcome] COUNT WIN\n")
+		dlog.LogEvent(fmt.Sprintf("[bets.go][talyOutcome] COUNT WIN\n"), "bets")
 		bankRoll.Amount += wager.Amount
 		bankRoll.streak = bankRoll.streak.addWin(wager.Amount)
 	} else if outcome == OUTCOME_LOSS {
-		log.Printf("[bets.go][talyOutcome] COUNT LOSS\n")
+		dlog.LogEvent(fmt.Sprintf("[bets.go][talyOutcome] COUNT LOSS\n"), "bets")
 		bankRoll.Amount -= wager.Amount
 		bankRoll.streak = bankRoll.streak.addLoss(wager.Amount)
 	} else {
 		// push (non-event)
-		log.Printf("[bets.go][talyOutcome] - PUSH")
+		dlog.LogEvent(fmt.Sprintf("[bets.go][talyOutcome] - PUSH"), "bets")
 		bankRoll.Amount = bankRoll.Amount
 		
 		// Keep track record the same (non-event)
@@ -296,7 +296,7 @@ func (bankRoll BankRoll) tallyOutcome(outcome Outcome, wager Wager) BankRoll {
 		
 	}
 	
-	log.Printf("[bets.go][tallyOutcome] Final BANKROLL (validation): %s\n", bankRoll.String())
+	dlog.LogEvent(fmt.Sprintf("[bets.go][tallyOutcome] Final BANKROLL (validation): %s\n", bankRoll.String()), "bets")
 	
 	// Because we cannot modify the object in here
 	nbr.Amount = bankRoll.Amount
@@ -314,14 +314,14 @@ func (bankRoll BankRoll) tallyOutcome(outcome Outcome, wager Wager) BankRoll {
 	nbr.streak.MaxWagerWon = bankRoll.streak.MaxWagerWon
 	nbr.streak.MaxWagerLost = bankRoll.streak.MaxWagerLost
 		
-	log.Printf("[bets.go][talyOutcome] DEBUG compare new bankroll Amount: %d to all time bankRoll Max: %d\n", nbr.Amount, bankRoll.Max)
+	dlog.LogEvent(fmt.Sprintf("[bets.go][talyOutcome] DEBUG compare new bankroll Amount: %d to all time bankRoll Max: %d\n", nbr.Amount, bankRoll.Max), "bets")
 	if nbr.Amount > bankRoll.Max {
-		log.Printf("[bets.go][talyOutcome] NEW Bankroll MAX achieved of %d\n", nbr.Amount)
+		dlog.LogEvent(fmt.Sprintf("[bets.go][talyOutcome] NEW Bankroll MAX achieved of %d\n", nbr.Amount), "bets")
 		nbr.Max = nbr.Amount
 	}
 	
 	if nbr.Amount < bankRoll.Min {
-		log.Printf("[bets.go][talyOutcome] NEW Bankroll MIN achieved of %d\n", nbr.Amount)
+		dlog.LogEvent(fmt.Sprintf("[bets.go][talyOutcome] NEW Bankroll MIN achieved of %d\n", nbr.Amount), "bets")
 		nbr.Min = nbr.Amount
 	} 
 	
@@ -329,7 +329,7 @@ func (bankRoll BankRoll) tallyOutcome(outcome Outcome, wager Wager) BankRoll {
 		wager.Amount,
 		nbr.String())
 
-	dlog.Debug(msg)
+	dlog.LogEvent(msg, "bets")
 	
 	// new bankroll amount
 	return nbr

@@ -2,7 +2,9 @@
  
 Forked from: https://github.com/bradhe/go-blackjack
 
+## Links
 
+[Blackjack standard card probabilities](https://www.lolblackjack.com/blackjack/probability-odds/)
 
 
 
@@ -364,6 +366,12 @@ left-most position in the chart, and continuing to the right.
 # Changelog
 ##### v1.6.5
 * re-order.  Players get dealt first, THEN dealer.  Not the other way around.
+* do not ABORT all player hands already played when a later player gets the cut-card
+* add per player stats for splitsPlayed
+* start to use dlogger LogEvent, and define logging event types
+* add configuration for dlogger on startup
+* almost complete refactor of code, deprecate code which deals only a single hand per player
+* add functionality to split a hand in two!
 
 
 ##### v1.6.4

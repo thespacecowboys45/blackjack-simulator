@@ -16,10 +16,14 @@ func (hand Hand) AddCard(card Card) Hand {
 }
 
 // dxb - see if hand is splittable
-func (hand Hand) CanSplit() bool {
-	dlog.Always("[hands.go][CanSplit()][entry]")
-	dlog.Always("Hand: %v", hand)
-	dlog.Always("Hand has %d cards", len(hand))
+func (hand Hand) CanSplit(allowsplits bool) bool {
+	dlog.LogEvent("[hands.go][CanSplit()][entry]", "trace")
+	dlog.Always("Hand: %v has %d cards. allowsplits is %t", hand, len(hand), allowsplits)
+	
+	if !allowsplits {
+		dlog.Always("Splits not allowed according to rules.")
+		return false
+	}
 	
 	// if the hand has more than 2-cards, no splitting
 	if len(hand) > 2 {

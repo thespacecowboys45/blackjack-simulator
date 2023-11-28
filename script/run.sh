@@ -62,8 +62,9 @@ BETTINGSTRATEGY2=${BETTINGSTRATEGY1}
 RESULTSFILE="results_out.txt"
 
 # Number of games to play per round (run of program)
-GAMES=1
-#GAMES=10
+#GAMES=1
+#GAMES=2
+GAMES=10
 #GAMES=100
 #GAMES=500
 #GAMES=1000
@@ -74,7 +75,10 @@ NUM_DECKS=6
 NUM_PLAYERS=6
 #NUM_PLAYERS=1
 
+ALLOWSPLITS="true"
+#ALLOWSPLITS="false"
 VERBOSE="true"
+
 
 BINARY="blackjack-simulator"
 
@@ -90,16 +94,16 @@ echo "[${START_TIME}][" `date` "] Run strategy: ${STRATEGY} against betting_stra
 if [ x$3 == "xbinary" ]
 then
 	echo "run BINARY version"
-	./${BINARY} --verbose=${VERBOSE} --games=${GAMES}  --resultsfile=${RESULTSFILE} --num_decks=${NUM_DECKS} --num_players=${NUM_PLAYERS} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+	./${BINARY} --verbose=${VERBOSE} --allowsplits=${ALLOWSPLITS} --games=${GAMES}  --resultsfile=${RESULTSFILE} --num_decks=${NUM_DECKS} --num_players=${NUM_PLAYERS} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
 else
 	echo "run GOLANG version from source"
-	go run ${FILES} --verbose=${VERBOSE} --games=${GAMES} --resultsfile=${RESULTSFILE} --num_decks=${NUM_DECKS} --num_players=${NUM_PLAYERS} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
+	go run ${FILES} --verbose=${VERBOSE} --allowsplits=${ALLOWSPLITS}  --games=${GAMES} --resultsfile=${RESULTSFILE} --num_decks=${NUM_DECKS} --num_players=${NUM_PLAYERS} --bettingstrategy=${STRATEGIES_DIR}/${BETTINGSTRATEGY1} --bettingstrategy2=${STRATEGIES_DIR}/${BETTINGSTRATEGY2} --strategy="${STRATEGIES_DIR}/${STRATEGY}"
 fi
 
 retVal=$?
 if [ $retVal -ne 0 ]; then
-    echo "Error trying to run program"
-    exit
+    echo "[run.sh] Error trying to run program"
+    exit 1
 fi
 
 
@@ -119,3 +123,6 @@ METRIC="programming.dev.blackjack_simulator.run_program.runtime.selected_strateg
 
 METRIC="programming.dev.blackjack_simulator.run_program.runtime.selected_betting_strategy.${BETTING_STRATEGY} 3 ${END_TIME}"
 ./script/bash_to_graphite.sh ${METRIC}
+
+# always exit normally - to accomidate netcat timeout error from breaking loop_program.sh
+exit 0

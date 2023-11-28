@@ -21,11 +21,12 @@ const MAX_PLAYERS = 6
 // in dev, not used right now
 type Player struct {
 	// phase 1 - get this working
-	Hand Hand
-	Outcome Outcome
+	// @TODO - deprecate
+	//Hand Hand
+	//Outcome Outcome
 	
 	// phase 2 - add hands and outcome for hands to handle splits
-	handsPlayed int
+	splitsPlayed int
 	activeHand int
 	Hands []Hand
 	Outcomes []Outcome
@@ -48,16 +49,19 @@ func (player Player) AddOutcome(outcome Outcome) []Outcome {
 
 
 func (player Player) toString() {
-	dlog.Always("[players.go][toString()][entry]")
-	dlog.Always("Player hand: %v", player.Hand)
-	dlog.Always("Player outcome: %s", outcomeToString(player.Outcome))
-	dlog.Always("Player active hand: %v", player.activeHand)
+	dlog.LogEvent("[players.go][toString()][entry]", "trace")
+	//dlog.Always("Player hand (deprecate): %v", player.Hand)
+	//dlog.Always("Player outcome (deprecate): %s", outcomeToString(player.Outcome))
+	dlog.Always("Player splits played: %d", player.splitsPlayed)
+	dlog.Always("Player active hand: %d", player.activeHand)
 	dlog.Always("Player %d / %d Hands: %v", len(player.Hands), cap(player.Hands), player.Hands)
 	for j:=0; j<len(player.Hands); j++ {
-		dlog.Always("Player Hand #%d total: %d", j, player.Hands[j].Sum())
-		dlog.Always("Player Hand #%d outcome: %s", j, outcomeToString(player.Outcomes[j]))
+		dlog.Always("Player Hand #%d total: %d outcome: %s", j, player.Hands[j].Sum(), outcomeToString(player.Outcomes[j]))
 	}
-	dlog.Always("Player %d / %d Outcomes: %v", len(player.Outcomes), cap(player.Outcomes), player.Outcomes)
+	//dlog.Always("Player %d / %d Outcomes: %v", len(player.Outcomes), cap(player.Outcomes), player.Outcomes)
+	
+	dlog.LogEvent("[players.go][toString()][exit]", "trace")
+	
 }
 
 //func (player Player) NewPlayer() *Player {
@@ -65,7 +69,7 @@ func (player Player) NewPlayer() {
 	//player := new(Player)
 	
 	// initial code deals with one-hand only
-	player.Hand = Hand{}
+	//player.Hand = Hand{}
 	// assume one hand only
 	player.activeHand = 0 
 	
