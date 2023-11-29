@@ -7,11 +7,21 @@ function usage() {
 }
 
 FILES="dev_splitter.go globals.go"
+BINARY="dev_slitter"
 
 
 echo "Run $0"
+OPTIONS=""
 
-go run ${FILES} 
+if [ x$1 == "xbinary" ]
+then
+	echo "run BINARY version"
+	./${BINARY} ${OPTIONS}
+else
+	echo "run GOLANG version from source"
+	go run ${FILES} ${OPTIONS}
+fi	
+
 
 echo "--------------"
 
