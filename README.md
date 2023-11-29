@@ -407,8 +407,14 @@ left-most position in the chart, and continuing to the right.
 
 ##### v1.4
 * break up metrics name space to front-end track
+
+```
+
 	- # decks for simulation
 	- # games per round (of compiled tracking statistics)
+	
+```
+
 * make # of decks to use an input variable
 * add outcomes, bankroll, and runtime statitics output to graphite
 	
