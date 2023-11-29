@@ -433,6 +433,41 @@ left-most position in the chart, and continuing to the right.
 ##### v1.0 
 * modify to run on winblowz
 
+# DISCLAIMER
+
+No accuracy is claimed to be seen from said output of simulator and the choices
+you make are you ownn.  Please forgive the non-lawyer speak for I assuagemyself
+of being your daddy.
+
+That said, the Entire README from **original author** IS POSTED below.  That said.
+I am not this other person, and so the notes about Contributing, in my opinion
+could be expanded.
+
+## Contributing
+
+```
+
+To this project
+
+```
+
+Just watch.
+
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4XJC3BTYJ8ALG)
+
+Thank's any time spent is out of interest to get this more accurate, so the disclaimer
+aside, it is not intended to be in any way shape or form anything other than
+an experiement.
+
+If you see flaw - say so, I recognize it's helpful to point out people's errors.
+
+Computer no likey to make no computer error.  Error for human who have too much
+Orange Juice in the morning.
+
+---------
+
+
+
 --------------------------------------------------------------------------------
 # Original README is found below
 

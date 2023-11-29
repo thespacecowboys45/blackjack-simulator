@@ -1,15 +1,15 @@
 package main
 
 import (
-	dlog "bitbucket.org/thespacecowboys45/dlogger")
-	fmt
-)
+	dlog "bitbucket.org/thespacecowboys45/dlogger"
+	"fmt"
+	)
 
 func configure_dlogger() {
-	fmt.Printf("[main.go][configure_dlogger()][entry}")
+	fmt.Printf("[main.go][configure_dlogger()][entry]\n")
 	
 	dlog.SetLevel("debug")
-	set_dlogger_events())	
+	set_dlogger_events()
 	dlog.LogEvent("[main.go][configure_dlogge()][exit]", "trace")
 }
 
@@ -22,5 +22,10 @@ func set_dlogger_events() {
 
 func main() {
 	configure_dlogger()
-	fmt.Printf("Hello world"))
+	fmt.Printf("Hello world")
+	
+	//s := make(Set,1)
+	s := Set{}
+	dlog.Info("s: %v ", s)
+	
 }
