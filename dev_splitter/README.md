@@ -12,7 +12,7 @@ So, thus:
 
 We have a large dataset, to explore.  Apply binary tree logic to it, in order to segment the parts into manageable chunks.  THe idea is to take the whole game of possibilities, and to both go back and forth - like, do both projects, and so also - I mean, the first one and then the second one.  Proping the head up with the frosted look would be nice as especially it would go with lighter and darker colors in the art room.
 
-A side discount could be applied, and anytime it could be determined to be large.
+A side discount could be applied, and at anytime it could be determined to be large.  Gurgle.
 
 A large problemset.
 
