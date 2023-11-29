@@ -364,6 +364,10 @@ left-most position in the chart, and continuing to the right.
 
 
 # Changelog
+##### v1.6.7
+* clean up code, remove unused 
+
+
 ##### v1.6.5
 * re-order.  Players get dealt first, THEN dealer.  Not the other way around.
 * do not ABORT all player hands already played when a later player gets the cut-card

@@ -33,7 +33,7 @@ import (
 	dlog "bitbucket.org/thespacecowboys45/dlogger"
 )
 
-var version string = "1.6.5"
+var version string = "1.6.7"
 var strategyFile string
 var bettingStrategyFile string
 var bettingStrategyFile2 string

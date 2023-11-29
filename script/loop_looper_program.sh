@@ -54,9 +54,20 @@ STRATEGIES=()
 # Nov '23
 #
 
+# traditional strategy stack
 STRATEGIES+=("always_stand")
 STRATEGIES+=("always_hit")
 STRATEGIES+=("almost_always_hit")
+STRATEGIES+=("always_double")
+STRATEGIES+=("advanced")
+STRATEGIES+=("aggressive")
+STRATEGIES+=("passive")
+STRATEGIES+=("wizard_simple")
+STRATEGIES+=("no_bust")
+STRATEGIES+=("no_bust2")
+
+
+# auto-generated
 STRATEGIES+=("bi_singlestrat_0")
 STRATEGIES+=("bi_singlestrat_000_1")
 STRATEGIES+=("bi_singlestrat_001_3")

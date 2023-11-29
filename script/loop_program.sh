@@ -4,8 +4,9 @@ echo "[" $(date) "] Executing: $0"
 cd $(dirname $0)/..
 
 #LOOPCOUNT=50000
-LOOPCOUNT=100
+#LOOPCOUNT=100
 #LOOPCOUNT=30
+LOOPCOUNT=10
 SLEEPTIME=2
 
 

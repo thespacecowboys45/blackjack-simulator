@@ -64,7 +64,8 @@ RESULTSFILE="results_out.txt"
 # Number of games to play per round (run of program)
 #GAMES=1
 #GAMES=2
-GAMES=10
+#GAMES=10
+GAMES=50
 #GAMES=100
 #GAMES=500
 #GAMES=1000
@@ -75,8 +76,8 @@ NUM_DECKS=6
 NUM_PLAYERS=6
 #NUM_PLAYERS=1
 
-ALLOWSPLITS="true"
-#ALLOWSPLITS="false"
+#ALLOWSPLITS="true"
+ALLOWSPLITS="false"
 VERBOSE="true"
 
 
